@@ -27,25 +27,25 @@ const Header = () => {
         }
     }, [location]);
 
-    const { toggleSidebar, semidark, menu, theme } = useContext(ThemeContext);
+    const { toggleSidebar, semidark, menu, theme, setTheme } = useContext(ThemeContext);
 
     const [search, setSearch] = useState(false);
 
     return (
         <header className={`z-40 ${semidark && menu === 'horizontal' ? 'dark' : ''}`}>
-            <div className="shadow-sm">
+            <div className="shadow-xs">
                 <div className="relative bg-white flex w-full items-center px-5 py-2.5 dark:bg-black">
                     <div className="horizontal-logo flex lg:hidden justify-between items-center ltr:mr-2 rtl:ml-2">
                         <Link to="/" className="main-logo flex items-center shrink-0">
                             <img className="w-8 ltr:-ml-1 rtl:-mr-1 inline" src="/assets/images/logo.svg" alt="logo" />
-                            <span className="text-2xl ltr:ml-1.5 rtl:mr-1.5  font-semibold  align-middle hidden md:inline dark:text-white-light transition-all duration-300">VRISTO</span>
+                            <span className="text-2xl ltr:ml-1.5 rtl:mr-1.5 font-semibold align-middle hidden md:inline dark:text-white-light transition-all duration-300">VRISTO</span>
                         </Link>
                         <button
                             type="button"
                             className="collapse-icon flex-none dark:text-[#d0d2d6] hover:text-primary dark:hover:text-primary flex lg:hidden ltr:ml-2 rtl:mr-2 p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:bg-white-light/90 dark:hover:bg-dark/60"
-                            onClick={() => {
-                                toggleSidebar();
-                            }}
+                            onClick={() =>
+                                toggleSidebar()
+                            }
                         >
                             <PiTextAlignJustify className="w-5 h-5" />
                         </button>
@@ -55,17 +55,17 @@ const Header = () => {
                         <ul className="flex items-center space-x-2 rtl:space-x-reverse dark:text-[#d0d2d6]">
                             <li>
                                 <Link to="/" className="block p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60">
-                                    <PiCalendar />
+                                    <PiCalendar className="w-5 h-5" />
                                 </Link>
                             </li>
                             <li>
                                 <Link to="/" className="block p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60">
-                                    <PiNotePencil />
+                                    <PiNotePencil className="w-5 h-5" />
                                 </Link>
                             </li>
                             <li>
                                 <Link to="/" className="block p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60">
-                                    <PiChatCenteredText />
+                                    <PiChatCenteredText className="w-5 h-5" />
                                 </Link>
                             </li>
                         </ul>
@@ -83,10 +83,10 @@ const Header = () => {
                                         placeholder="Search..."
                                     />
                                     <button type="button" className="absolute w-9 h-9 inset-0 ltr:right-auto rtl:left-auto appearance-none peer-focus:text-primary">
-                                        <PiMagnifyingGlass className="mx-auto" />
+                                        <PiMagnifyingGlass className="mx-auto w-5 h-5" />
                                     </button>
                                     <button type="button" className="hover:opacity-80 sm:hidden block absolute top-1/2 -translate-y-1/2 ltr:right-2 rtl:left-2" onClick={() => setSearch(false)}>
-                                        <PiXCircle />
+                                        <PiXCircle className="w-5 h-5" />
                                     </button>
                                 </div>
                             </form>
@@ -104,11 +104,11 @@ const Header = () => {
                                     className={`${theme === 'light' &&
                                         'flex items-center p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60'
                                         }`}
-                                    onClick={() => {
-                                        theme === 'light';
-                                    }}
+                                    onClick={() =>
+                                        setTheme('light')
+                                    }
                                 >
-                                    <PiSun />
+                                    <PiSun className="w-5 h-5" />
                                 </button>
                             ) : (
                                 ''
@@ -118,11 +118,11 @@ const Header = () => {
                                     className={`${theme === 'dark' &&
                                         'flex items-center p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60'
                                         }`}
-                                    onClick={() => {
-                                        theme === 'dark';
-                                    }}
+                                    onClick={() =>
+                                        setTheme('dark')
+                                    }
                                 >
-                                    <PiMoon />
+                                    <PiMoon className="w-5 h-5" />
                                 </button>
                             )}
                             {theme === 'system' && (
@@ -130,11 +130,11 @@ const Header = () => {
                                     className={`${theme === 'system' &&
                                         'flex items-center p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60'
                                         }`}
-                                    onClick={() => {
-                                        theme === 'system';
-                                    }}
+                                    onClick={() =>
+                                        setTheme('system')
+                                    }
                                 >
-                                    <PiLaptop />
+                                    <PiLaptop className="w-5 h-5" />
                                 </button>
                             )}
                         </div>
@@ -155,7 +155,7 @@ const Header = () => {
                         </button>
                         <ul className="sub-menu">
                             <li>
-                                <NavLink to="/">sales</NavLink>
+                                <NavLink to="/sales">sales</NavLink>
                             </li>
                             <li>
                                 <NavLink to="/analytics">analytics</NavLink>
@@ -180,10 +180,10 @@ const Header = () => {
                         </button>
                         <ul className="sub-menu">
                             <li>
-                                <NavLink to="/">chat</NavLink>
+                                <NavLink to="/chat">chat</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/">mailbox</NavLink>
+                                <NavLink to="/mailbox">mailbox</NavLink>
                             </li>
                         </ul>
                     </li>

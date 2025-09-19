@@ -66,7 +66,7 @@ const Sidebar = () => {
                                     <div className="flex items-center">
                                         <PiHouseLine
                                             className="group-hover:!text-primary shrink-0" />
-                                        <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">dashboard</span>
+                                        <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark capitalize">dashboard</span>
                                     </div>
 
                                     <div className={currentMenu !== 'dashboard' ? 'rtl:rotate-90 -rotate-90' : ''}>
@@ -75,18 +75,18 @@ const Sidebar = () => {
                                 </button>
 
                                 <AnimateHeight duration={300} height={currentMenu === 'dashboard' ? 'auto' : 0}>
-                                    <ul className="sub-menu text-gray-500">
+                                    <ul className="sub-menu text-gray-500 capitalize">
                                         <li>
-                                            <NavLink to="/">sales</NavLink>
+                                            <NavLink to="/sales">sales</NavLink>
                                         </li>
                                         <li>
-                                            <NavLink to="/">analytics</NavLink>
+                                            <NavLink to="/analytics">analytics</NavLink>
                                         </li>
                                         <li>
-                                            <NavLink to="/">finance</NavLink>
+                                            <NavLink to="/finance">finance</NavLink>
                                         </li>
                                         <li>
-                                            <NavLink to="/">crypto</NavLink>
+                                            <NavLink to="/crypto">crypto</NavLink>
                                         </li>
                                     </ul>
                                 </AnimateHeight>
@@ -97,10 +97,10 @@ const Sidebar = () => {
                                 <span>apps</span>
                             </h2>
 
-                            <li className="nav-item">
+                            <li className="nav-item capitalize">
                                 <ul>
                                     <li className="nav-item">
-                                        <NavLink to="/" className="group">
+                                        <NavLink to="/chat" className="group">
                                             <div className="flex items-center">
                                                 <PiChatCircleDots className="group-hover:!text-primary shrink-0" />
                                                 <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">chat</span>
@@ -108,7 +108,7 @@ const Sidebar = () => {
                                         </NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <NavLink to="/" className="group">
+                                        <NavLink to="/mailbox" className="group">
                                             <div className="flex items-center">
                                                 <PiMailbox className="group-hover:!text-primary shrink-0" />
                                                 <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">mailbox</span>

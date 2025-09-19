@@ -47,7 +47,7 @@ const Layout: React.FC = ({ children }: PropsWithChildren) => {
     return (
         <Fragment>
             <div
-                className={`${sidebar ? "toggle-sidebar" : ""} ${menu} ${layout} main-section antialiased relative font-nunito text-sm font-normal`}
+                className={`${sidebar ? "toggle-sidebar" : ""} ${menu} ${layout} main-section antialiased relative text-sm font-normal`}
             >
                 {/* BEGIN MAIN CONTAINER */}
                 <div className="relative">

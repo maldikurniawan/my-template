@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import { PiGear, PiLaptop, PiMoon, PiSun, PiX } from 'react-icons/pi';
 
 const Setting = () => {
-    const { navbar, animation, layout, menu, semidark, theme } = useContext(ThemeContext);
+    const { navbar, setNavbar, animation, setAnimation, layout, setLayout, menu, setMenu, semidark, setSemidark, theme, setTheme } = useContext(ThemeContext);
 
     const [showCustomizer, setShowCustomizer] = useState(false);
 
@@ -17,7 +17,7 @@ const Setting = () => {
             >
                 <button
                     type="button"
-                    className="bg-primary ltr:rounded-tl-full rtl:rounded-tr-full ltr:rounded-bl-full rtl:rounded-br-full absolute ltr:-left-12 rtl:-right-12 top-0 bottom-0 my-auto w-12 h-10 flex justify-center items-center text-white cursor-pointer"
+                    className="bg-[#4361ee] ltr:rounded-tl-full rtl:rounded-tr-full ltr:rounded-bl-full rtl:rounded-br-full absolute ltr:-left-12 rtl:-right-12 top-0 bottom-0 my-auto w-12 h-10 flex justify-center items-center text-white cursor-pointer"
                     onClick={() => setShowCustomizer(!showCustomizer)}
                 >
                     <PiGear className="animate-[spin_3s_linear_infinite] w-5 h-5" />
@@ -30,123 +30,123 @@ const Setting = () => {
                         </button>
 
                         <h4 className="mb-1 dark:text-white">TEMPLATE CUSTOMIZER</h4>
-                        <p className="text-white-dark">Set preferences that will be cookied for your live preview demonstration.</p>
+                        <p className="text-[#888ea8]">Set preferences that will be cookied for your live preview demonstration.</p>
                     </div>
 
-                    <div className="border border-dashed border-white-light dark:border-[#1b2e4b] rounded-md mb-3 p-3">
+                    <div className="border border-dashed border-[#e0e6ed] dark:border-[#1b2e4b] rounded-md mb-3 p-3">
                         <h5 className="mb-1 text-base dark:text-white leading-none">Color Scheme</h5>
-                        <p className="text-white-dark text-xs">Overall light or dark presentation.</p>
+                        <p className="text-[#888ea8] text-xs">Overall light or dark presentation.</p>
                         <div className="grid grid-cols-3 gap-2 mt-3">
-                            <button type="button" className={`${theme === 'light' ? 'btn-primary' : 'btn-outline-primary'} btn`} onClick={() => theme === 'light'}>
+                            <button type="button" className={`${theme === 'light' ? 'btn-primary' : 'btn-outline-primary'} btn`} onClick={() => setTheme('light')}>
                                 <PiSun className="w-5 h-5 shrink-0 ltr:mr-2 rtl:ml-2" />
                                 Light
                             </button>
 
-                            <button type="button" className={`${theme === 'dark' ? 'btn-primary' : 'btn-outline-primary'} btn`} onClick={() => theme === 'dark'}>
+                            <button type="button" className={`${theme === 'dark' ? 'btn-primary' : 'btn-outline-primary'} btn`} onClick={() => setTheme('dark')}>
                                 <PiMoon className="w-5 h-5 shrink-0 ltr:mr-2 rtl:ml-2" />
                                 Dark
                             </button>
 
-                            <button type="button" className={`${theme === 'system' ? 'btn-primary' : 'btn-outline-primary'} btn`} onClick={() => theme === 'system'}>
+                            <button type="button" className={`${theme === 'system' ? 'btn-primary' : 'btn-outline-primary'} btn`} onClick={() => setTheme('system')}>
                                 <PiLaptop className="w-5 h-5 shrink-0 ltr:mr-2 rtl:ml-2" />
                                 System
                             </button>
                         </div>
                     </div>
 
-                    <div className="border border-dashed border-white-light dark:border-[#1b2e4b] rounded-md mb-3 p-3">
+                    <div className="border border-dashed border-[#e0e6ed] dark:border-[#1b2e4b] rounded-md mb-3 p-3">
                         <h5 className="mb-1 text-base dark:text-white leading-none">Navigation Position</h5>
-                        <p className="text-white-dark text-xs">Select the primary navigation paradigm for your app.</p>
+                        <p className="text-[#888ea8] text-xs">Select the primary navigation paradigm for your app.</p>
                         <div className="grid grid-cols-3 gap-2 mt-3">
-                            <button type="button" className={`${menu === 'horizontal' ? 'btn-primary' : 'btn-outline-primary'} btn`} onClick={() => menu === 'horizontal'}>
+                            <button type="button" className={`${menu === 'horizontal' ? 'btn-primary' : 'btn-outline-primary'} btn`} onClick={() => setMenu('horizontal')}>
                                 Horizontal
                             </button>
 
-                            <button type="button" className={`${menu === 'vertical' ? 'btn-primary' : 'btn-outline-primary'} btn`} onClick={() => menu === 'vertical'}>
+                            <button type="button" className={`${menu === 'vertical' ? 'btn-primary' : 'btn-outline-primary'} btn`} onClick={() => setMenu('vertical')}>
                                 Vertical
                             </button>
 
                             <button
                                 type="button"
                                 className={`${menu === 'collapsible-vertical' ? 'btn-primary' : 'btn-outline-primary'} btn`}
-                                onClick={() => menu === 'collapsible-vertical'}
+                                onClick={() => setMenu('collapsible-vertical')}
                             >
                                 Collapsible
                             </button>
                         </div>
-                        <div className="mt-5 text-primary">
-                            <label className="inline-flex mb-0">
+                        <div className="mt-5 text-[#4361ee]">
+                            <div className="inline-flex mb-0">
                                 <input
                                     type="checkbox"
                                     className="form-checkbox"
                                     checked={semidark === true}
-                                    onChange={(e) => { e }}
+                                    onChange={(e) => setSemidark(e.target.checked)}
                                 />
                                 <span>Semi Dark (Sidebar & Header)</span>
-                            </label>
+                            </div>
                         </div>
                     </div>
 
-                    <div className="border border-dashed border-white-light dark:border-[#1b2e4b] rounded-md mb-3 p-3">
+                    <div className="border border-dashed border-[#e0e6ed] dark:border-[#1b2e4b] rounded-md mb-3 p-3">
                         <h5 className="mb-1 text-base dark:text-white leading-none">Layout Style</h5>
-                        <p className="text-white-dark text-xs">Select the primary layout style for your app.</p>
+                        <p className="text-[#888ea8] text-xs">Select the primary layout style for your app.</p>
                         <div className="flex gap-2 mt-3">
                             <button
                                 type="button"
                                 className={`${layout === 'boxed-layout' ? 'btn-primary' : 'btn-outline-primary'} btn flex-auto`}
-                                onClick={() => layout === 'boxed-layout'}
+                                onClick={() => setLayout('boxed-layout')}
                             >
                                 Box
                             </button>
 
-                            <button type="button" className={`${layout === 'full' ? 'btn-primary' : 'btn-outline-primary'} btn flex-auto`} onClick={() => layout === 'full'}>
+                            <button type="button" className={`${layout === 'full' ? 'btn-primary' : 'btn-outline-primary'} btn flex-auto`} onClick={() => setLayout('full')}>
                                 Full
                             </button>
                         </div>
                     </div>
 
-                    <div className="border border-dashed border-white-light dark:border-[#1b2e4b] rounded-md mb-3 p-3">
+                    <div className="border border-dashed border-[#e0e6ed] dark:border-[#1b2e4b] rounded-md mb-3 p-3">
                         <h5 className="mb-1 text-base dark:text-white leading-none">Navbar Type</h5>
-                        <p className="text-white-dark text-xs">Sticky or Floating.</p>
-                        <div className="mt-3 flex items-center gap-3 text-primary">
-                            <label className="inline-flex mb-0">
+                        <p className="text-[#888ea8] text-xs">Sticky or Floating.</p>
+                        <div className="mt-3 flex items-center gap-3 text-[#4361ee]">
+                            <div className="inline-flex mb-0">
                                 <input
                                     type="radio"
                                     checked={navbar === 'navbar-sticky'}
                                     value="navbar-sticky"
                                     className="form-radio"
-                                    onChange={() => navbar === 'navbar-sticky'}
+                                    onChange={() => setNavbar('navbar-sticky')}
                                 />
                                 <span>Sticky</span>
-                            </label>
-                            <label className="inline-flex mb-0">
+                            </div>
+                            <div className="inline-flex mb-0">
                                 <input
                                     type="radio"
                                     checked={navbar === 'navbar-floating'}
                                     value="navbar-floating"
                                     className="form-radio"
-                                    onChange={() => navbar === 'navbar-floating'}
+                                    onChange={() => setNavbar('navbar-floating')}
                                 />
                                 <span>Floating</span>
-                            </label>
-                            <label className="inline-flex mb-0">
+                            </div>
+                            <div className="inline-flex mb-0">
                                 <input
                                     type="radio"
                                     checked={navbar === 'navbar-static'}
                                     value="navbar-static"
                                     className="form-radio"
-                                    onChange={() => navbar === 'navbar-static'}
+                                    onChange={() => setNavbar('navbar-static')}
                                 />
                                 <span>Static</span>
-                            </label>
+                            </div>
                         </div>
                     </div>
 
-                    <div className="border border-dashed border-white-light dark:border-[#1b2e4b] rounded-md mb-3 p-3">
+                    <div className="border border-dashed border-[#e0e6ed] dark:border-[#1b2e4b] rounded-md mb-3 p-3">
                         <h5 className="mb-1 text-base dark:text-white leading-none">Router Transition</h5>
-                        <p className="text-white-dark text-xs">Animation of main content.</p>
+                        <p className="text-[#888ea8] text-xs">Animation of main content.</p>
                         <div className="mt-3">
-                            <select className="form-select border-primary text-primary" value={animation} onChange={(e) => { e }}>
+                            <select className="form-select border-[#4361ee] text-[#4361ee]" value={animation} onChange={(e) => setAnimation(e.target.value)}>
                                 <option value=" ">None</option>
                                 <option value="animate__fadeIn">Fade</option>
                                 <option value="animate__fadeInDown">Fade Down</option>
