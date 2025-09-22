@@ -12,12 +12,12 @@ const Setting = () => {
             <div className={`${(showCustomizer && '!block') || ''} fixed inset-0 bg-[black]/60 z-[51] px-4 hidden transition-[display]`} onClick={() => setShowCustomizer(false)}></div>
 
             <nav
-                className={`${(showCustomizer && 'ltr:!right-0 rtl:!left-0') || ''
-                    } bg-white fixed ltr:-right-[400px] rtl:-left-[400px] top-0 bottom-0 w-full max-w-[400px] shadow-[5px_0_25px_0_rgba(94,92,154,0.1)] transition-[right] duration-300 z-[51] dark:bg-black p-4`}
+                className={`${(showCustomizer && '!right-0') || ''
+                    } bg-white fixed -right-[400px] top-0 bottom-0 w-full max-w-[400px] shadow-[5px_0_25px_0_rgba(94,92,154,0.1)] transition-[right] duration-300 z-[51] dark:bg-black p-4`}
             >
                 <button
                     type="button"
-                    className="bg-[#4361ee] ltr:rounded-tl-full rtl:rounded-tr-full ltr:rounded-bl-full rtl:rounded-br-full absolute ltr:-left-12 rtl:-right-12 top-0 bottom-0 my-auto w-12 h-10 flex justify-center items-center text-white cursor-pointer"
+                    className="bg-[#4361ee] rounded-tl-full rounded-bl-full absolute -left-12 top-0 bottom-0 my-auto w-12 h-10 flex justify-center items-center text-white cursor-pointer"
                     onClick={() => setShowCustomizer(!showCustomizer)}
                 >
                     <PiGear className="animate-[spin_3s_linear_infinite] w-5 h-5" />
@@ -25,7 +25,7 @@ const Setting = () => {
 
                 <div className="overflow-y-auto overflow-x-hidden perfect-scrollbar h-full">
                     <div className="text-center relative pb-5">
-                        <button type="button" className="absolute top-0 ltr:right-0 rtl:left-0 opacity-30 hover:opacity-100 dark:text-white" onClick={() => setShowCustomizer(false)}>
+                        <button type="button" className="absolute top-0 right-0 opacity-30 hover:opacity-100 dark:text-white" onClick={() => setShowCustomizer(false)}>
                             <PiX className="w-5 h-5" />
                         </button>
 
@@ -37,18 +37,18 @@ const Setting = () => {
                         <h5 className="mb-1 text-base dark:text-white leading-none">Color Scheme</h5>
                         <p className="text-[#888ea8] text-xs">Overall light or dark presentation.</p>
                         <div className="grid grid-cols-3 gap-2 mt-3">
-                            <button type="button" className={`${theme === 'light' ? 'btn-primary' : 'btn-outline-primary'} btn`} onClick={() => setTheme('light')}>
-                                <PiSun className="w-5 h-5 shrink-0 ltr:mr-2 rtl:ml-2" />
+                            <button type="button" className={`${theme === 'light' ? 'border-primary bg-primary text-white shadow-primary/60' : 'border-primary text-primary shadow-none hover:bg-primary hover:text-white'} relative flex items-center justify-center rounded-md border px-5 py-2 text-sm font-semibold shadow-[0_10px_20px_-10px] outline-none transition duration-300 hover:shadow-none cursor-pointer`} onClick={() => setTheme('light')}>
+                                <PiSun className="w-5 h-5 shrink-0 mr-2" />
                                 Light
                             </button>
 
-                            <button type="button" className={`${theme === 'dark' ? 'btn-primary' : 'btn-outline-primary'} btn`} onClick={() => setTheme('dark')}>
-                                <PiMoon className="w-5 h-5 shrink-0 ltr:mr-2 rtl:ml-2" />
+                            <button type="button" className={`${theme === 'dark' ? 'border-primary bg-primary text-white shadow-primary/60' : 'border-primary text-primary shadow-none hover:bg-primary hover:text-white'} relative flex items-center justify-center rounded-md border px-5 py-2 text-sm font-semibold shadow-[0_10px_20px_-10px] outline-none transition duration-300 hover:shadow-none cursor-pointer`} onClick={() => setTheme('dark')}>
+                                <PiMoon className="w-5 h-5 shrink-0 mr-2" />
                                 Dark
                             </button>
 
-                            <button type="button" className={`${theme === 'system' ? 'btn-primary' : 'btn-outline-primary'} btn`} onClick={() => setTheme('system')}>
-                                <PiLaptop className="w-5 h-5 shrink-0 ltr:mr-2 rtl:ml-2" />
+                            <button type="button" className={`${theme === 'system' ? 'border-primary bg-primary text-white shadow-primary/60' : 'border-primary text-primary shadow-none hover:bg-primary hover:text-white'} relative flex items-center justify-center rounded-md border px-5 py-2 text-sm font-semibold shadow-[0_10px_20px_-10px] outline-none transition duration-300 hover:shadow-none cursor-pointer`} onClick={() => setTheme('system')}>
+                                <PiLaptop className="w-5 h-5 shrink-0 mr-2" />
                                 System
                             </button>
                         </div>
@@ -58,17 +58,17 @@ const Setting = () => {
                         <h5 className="mb-1 text-base dark:text-white leading-none">Navigation Position</h5>
                         <p className="text-[#888ea8] text-xs">Select the primary navigation paradigm for your app.</p>
                         <div className="grid grid-cols-3 gap-2 mt-3">
-                            <button type="button" className={`${menu === 'horizontal' ? 'btn-primary' : 'btn-outline-primary'} btn`} onClick={() => setMenu('horizontal')}>
+                            <button type="button" className={`${menu === 'horizontal' ? 'border-primary bg-primary text-white shadow-primary/60' : 'border-primary text-primary shadow-none hover:bg-primary hover:text-white'} relative flex items-center justify-center rounded-md border px-5 py-2 text-sm font-semibold shadow-[0_10px_20px_-10px] outline-none transition duration-300 hover:shadow-none cursor-pointer`} onClick={() => setMenu('horizontal')}>
                                 Horizontal
                             </button>
 
-                            <button type="button" className={`${menu === 'vertical' ? 'btn-primary' : 'btn-outline-primary'} btn`} onClick={() => setMenu('vertical')}>
+                            <button type="button" className={`${menu === 'vertical' ? 'border-primary bg-primary text-white shadow-primary/60' : 'border-primary text-primary shadow-none hover:bg-primary hover:text-white'} relative flex items-center justify-center rounded-md border px-5 py-2 text-sm font-semibold shadow-[0_10px_20px_-10px] outline-none transition duration-300 hover:shadow-none cursor-pointer`} onClick={() => setMenu('vertical')}>
                                 Vertical
                             </button>
 
                             <button
                                 type="button"
-                                className={`${menu === 'collapsible-vertical' ? 'btn-primary' : 'btn-outline-primary'} btn`}
+                                className={`${menu === 'collapsible-vertical' ? 'border-primary bg-primary text-white shadow-primary/60' : 'border-primary text-primary shadow-none hover:bg-primary hover:text-white'} relative flex items-center justify-center rounded-md border px-5 py-2 text-sm font-semibold shadow-[0_10px_20px_-10px] outline-none transition duration-300 hover:shadow-none cursor-pointer`}
                                 onClick={() => setMenu('collapsible-vertical')}
                             >
                                 Collapsible
@@ -93,13 +93,13 @@ const Setting = () => {
                         <div className="flex gap-2 mt-3">
                             <button
                                 type="button"
-                                className={`${layout === 'boxed-layout' ? 'btn-primary' : 'btn-outline-primary'} btn flex-auto`}
+                                className={`${layout === 'boxed-layout' ? 'border-primary bg-primary text-white shadow-primary/60' : 'border-primary text-primary shadow-none hover:bg-primary hover:text-white'} relative flex items-center justify-center rounded-md border px-5 py-2 text-sm font-semibold shadow-[0_10px_20px_-10px] outline-none transition duration-300 hover:shadow-none flex-auto cursor-pointer`}
                                 onClick={() => setLayout('boxed-layout')}
                             >
                                 Box
                             </button>
 
-                            <button type="button" className={`${layout === 'full' ? 'btn-primary' : 'btn-outline-primary'} btn flex-auto`} onClick={() => setLayout('full')}>
+                            <button type="button" className={`${layout === 'full' ? 'border-primary bg-primary text-white shadow-primary/60' : 'border-primary text-primary shadow-none hover:bg-primary hover:text-white'} relative flex items-center justify-center rounded-md border px-5 py-2 text-sm font-semibold shadow-[0_10px_20px_-10px] outline-none transition duration-300 hover:shadow-none flex-auto cursor-pointer`} onClick={() => setLayout('full')}>
                                 Full
                             </button>
                         </div>

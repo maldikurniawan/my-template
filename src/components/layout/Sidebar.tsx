@@ -1,7 +1,7 @@
 import { ThemeContext } from '@/context/ThemeContext';
 import { useContext, useEffect, useState } from 'react';
 import AnimateHeight from 'react-animate-height';
-import { PiCaretDoubleDown, PiCaretDown, PiChatCircleDots, PiHouseLine, PiMailbox, PiMinus } from 'react-icons/pi';
+import { PiCaretDoubleDown, PiCaretDown, PiChatCircleTextFill, PiHouseLineFill, PiMailboxFill, PiMinus } from 'react-icons/pi';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { NavLink, useLocation } from 'react-router-dom';
 
@@ -48,12 +48,12 @@ const Sidebar = () => {
                     <div className="flex justify-between items-center px-4 py-3">
                         <NavLink to="/" className="main-logo flex items-center shrink-0">
                             <img className="w-8 ml-[5px] flex-none" src="/assets/images/logo.svg" alt="logo" />
-                            <span className="text-2xl ltr:ml-1.5 rtl:mr-1.5 font-semibold align-middle lg:inline dark:text-white-light">VRISTO</span>
+                            <span className="text-2xl ml-1.5 font-semibold align-middle lg:inline dark:text-white-light">TENSHI</span>
                         </NavLink>
 
                         <button
                             type="button"
-                            className="collapse-icon w-8 h-8 rounded-full flex items-center hover:bg-gray-500/10 dark:hover:bg-dark-light/10 dark:text-white-light transition duration-300 rtl:rotate-180"
+                            className="collapse-icon w-8 h-8 rounded-full flex items-center hover:bg-gray-500/10 dark:hover:bg-dark-light/10 dark:text-white-light transition duration-300"
                             onClick={() => toggleSidebar()}
                         >
                             <PiCaretDoubleDown className="m-auto rotate-90" />
@@ -64,12 +64,12 @@ const Sidebar = () => {
                             <li className="menu nav-item">
                                 <button type="button" className={`${currentMenu === 'dashboard' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('dashboard')}>
                                     <div className="flex items-center">
-                                        <PiHouseLine
+                                        <PiHouseLineFill
                                             className="group-hover:!text-primary shrink-0" />
-                                        <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark capitalize">dashboard</span>
+                                        <span className="pl-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark capitalize">dashboard</span>
                                     </div>
 
-                                    <div className={currentMenu !== 'dashboard' ? 'rtl:rotate-90 -rotate-90' : ''}>
+                                    <div className={currentMenu !== 'dashboard' ? '-rotate-90' : ''}>
                                         <PiCaretDown />
                                     </div>
                                 </button>
@@ -77,7 +77,7 @@ const Sidebar = () => {
                                 <AnimateHeight duration={300} height={currentMenu === 'dashboard' ? 'auto' : 0}>
                                     <ul className="sub-menu text-gray-500 capitalize">
                                         <li>
-                                            <NavLink to="/sales">sales</NavLink>
+                                            <NavLink to="/">sales</NavLink>
                                         </li>
                                         <li>
                                             <NavLink to="/analytics">analytics</NavLink>
@@ -92,7 +92,7 @@ const Sidebar = () => {
                                 </AnimateHeight>
                             </li>
 
-                            <h2 className="py-3 px-7 flex items-center uppercase font-extrabold bg-white-light/30 dark:bg-dark dark:bg-opacity-[0.08] -mx-4 mb-1">
+                            <h2 className="py-3 px-7 flex items-center uppercase font-extrabold bg-white-light/30 dark:bg-dark/[0.08] -mx-4 mb-1">
                                 <PiMinus className="w-4 h-5 flex-none hidden" />
                                 <span>apps</span>
                             </h2>
@@ -102,16 +102,16 @@ const Sidebar = () => {
                                     <li className="nav-item">
                                         <NavLink to="/chat" className="group">
                                             <div className="flex items-center">
-                                                <PiChatCircleDots className="group-hover:!text-primary shrink-0" />
-                                                <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">chat</span>
+                                                <PiChatCircleTextFill className="group-hover:!text-primary shrink-0" />
+                                                <span className="pl-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">chat</span>
                                             </div>
                                         </NavLink>
                                     </li>
                                     <li className="nav-item">
                                         <NavLink to="/mailbox" className="group">
                                             <div className="flex items-center">
-                                                <PiMailbox className="group-hover:!text-primary shrink-0" />
-                                                <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">mailbox</span>
+                                                <PiMailboxFill className="group-hover:!text-primary shrink-0" />
+                                                <span className="pl-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">mailbox</span>
                                             </div>
                                         </NavLink>
                                     </li>
