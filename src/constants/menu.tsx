@@ -5,8 +5,8 @@ import {
 } from "@/template";
 import type { JSX } from "react";
 import {
-    PiCards,
-    PiHouseLine
+    PiCardsFill,
+    PiHouseLineFill
 } from "react-icons/pi";
 
 // Adjust the SubMenu interface to not have a nested sub property
@@ -35,7 +35,7 @@ interface MenuItem {
 
 export const menu: MenuItem[] = [
     {
-        icon: <PiHouseLine />,
+        icon: <PiHouseLineFill />,
         path: "/",
         name: "dashboard",
         title: "Dashboard",
@@ -46,7 +46,7 @@ export const menu: MenuItem[] = [
         label: "UI ELEMENTS",
     },
     {
-        icon: <PiCards />,
+        icon: <PiCardsFill />,
         path: "components",
         name: "components",
         title: "Components",

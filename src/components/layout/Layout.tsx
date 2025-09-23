@@ -1,8 +1,9 @@
 import { Footer, Header, Setting, Sidebar } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
-import React, { Fragment, Suspense, useContext, useEffect, useState, type PropsWithChildren } from "react";
+import React, { Fragment, Suspense, useContext, useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 
-const Layout: React.FC = ({ children }: PropsWithChildren) => {
+const Layout: React.FC = () => {
     const { navbar, animation, sidebar, toggleSidebar, setMenu, setLayout, menu, layout } = useContext(ThemeContext);
     const [showLoader, setShowLoader] = useState(true);
     const [showTopButton, setShowTopButton] = useState(false);
@@ -47,7 +48,7 @@ const Layout: React.FC = ({ children }: PropsWithChildren) => {
     return (
         <Fragment>
             <div
-                className={`${sidebar ? "toggle-sidebar" : ""} ${menu} ${layout} main-section antialiased relative text-sm font-normal`}
+                className={`${sidebar ? "toggle-sidebar" : ""} ${menu} ${layout} main-section antialiased relative text-sm font-normal overflow-x-hidden`}
             >
                 {/* BEGIN MAIN CONTAINER */}
                 <div className="relative">
@@ -95,7 +96,7 @@ const Layout: React.FC = ({ children }: PropsWithChildren) => {
 
                             {/* BEGIN CONTENT AREA */}
                             <Suspense>
-                                <div className={`${animation} p-6 animate__animated`}>{children}</div>
+                                <div className={`${animation} p-6 animate__animated`}><Outlet /></div>
                             </Suspense>
                             {/* END CONTENT AREA */}
 
