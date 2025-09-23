@@ -112,6 +112,10 @@ body.dark {
     @apply flex;
 }
 
+.horizontal .main-container .main-content {
+    @apply ml-0;
+}
+
 .horizontal .sidebar {
     @apply -left-[260px];
 }
