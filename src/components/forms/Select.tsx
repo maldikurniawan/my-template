@@ -50,7 +50,7 @@ const Select: React.FC<SelectProps> = ({
     width = "full",
     menuplacement = "auto",
     color = "lightGreen",
-    rounded = "none",
+    rounded = "md",
     density = "normal",
     prepend,
     append,
@@ -67,7 +67,7 @@ const Select: React.FC<SelectProps> = ({
     required = false,
     menuposition = "fixed",
 }) => {
-    const { colortheme } = useContext(ThemeContext);
+    const { colortheme, theme } = useContext(ThemeContext);
 
     const variants = ["outline"];
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -158,8 +158,8 @@ const Select: React.FC<SelectProps> = ({
                     : isFocus
                         ? selectColor
                         : isHover
-                            ? "#6F6F6F"
-                            : "#4D5355",
+                            ? "#4361EE"
+                            : "#4361EE",
             borderWidth: 1,
             borderStyle: "solid",
             outline: "none",
@@ -244,7 +244,7 @@ const Select: React.FC<SelectProps> = ({
                             style={{ ...labelStyle }}
                             className={`absolute pointer-events-none transition-[top,font,padding,margin] leading-none whitespace-nowrap ${(isFocus && variant === "outline") ||
                                 (variant === "outline" && value)
-                                ? "bg-black backdrop-blur px-1 -ml-1"
+                                ? "bg-white dark:bg-[#253b5c] backdrop-blur px-1 -ml-1"
                                 : ""
                                 }`}
                         >
@@ -375,7 +375,7 @@ const Select: React.FC<SelectProps> = ({
                                 onBlur && onBlur(e);
                             }}
                             unstyled
-                            className="leading-none"
+                            className="leading-none text-primary dark:text-white-dark"
                             components={{
                                 IndicatorSeparator: () => null,
                                 DropdownIndicator,
@@ -403,16 +403,16 @@ const Select: React.FC<SelectProps> = ({
                                 }),
                                 menu: (base) => ({
                                     ...base,
-                                    backgroundColor: "#000000",
+                                    backgroundColor: theme === "dark" ? "#121E32" : "#FFFFFF",
                                     boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.08)",
                                     borderRadius: selectRounded,
-                                    border: "1px solid #333",
+                                    border: theme === "dark" ? "1px solid #4361EE" : "1px solid #33333390",
                                 }),
                                 option: (base, state) => ({
                                     ...base,
                                     color: state.isSelected
-                                        ? "#000000"
-                                        : "#FFFFFF75",
+                                        ? "#FFFFFF"
+                                        : theme === "dark" ? "#888EA8" : "#4361EE",
                                     backgroundColor: state.isSelected
                                         ? selectColor
                                         : "transparent",
@@ -422,7 +422,7 @@ const Select: React.FC<SelectProps> = ({
                                     "&:hover": {
                                         backgroundColor: state.isSelected
                                             ? selectColor
-                                            : "#FFFFFF10",
+                                            : "#4361EE30",
                                     },
                                 }),
                                 multiValue: (base) => ({

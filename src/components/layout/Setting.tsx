@@ -1,3 +1,4 @@
+import { Checkbox, Radio, Select } from '@/components';
 import { ThemeContext } from '@/context/ThemeContext';
 import { useContext, useState } from 'react';
 import { PiGear, PiLaptop, PiMoon, PiSun, PiX } from 'react-icons/pi';
@@ -6,6 +7,19 @@ const Setting = () => {
     const { navbar, setNavbar, animation, setAnimation, layout, setLayout, menu, setMenu, semidark, setSemidark, theme, setTheme } = useContext(ThemeContext);
 
     const [showCustomizer, setShowCustomizer] = useState(false);
+
+    const animateOptions = [
+        { label: "None", value: "" },
+        { label: "Fade", value: "animate__fadeIn" },
+        { label: "Fade Down", value: "animate__fadeInDown" },
+        { label: "Fade Up", value: "animate__fadeInUp" },
+        { label: "Fade Left", value: "animate__fadeInLeft" },
+        { label: "Fade Right", value: "animate__fadeInRight" },
+        { label: "Slide Down", value: "animate__slideInDown" },
+        { label: "Slide Left", value: "animate__slideInLeft" },
+        { label: "Slide Right", value: "animate__slideInRight" },
+        { label: "Zoom In", value: "animate__zoomIn" },
+    ];
 
     return (
         <div>
@@ -30,7 +44,7 @@ const Setting = () => {
                         </button>
 
                         <h4 className="mb-1 dark:text-white">TEMPLATE CUSTOMIZER</h4>
-                        <p className="text-[#888ea8]">Set preferences that will be cookied for your live preview demonstration.</p>
+                        <p className="text-[#888ea8] px-4">Set preferences that will be cookied for your live preview demonstration.</p>
                     </div>
 
                     <div className="border border-dashed border-[#e0e6ed] dark:border-[#1b2e4b] rounded-md mb-3 p-3">
@@ -74,16 +88,14 @@ const Setting = () => {
                                 Collapsible
                             </button>
                         </div>
-                        <div className="mt-5 text-[#4361ee]">
-                            <div className="inline-flex mb-0">
-                                <input
-                                    type="checkbox"
-                                    className="form-checkbox"
-                                    checked={semidark === true}
-                                    onChange={(e) => setSemidark(e.target.checked)}
-                                />
-                                <span>Semi Dark (Sidebar & Header)</span>
-                            </div>
+                        <div className="mt-5">
+                            <Checkbox
+                                id="semidark"
+                                checked={semidark}
+                                onChange={() => setSemidark(!semidark)}
+                                label="Semi Dark (Sidebar & Header)"
+                                size='xl'
+                            />
                         </div>
                     </div>
 
@@ -108,37 +120,18 @@ const Setting = () => {
                     <div className="border border-dashed border-[#e0e6ed] dark:border-[#1b2e4b] rounded-md mb-3 p-3">
                         <h5 className="mb-1 text-base dark:text-white leading-none">Navbar Type</h5>
                         <p className="text-[#888ea8] text-xs">Sticky or Floating.</p>
-                        <div className="mt-3 flex items-center gap-3 text-[#4361ee]">
-                            <div className="inline-flex mb-0">
-                                <input
-                                    type="radio"
-                                    checked={navbar === 'navbar-sticky'}
-                                    value="navbar-sticky"
-                                    className="form-radio"
-                                    onChange={() => setNavbar('navbar-sticky')}
-                                />
-                                <span>Sticky</span>
-                            </div>
-                            <div className="inline-flex mb-0">
-                                <input
-                                    type="radio"
-                                    checked={navbar === 'navbar-floating'}
-                                    value="navbar-floating"
-                                    className="form-radio"
-                                    onChange={() => setNavbar('navbar-floating')}
-                                />
-                                <span>Floating</span>
-                            </div>
-                            <div className="inline-flex mb-0">
-                                <input
-                                    type="radio"
-                                    checked={navbar === 'navbar-static'}
-                                    value="navbar-static"
-                                    className="form-radio"
-                                    onChange={() => setNavbar('navbar-static')}
-                                />
-                                <span>Static</span>
-                            </div>
+                        <div className="mt-3">
+                            <Radio
+                                value={navbar}
+                                onChange={setNavbar}
+                                options={[
+                                    { label: "Sticky", value: "navbar-sticky" },
+                                    { label: "Floating", value: "navbar-floating" },
+                                    { label: "Static", value: "navbar-static" },
+                                ]}
+                                size="xl"
+                                color="lightGreen"
+                            />
                         </div>
                     </div>
 
@@ -146,18 +139,14 @@ const Setting = () => {
                         <h5 className="mb-1 text-base dark:text-white leading-none">Router Transition</h5>
                         <p className="text-[#888ea8] text-xs">Animation of main content.</p>
                         <div className="mt-3">
-                            <select className="form-select border-[#4361ee] text-[#4361ee]" value={animation} onChange={(e) => setAnimation(e.target.value)}>
-                                <option value=" ">None</option>
-                                <option value="animate__fadeIn">Fade</option>
-                                <option value="animate__fadeInDown">Fade Down</option>
-                                <option value="animate__fadeInUp">Fade Up</option>
-                                <option value="animate__fadeInLeft">Fade Left</option>
-                                <option value="animate__fadeInRight">Fade Right</option>
-                                <option value="animate__slideInDown">Slide Down</option>
-                                <option value="animate__slideInLeft">Slide Left</option>
-                                <option value="animate__slideInRight">Slide Right</option>
-                                <option value="animate__zoomIn">Zoom In</option>
-                            </select>
+                            <Select
+                                id="animation"
+                                name="animation"
+                                options={animateOptions}
+                                value={animateOptions.find((opt) => opt.value === animation) ?? { label: "None", value: "" }}
+                                onChange={(option) => setAnimation(option?.value ?? "")}
+                                placeholder="Select animation"
+                            />
                         </div>
                     </div>
                 </div>

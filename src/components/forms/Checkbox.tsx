@@ -61,14 +61,10 @@ const Checkbox: React.FC<CheckboxProps> = ({
             }[size] || 14;
 
     return (
-        <div className="flex items-center gap-x-1">
+        <div className="flex items-center gap-x-1.5">
             <ButtonRipple
-                className="relative rounded-full flex items-center justify-center transition-[background] hover:bg-white/10"
+                className="relative rounded flex items-center justify-center transition-[background] hover:bg-white/10"
                 color={checkboxColor ? `${checkboxColor}50` : `#989C9D50`}
-                style={{
-                    width: checkSize + 16,
-                    height: checkSize + 16,
-                }}
                 onClick={onChange} // onChange toggles the checked state
                 disabled={disabled ?? false} // Handle null with a fallback to false
             >
@@ -93,7 +89,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
                                 : colortheme
                             : "transparent",
                     }}
-                    className={`appearance-none outline-none pointer-events-none ${checked ? "shadow" : "border border-white/30"
+                    className={`appearance-none outline-none pointer-events-none rounded ${checked ? "shadow" : "border-2 border-[#e0e6ed] dark:border-[#253b5c]"
                         } ${disabled ? "opacity-50" : ""}`}
                     readOnly
                     checked={checked}
@@ -103,12 +99,9 @@ const Checkbox: React.FC<CheckboxProps> = ({
             {label && (
                 <label
                     htmlFor={id}
-                    style={{
-                        fontSize: text,
-                    }}
-                    className={`cursor-pointer ${disabled
+                    className={`cursor-pointer font-semibold ${disabled
                         ? "pointer-events-none text-white/30"
-                        : "text-white"
+                        : "text-primary"
                         }`}
                 >
                     {label}

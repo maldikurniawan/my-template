@@ -26,10 +26,10 @@ const Radio: FC<RadioProps> = ({
     color = "lightGreen",
     inline = true
 }) => {
-    const { colortheme } = useContext(ThemeContext);
+    const { colortheme, theme } = useContext(ThemeContext);
 
     // Color mapping
-    const checkboxColors: Record<string, string> = {
+    const radioColors: Record<string, string> = {
         lightGreen: colortheme,
         lightGray: "#BEBEBE",
         lightPurple: "#9B30FF",
@@ -38,7 +38,7 @@ const Radio: FC<RadioProps> = ({
         lightBlue: "#0000FF",
     };
 
-    const checkboxColor = checkboxColors[color] || color;
+    const radioColor = radioColors[color] || color;
 
     // Size mapping
     const radioSize: number = {
@@ -49,27 +49,19 @@ const Radio: FC<RadioProps> = ({
         xl: 20,
     }[size] || 16;
 
-    const textSize: number = {
-        xs: 10,
-        sm: 12,
-        md: 14,
-        lg: 16,
-        xl: 18,
-    }[size] || 14;
-
     return (
         <RadioGroup
-            className={`${inline ? "flex flex-wrap gap-x-3 gap-y-2" : ""}`}
+            className={`${inline ? "flex flex-wrap gap-x-3 gap-y-2 cursor-pointer" : ""}`}
             value={value}
             onChange={onChange}
         >
             {options.map((option, index) => (
                 <RadioGroup.Option key={index} value={option.value}>
                     {({ checked }) => (
-                        <div className="flex items-center gap-x-1">
+                        <div className="flex items-center gap-x-1.5">
                             <ButtonRipple
-                                color={`${checkboxColor}50`}
-                                className="p-2 rounded-full transition-[background] hover:bg-white/10"
+                                color={`${radioColor}50`}
+                                className="rounded-full transition-[background] hover:bg-white/10"
                             >
                                 <div
                                     style={{
@@ -77,15 +69,16 @@ const Radio: FC<RadioProps> = ({
                                         height: radioSize,
                                         backgroundColor: checked ? "white" : "",
                                         border: checked
-                                            ? `4px solid ${checkboxColor}`
-                                            : "1px solid #6A6F70",
+                                            ? `6px solid ${radioColor}`
+                                            : theme === "dark"
+                                                ? "2px solid #253b5c"
+                                                : "2px solid #e0e6ed",
                                     }}
-                                    className="rounded-full flex items-center justify-center"
+                                    className="rounded-full flex items-center justify-center cursor-pointer"
                                 />
                             </ButtonRipple>
                             <div
-                                className="cursor-pointer"
-                                style={{ fontSize: textSize }}
+                                className="cursor-pointer text-primary font-semibold"
                             >
                                 {option.label}
                             </div>
