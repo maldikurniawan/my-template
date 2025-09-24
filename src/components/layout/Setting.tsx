@@ -23,7 +23,7 @@ const Setting = () => {
                     <PiGear className="animate-[spin_3s_linear_infinite] w-5 h-5" />
                 </button>
 
-                <div className="overflow-y-auto overflow-x-hidden perfect-scrollbar custom-scroll h-full">
+                <div className="overflow-y-auto overflow-x-hidden custom-scroll h-full">
                     <div className="text-center relative pb-5">
                         <button type="button" className="absolute top-0 right-0 opacity-30 hover:opacity-100 dark:text-white" onClick={() => setShowCustomizer(false)}>
                             <PiX className="w-5 h-5" />

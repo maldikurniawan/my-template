@@ -260,7 +260,7 @@ body.dark {
 }
 
 .collapsible-vertical .sidebar ul>h2 span {
-    @apply hidden whitespace-nowrap;
+    @apply opacity-0 whitespace-nowrap;
 }
 
 .collapsible-vertical .sidebar ul>h2 svg {
@@ -269,7 +269,7 @@ body.dark {
 
 .collapsible-vertical .sidebar:hover ul>h2 span,
 .collapsible-vertical.toggle-sidebar .sidebar ul>h2 span {
-    @apply inline;
+    @apply opacity-100 transition-opacity duration-300;
 }
 
 .collapsible-vertical .sidebar:hover ul>h2 svg,

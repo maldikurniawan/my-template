@@ -7,7 +7,6 @@ import {
     PiCaretDown,
     PiMinus,
 } from "react-icons/pi";
-import PerfectScrollbar from "react-perfect-scrollbar";
 import { NavLink, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
@@ -32,7 +31,7 @@ const Sidebar = () => {
                 return (
                     <h2
                         key={idx}
-                        className="py-3 px-7 flex items-center uppercase font-extrabold bg-white-light/30 dark:bg-dark/[0.08] -mx-4 mb-1"
+                        className="py-3 px-7 flex items-center uppercase font-extrabold bg-white-light/30 dark:bg-dark/[0.08] -mx-4 mb-1 whitespace-nowrap"
                     >
                         <PiMinus className="w-4 h-5 flex-none hidden" />
                         <span>{item.label}</span>
@@ -67,7 +66,7 @@ const Sidebar = () => {
                             duration={300}
                             height={currentMenu === item.name ? "auto" : 0}
                         >
-                            <ul className="sub-menu text-gray-500 capitalize">
+                            <ul className="sub-menu text-gray-500 capitalize whitespace-nowrap">
                                 {item.sub.map((subItem, subIdx) => (
                                     <li key={subIdx}>
                                         <NavLink to={subItem.path}>{subItem.title}</NavLink>
@@ -123,11 +122,11 @@ const Sidebar = () => {
                         </button>
                     </div>
 
-                    <PerfectScrollbar className="h-[calc(100vh-80px)] relative">
+                    <div className="h-[calc(100vh-80px)] relative overflow-y-auto scroll-hidden overflow-x-hidden">
                         <ul className="relative font-semibold space-y-0.5 p-4 py-0">
                             {renderMenu()}
                         </ul>
-                    </PerfectScrollbar>
+                    </div>
                 </div>
             </nav>
         </div>
