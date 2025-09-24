@@ -8,8 +8,8 @@ interface ThemeContextType {
     setTheme: (theme: string) => void;
     menu: string;
     setMenu: (menu: string) => void;
-    color: string;
-    setColor: (color: string) => void;
+    colortheme: string;
+    setColortheme: (color: string) => void;
     layout: string;
     setLayout: (layout: string) => void;
     animation: string;
@@ -77,12 +77,12 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     }, [menu]);
 
     // Color
-    const [color, setColor] = useState<string>(
-        localStorage.getItem("color") || themeConfig.color
+    const [colortheme, setColortheme] = useState<string>(
+        localStorage.getItem("colortheme") || themeConfig.colortheme
     );
     useEffect(() => {
-        localStorage.setItem("color", color);
-    }, [color]);
+        localStorage.setItem("colortheme", colortheme);
+    }, [colortheme]);
 
     // Layout
     const [layout, setLayout] = useState<string>(
@@ -127,8 +127,8 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
                 setTheme,
                 menu,
                 setMenu,
-                color,
-                setColor,
+                colortheme,
+                setColortheme,
                 layout,
                 setLayout,
                 animation,
