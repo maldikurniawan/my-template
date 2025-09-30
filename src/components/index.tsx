@@ -1,5 +1,6 @@
 import Button from "./atoms/Button";
 import ButtonRipple from "./atoms/ButtonRipple";
+import Card from "./atoms/Card";
 import Loading from "./atoms/Loading";
 import Popover from "./atoms/Popover";
 import Checkbox from "./forms/Checkbox";
@@ -19,5 +20,5 @@ import Layout from "./layout/Layout";
 import Setting from "./layout/Setting";
 import Sidebar from "./layout/Sidebar";
 
-export { Button, ButtonRipple, Checkbox, ColorPicker, DatePicker, FileInput, FileInputForm, Footer, Header, Layout, Loading, MonthPicker, Popover, Radio, Select, Setting, Sidebar, Switch, TextArea, TextField };
+export { Button, ButtonRipple, Card, Checkbox, ColorPicker, DatePicker, FileInput, FileInputForm, Footer, Header, Layout, Loading, MonthPicker, Popover, Radio, Select, Setting, Sidebar, Switch, TextArea, TextField };
 

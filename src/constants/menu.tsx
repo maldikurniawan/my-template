@@ -5,19 +5,25 @@ import {
     ColorPickerPage,
     DashboardPage,
     DatePickerPage,
+    FileInputPage,
     MonthPickerPage,
     RadioPage,
     SelectPage,
     SwitchPage,
     TextAreaPage,
+    TextFieldPage,
 } from "@/template";
-import FileInputPage from "@/template/forms/FileInputPage";
-import TextFieldPage from "@/template/forms/TextFieldPage";
 import type { JSX } from "react";
+import { FaMapMarkedAlt } from "react-icons/fa";
 import {
+    PiCalendarBlankFill,
     PiCardsFill,
+    PiFileTextFill,
     PiHouseLineFill,
-    PiTextboxFill
+    PiLightningFill,
+    PiTableFill,
+    PiTextboxFill,
+    PiUserFill
 } from "react-icons/pi";
 
 // Adjust the SubMenu interface to not have a nested sub property
@@ -54,7 +60,7 @@ export const menu: MenuItem[] = [
         sub: [],
     },
     {
-        label: "UI ELEMENTS",
+        label: "USER INTERFACE",
     },
     {
         icon: <PiCardsFill />,
@@ -65,7 +71,7 @@ export const menu: MenuItem[] = [
         sub: [
             {
                 icon: null,
-                path: "/ui-elements/components/alert",
+                path: "/user-interface/components/alert",
                 name: "alert",
                 title: "Alert",
                 element: <AlertPage />,
@@ -73,13 +79,54 @@ export const menu: MenuItem[] = [
             },
             {
                 icon: null,
-                path: "/ui-elements/components/avatar",
+                path: "/user-interface/components/avatar",
                 name: "avatar",
                 title: "Avatar",
                 element: <AvatarPage />,
                 sub: [],
             },
         ],
+    },
+    {
+        icon: <PiLightningFill />,
+        path: "elements",
+        name: "elements",
+        title: "Elements",
+        element: null,
+        sub: [
+            {
+                icon: null,
+                path: "/user-interface/elements/alert",
+                name: "alert",
+                title: "Alert",
+                element: <AlertPage />,
+                sub: [],
+            },
+            {
+                icon: null,
+                path: "/user-interface/elements/avatar",
+                name: "avatar",
+                title: "Avatar",
+                element: <AvatarPage />,
+                sub: [],
+            },
+        ],
+    },
+    {
+        icon: <PiCalendarBlankFill />,
+        path: "calendar",
+        name: "calendar",
+        title: "Calendar",
+        element: null,
+        sub: [],
+    },
+    {
+        icon: <FaMapMarkedAlt />,
+        path: "maps",
+        name: "maps",
+        title: "Maps",
+        element: null,
+        sub: [],
     },
     {
         label: "FORMS & TABLES",
@@ -169,6 +216,67 @@ export const menu: MenuItem[] = [
                 name: "textfield",
                 title: "Text Field",
                 element: <TextFieldPage />,
+                sub: [],
+            },
+        ],
+    },
+    {
+        icon: <PiTableFill />,
+        path: "tables",
+        name: "tables",
+        title: "Tables",
+        element: null,
+        sub: [],
+    },
+        {
+        label: "USER & PAGES",
+    },
+    {
+        icon: <PiUserFill />,
+        path: "users",
+        name: "users",
+        title: "Users",
+        element: null,
+        sub: [
+            {
+                icon: null,
+                path: "/user-pages/users/alert",
+                name: "alert",
+                title: "Alert",
+                element: <AlertPage />,
+                sub: [],
+            },
+            {
+                icon: null,
+                path: "/user-pages/users/avatar",
+                name: "avatar",
+                title: "Avatar",
+                element: <AvatarPage />,
+                sub: [],
+            },
+        ],
+    },
+    {
+        icon: <PiFileTextFill />,
+        path: "pages",
+        name: "pages",
+        title: "Pages",
+        element: null,
+        sub: [
+            {
+                icon: null,
+                path: "/user-pages/pages/alert",
+                name: "alert",
+                title: "Alert",
+                element: <AlertPage />,
+                sub: [],
+            },
+            {
+                icon: null,
+                path: "/user-pages/pages/avatar",
+                name: "avatar",
+                title: "Avatar",
+                element: <AvatarPage />,
                 sub: [],
             },
         ],

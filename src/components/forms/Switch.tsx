@@ -7,7 +7,7 @@ interface SwitchProps {
     value: boolean;
     onChange: React.Dispatch<React.SetStateAction<boolean>>;
     size?: "sm" | "md" | "lg" | "xl" | string;
-    color?: "lightGreen" | "lightPurple" | "lightYellow" | "lightRed" | "lightBlue" | string;
+    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string;
     disabled?: boolean;
     required?: boolean;
 }
@@ -18,7 +18,7 @@ const Switch: React.FC<SwitchProps> = ({
     value = false,
     onChange = () => { },
     size = "md",
-    color = "lightGreen",
+    color = "primary",
     disabled = false,
     required = false,
 }) => {
@@ -26,12 +26,12 @@ const Switch: React.FC<SwitchProps> = ({
 
     // Color mapping
     const switchColors: Record<string, string> = {
-        lightGreen: colortheme,
-        lightGray: "#BEBEBE",
-        lightPurple: "#9B30FF",
-        lightYellow: "#FFFF00",
-        lightRed: "#FF0000",
-        lightBlue: "#0000FF",
+        primary: colortheme,
+        secondary: "#805DCA",
+        success: "#00AB55",
+        danger: "#E7515A",
+        warning: "#E2A03F",
+        info: "#2196F3",
     };
 
     const switchColor = switchColors[color] || color;

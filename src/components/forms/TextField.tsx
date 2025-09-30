@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 // npm install cleave.js@^1.6.0
+import { ThemeContext } from '@/context/ThemeContext';
 import Cleave from 'cleave.js/react';
 import type { ReactNode } from 'react';
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { TbX } from "react-icons/tb";
 
 interface TextFieldProps {
@@ -53,7 +54,7 @@ const TextField: React.FC<TextFieldProps> = ({
     variant = "basic",
     size = "md",
     color = "primary",
-    rounded = "none",
+    rounded = "md",
     density = "normal",
     prefix,
     suffix,
@@ -70,15 +71,17 @@ const TextField: React.FC<TextFieldProps> = ({
     const [isFocus, setIsFocus] = useState<boolean>(false);
     const [isHover, setIsHover] = useState<boolean>(false);
 
+    const { colortheme, theme } = useContext(ThemeContext);
+
     // Color
     const textFieldColor =
         {
-            primary: "#3D74B6",
-            base: "#F3F4F6",
-            success: "#16A34A",
-            warning: "#FACC15",
-            danger: "#DC2626",
-            info: "#3D74B6",
+            primary: colortheme,
+            secondary: "#805DCA",
+            success: "#00AB55",
+            danger: "#E7515A",
+            warning: "#E2A03F",
+            info: "#2196F3",
         }[color] || color;
 
     // Size
@@ -117,18 +120,22 @@ const TextField: React.FC<TextFieldProps> = ({
     if (variant === "outline") {
         containerStyle = {
             borderColor: error
-                ? "#EF4444"
+                ? "#E7515A"
                 : disabled
-                    ? "#BABCBA80"
+                    ? "#6A728230"
                     : isFocus
                         ? textFieldColor
                         : isHover
-                            ? "#E4E4E7"
-                            : "#E4E4E7",
+                            ? theme === "dark"
+                                ? "#253B5C"
+                                : "#E0E6ED"
+                            : theme === "dark"
+                                ? "#253B5C"
+                                : "#E0E6ED",
             borderWidth: 1,
             borderStyle: "solid",
             outline: error
-                ? `2px solid #EF4444`
+                ? `2px solid #6A7282`
                 : isFocus
                     ? `2px solid ${textFieldColor}`
                     : "none",
@@ -138,45 +145,60 @@ const TextField: React.FC<TextFieldProps> = ({
     } else if (variant === "filled") {
         containerStyle = {
             borderColor: error
-                ? "#EF4444"
+                ? "#E7515A"
                 : disabled
-                    ? "#BABCBA80"
+                    ? "#6A728230"
                     : isFocus
                         ? textFieldColor
                         : isHover
-                            ? "#9A9C9A"
-                            : "#BABCBA",
+                            ? theme === "dark"
+                                ? "#253B5C"
+                                : "#E0E6ED"
+                            : theme === "dark"
+                                ? "#253B5C"
+                                : "#E0E6ED",
             borderBottomWidth: 1,
             borderBottomStyle: "solid",
             borderTopLeftRadius: textFieldRounded,
             borderTopRightRadius: textFieldRounded,
-            backgroundColor: "#F7F6F9",
+            backgroundColor:
+                theme === "dark"
+                    ? "#253B5C50"
+                    : "#F3F4F6",
         };
     } else if (variant === "underlined") {
         containerStyle = {
             borderColor: error
-                ? "#EF4444"
+                ? "#E7515A"
                 : disabled
-                    ? "#BABCBA80"
+                    ? "#6A728230"
                     : isFocus
                         ? textFieldColor
                         : isHover
-                            ? "#9A9C9A"
-                            : "#BABCBA",
+                            ? theme === "dark"
+                                ? "#253B5C"
+                                : "#E0E6ED"
+                            : theme === "dark"
+                                ? "#253B5C"
+                                : "#E0E6ED",
             borderBottomWidth: 1,
             borderBottomStyle: "solid",
         };
     } else {
         containerStyle = {
             borderColor: error
-                ? "#EF4444"
+                ? "#E7515A"
                 : disabled
-                    ? "#BABCBA80"
+                    ? "#6A728230"
                     : isFocus
                         ? textFieldColor
                         : isHover
-                            ? "#E4E4E7"
-                            : "#E4E4E7",
+                            ? theme === "dark"
+                                ? "#253B5C"
+                                : "#E0E6ED"
+                            : theme === "dark"
+                                ? "#253B5C"
+                                : "#E0E6ED",
             borderWidth: 1,
             borderStyle: "solid",
             outline: "none",
@@ -188,7 +210,7 @@ const TextField: React.FC<TextFieldProps> = ({
     let inputStyle = {};
     if (variant === "outline") {
         inputStyle = {
-            padding: `${textFieldDensity + 4}px 14px`,
+            padding: `${textFieldDensity}px 14px`,
         };
     } else if (variant === "filled") {
         inputStyle = {
@@ -212,7 +234,7 @@ const TextField: React.FC<TextFieldProps> = ({
             left: 14,
             top: isFocus || value ? 0 : "50%",
             transform: "translateY(-50%)",
-            color: isFocus || value ? textFieldColor : "#BABCBA80",
+            color: isFocus || value ? textFieldColor : "#6A7282",
         };
     } else if (variant === "filled") {
         labelStyle = {
@@ -272,7 +294,7 @@ const TextField: React.FC<TextFieldProps> = ({
                             style={{ ...labelStyle }}
                             className={`absolute pointer-events-none transition-[top,font,padding,margin] leading-none whitespace-nowrap ${(isFocus && variant === "outline") ||
                                 (variant === "outline" && value)
-                                ? "bg-white/80 backdrop-blur rounded px-1 -ml-1"
+                                ? "bg-white dark:bg-black backdrop-blur rounded px-1 -ml-1"
                                 : ""
                                 }`}
                         >
@@ -284,8 +306,9 @@ const TextField: React.FC<TextFieldProps> = ({
                         <div
                             style={{
                                 fontSize: textFieldSize,
+                                borderRadius: textFieldRounded,
                             }}
-                            className="flex items-center px-2 bg-gray-100 rounded-l-xl"
+                            className="flex items-center px-2 bg-gray-100 dark:bg-[#253B5C50]"
                         >
                             {prefix}
                         </div>
@@ -398,7 +421,7 @@ const TextField: React.FC<TextFieldProps> = ({
                     style={{
                         fontSize: textFieldSize - 3,
                     }}
-                    className="leading-none tracking-wide mt-1 text-red-500"
+                    className="leading-none tracking-wide mt-1 text-[#E7515A]"
                 >
                     {error}
                 </div>

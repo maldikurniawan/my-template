@@ -1,6 +1,7 @@
 import { Footer, Header, Setting, Sidebar } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import React, { Fragment, Suspense, useContext, useEffect, useState } from "react";
+import { PiArrowUp } from "react-icons/pi";
 import { Outlet } from "react-router-dom";
 
 const Layout: React.FC = () => {
@@ -48,7 +49,7 @@ const Layout: React.FC = () => {
     return (
         <Fragment>
             <div
-                className={`${sidebar ? "toggle-sidebar" : ""} ${menu} ${layout} main-section antialiased relative text-sm font-normal overflow-x-hidden`}
+                className={`${sidebar ? "toggle-sidebar" : ""} ${menu} ${layout} main-section antialiased relative text-sm font-normal`}
             >
                 {/* BEGIN MAIN CONTAINER */}
                 <div className="relative">
@@ -72,10 +73,8 @@ const Layout: React.FC = () => {
                     )}
                     <div className="fixed bottom-6 right-6 z-50">
                         {showTopButton && (
-                            <button type="button" className="rounded-full p-2 animate-pulse bg-[#fafafa] dark:bg-[#060818] dark:hover:bg-primary" onClick={goToTop}>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7l4-4m0 0l4 4m-4-4v18" />
-                                </svg>
+                            <button type="button" className="border border-primary cursor-pointer text-primary rounded-full p-2 bg-[#fafafa] dark:bg-[#060818]" onClick={goToTop}>
+                                <PiArrowUp className="w-4 h-4" />
                             </button>
                         )}
                     </div>
@@ -96,7 +95,7 @@ const Layout: React.FC = () => {
 
                             {/* BEGIN CONTENT AREA */}
                             <Suspense>
-                                <div className={`${animation} p-6 animate__animated`}><Outlet /></div>
+                                <div className={`${animation} p-6 animate__animated overflow-x-hidden`}><Outlet /></div>
                             </Suspense>
                             {/* END CONTENT AREA */}
 

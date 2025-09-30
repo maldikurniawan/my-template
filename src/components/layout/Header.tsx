@@ -88,8 +88,8 @@ const Header = () => {
 
     return (
         <header className={`z-40 ${semidark && menuMode === "horizontal" ? "dark" : ""}`}>
-            <div className="shadow-xs">
-                <div className="relative bg-white flex w-full items-center px-5 py-2.5 dark:bg-black">
+            <div>
+                <div className="relative bg-white flex w-full items-center px-5 py-2.5 dark:bg-black shadow-xs">
                     <div className="horizontal-logo flex lg:hidden justify-between items-center mr-2">
                         <Link to="/" className="main-logo flex items-center shrink-0">
                             <img className="w-8 -ml-1 inline" src="/assets/images/logo.svg" alt="logo" />

@@ -14,7 +14,7 @@ interface TextAreaProps {
     placeholder?: string;
     variant?: "basic" | "outline" | "underlined" | "filled" | string;
     size?: "sm" | "md" | "lg" | "xl" | string;
-    color?: "lightGreen" | "lightGray" | "lightPurple" | "lightYellow" | "lightRed" | "lightBlue" | string;
+    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string;
     rounded?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | string;
     density?: "tight" | "normal" | "loose" | string;
     prefix?: React.ReactNode;
@@ -39,8 +39,8 @@ const TextArea: React.FC<TextAreaProps> = ({
     placeholder = "",
     variant = "basic",
     size = "md",
-    color = "lightGreen",
-    rounded = "none",
+    color = "primary",
+    rounded = "md",
     density = "normal",
     prefix,
     suffix,
@@ -50,7 +50,7 @@ const TextArea: React.FC<TextAreaProps> = ({
     error,
     rows = 2,
 }) => {
-    const { colortheme } = useContext(ThemeContext);
+    const { colortheme, theme } = useContext(ThemeContext);
 
     const variants = ["outline", "underlined", "filled"];
     const [isFocus, setIsFocus] = useState<boolean>(false);
@@ -59,12 +59,12 @@ const TextArea: React.FC<TextAreaProps> = ({
     // Color
     const textFieldColor =
         {
-            lightGreen: colortheme,
-            lightGray: "#BEBEBE",
-            lightPurple: "#9B30FF",
-            lightYellow: "#FFFF00",
-            lightRed: "#FF0000",
-            lightBlue: "#0000FF",
+            primary: colortheme,
+            secondary: "#805DCA",
+            success: "#00AB55",
+            danger: "#E7515A",
+            warning: "#E2A03F",
+            info: "#2196F3",
         }[color] || color;
 
     // Size
@@ -103,18 +103,22 @@ const TextArea: React.FC<TextAreaProps> = ({
     if (variant === "outline") {
         containerStyle = {
             borderColor: error
-                ? "#ef4444"
+                ? "#E7515A"
                 : disabled
-                    ? "#4D535580"
+                    ? "#6A728230"
                     : isFocus
                         ? textFieldColor
                         : isHover
-                            ? "#6F6F6F"
-                            : "#4D5355",
+                            ? theme === "dark"
+                                ? "#253B5C"
+                                : "#E0E6ED"
+                            : theme === "dark"
+                                ? "#253B5C"
+                                : "#E0E6ED",
             borderWidth: 1,
             borderStyle: "solid",
             outline: error
-                ? `2px solid #ef4444`
+                ? `2px solid #6A7282`
                 : isFocus
                     ? `2px solid ${textFieldColor}`
                     : "none",
@@ -124,45 +128,60 @@ const TextArea: React.FC<TextAreaProps> = ({
     } else if (variant === "filled") {
         containerStyle = {
             borderColor: error
-                ? "#ef4444"
+                ? "#E7515A"
                 : disabled
-                    ? "#4D535580"
+                    ? "#6A728230"
                     : isFocus
                         ? textFieldColor
                         : isHover
-                            ? "#6F6F6F"
-                            : "#4D5355",
+                            ? theme === "dark"
+                                ? "#253B5C"
+                                : "#E0E6ED"
+                            : theme === "dark"
+                                ? "#253B5C"
+                                : "#E0E6ED",
             borderBottomWidth: 1,
             borderBottomStyle: "solid",
             borderTopLeftRadius: textFieldRounded,
             borderTopRightRadius: textFieldRounded,
-            backgroundColor: "#1A1A1A",
+            backgroundColor:
+                theme === "dark"
+                    ? "#253B5C50"
+                    : "#F3F4F6",
         };
     } else if (variant === "underlined") {
         containerStyle = {
             borderColor: error
-                ? "#ef4444"
+                ? "#E7515A"
                 : disabled
-                    ? "#4D535580"
+                    ? "#6A728230"
                     : isFocus
                         ? textFieldColor
                         : isHover
-                            ? "#6F6F6F"
-                            : "#4D5355",
+                            ? theme === "dark"
+                                ? "#253B5C"
+                                : "#E0E6ED"
+                            : theme === "dark"
+                                ? "#253B5C"
+                                : "#E0E6ED",
             borderBottomWidth: 1,
             borderBottomStyle: "solid",
         };
     } else {
         containerStyle = {
             borderColor: error
-                ? "#ef4444"
+                ? "#E7515A"
                 : disabled
-                    ? "#4D535580"
+                    ? "#6A728230"
                     : isFocus
                         ? textFieldColor
                         : isHover
-                            ? "#6F6F6F"
-                            : "#4D5355",
+                            ? theme === "dark"
+                                ? "#253B5C"
+                                : "#E0E6ED"
+                            : theme === "dark"
+                                ? "#253B5C"
+                                : "#E0E6ED",
             borderWidth: 1,
             borderStyle: "solid",
             outline: "none",
@@ -268,7 +287,7 @@ const TextArea: React.FC<TextAreaProps> = ({
                             style={{ ...labelStyle }}
                             className={`absolute pointer-events-none transition-[top,font,padding,margin] leading-none whitespace-nowrap ${(isFocus && variant === "outline") ||
                                 (variant === "outline" && value)
-                                ? "bg-black backdrop-blur px-1 -ml-1"
+                                ? "bg-white dark:bg-black backdrop-blur px-1 -ml-1"
                                 : ""
                                 }`}
                         >
@@ -280,8 +299,9 @@ const TextArea: React.FC<TextAreaProps> = ({
                         <div
                             style={{
                                 fontSize: textFieldSize,
+                                borderRadius: textFieldRounded,
                             }}
-                            className="flex items-start p-[10px] leading-none"
+                            className="flex items-start p-[10px] leading-none bg-gray-100 dark:bg-[#253B5C50]"
                         >
                             {prefix}
                         </div>
@@ -345,7 +365,7 @@ const TextArea: React.FC<TextAreaProps> = ({
                     style={{
                         fontSize: textFieldSize - 3,
                     }}
-                    className="leading-none tracking-wide mt-1 text-red-500"
+                    className="leading-none tracking-wide mt-1 text-[#E7515A]"
                 >
                     {error}
                 </div>

@@ -406,7 +406,7 @@ const Select: React.FC<SelectProps> = ({
                                     backgroundColor: theme === "dark" ? "#121E32" : "#FFFFFF",
                                     boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.08)",
                                     borderRadius: selectRounded,
-                                    border: theme === "dark" ? "1px solid #4361EE" : "1px solid #33333390",
+                                    border: theme === "dark" ? "1px solid #4361EE30" : "1px solid #33333330",
                                 }),
                                 option: (base, state) => ({
                                     ...base,

@@ -71,10 +71,7 @@ const Setting = () => {
                     <div className="border border-dashed border-[#e0e6ed] dark:border-[#1b2e4b] rounded-md mb-3 p-3">
                         <h5 className="mb-1 text-base dark:text-white leading-none">Navigation Position</h5>
                         <p className="text-[#888ea8] text-xs">Select the primary navigation paradigm for your app.</p>
-                        <div className="grid grid-cols-3 gap-2 mt-3">
-                            <button type="button" className={`${menu === 'horizontal' ? 'border-primary bg-primary text-white shadow-primary/60' : 'border-primary text-primary shadow-none hover:bg-primary hover:text-white'} relative flex items-center justify-center rounded-md border px-5 py-2 text-sm font-semibold shadow-[0_10px_20px_-10px] outline-none transition duration-300 hover:shadow-none cursor-pointer`} onClick={() => setMenu('horizontal')}>
-                                Horizontal
-                            </button>
+                        <div className="grid grid-cols-2 gap-2 mt-3">
 
                             <button type="button" className={`${menu === 'vertical' ? 'border-primary bg-primary text-white shadow-primary/60' : 'border-primary text-primary shadow-none hover:bg-primary hover:text-white'} relative flex items-center justify-center rounded-md border px-5 py-2 text-sm font-semibold shadow-[0_10px_20px_-10px] outline-none transition duration-300 hover:shadow-none cursor-pointer`} onClick={() => setMenu('vertical')}>
                                 Vertical
