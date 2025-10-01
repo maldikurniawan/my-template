@@ -21,7 +21,7 @@ interface DatePickerProps {
     placeholder?: string;
     variant?: "basic" | "outline" | "underlined" | "filled" | string;
     size?: "sm" | "md" | "lg" | "xl" | string;
-    color?: "lightGreen" | "lightGray" | "lightPurple" | "lightYellow" | "lightRed" | "lightBlue" | string;
+    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string;
     rounded?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | string;
     density?: "tight" | "normal" | "loose" | string;
     prefix?: React.ReactNode;
@@ -61,8 +61,8 @@ const DatePicker: React.FC<DatePickerProps> = ({
     placeholder,
     variant = "basic",
     size = "md",
-    color = "lightGreen",
-    rounded = "none",
+    color = "primary",
+    rounded = "md",
     density = "normal",
     prefix,
     suffix,
@@ -80,7 +80,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
     placement = "bottom-start",
     position = "relative",
 }) => {
-    const { colortheme } = useContext(ThemeContext);
+    const { colortheme, theme } = useContext(ThemeContext);
     const currentYear = moment().year();
     const fromYearValue = fromYear || currentYear - 4;
     const toYearValue = toYear || currentYear + 4;
@@ -93,12 +93,12 @@ const DatePicker: React.FC<DatePickerProps> = ({
     // Color mapping
     const datepickerColor =
         {
-            lightGreen: colortheme,
-            lightGray: "#BABCBD",
-            lightPurple: "#4ED17E",
-            lightYellow: "#EEC239",
-            lightRed: "#F26969",
-            lightBlue: "#629BF8",
+            primary: colortheme,
+            secondary: "#805DCA",
+            success: "#00AB55",
+            danger: "#E7515A",
+            warning: "#E2A03F",
+            info: "#2196F3",
         }[color] || color;
 
     const { refs, floatingStyles } = useFloating({
@@ -148,7 +148,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
                 <div
                     ref={refs.setFloating}
                     style={floatingStyles}
-                    className={`bg-black w-fit border border-[#0F0] z-10 ${position}`}
+                    className={`bg-white dark:bg-black w-fit border border-[#E0E6ED] dark:border-[#253B5C] rounded-md z-10 ${position}`}
                 >
                     <DayPicker
                         required
@@ -167,16 +167,16 @@ const DatePicker: React.FC<DatePickerProps> = ({
                         }}
                         styles={{
                             dropdown: {
-                                backgroundColor: "#000",
+                                backgroundColor: theme === "dark" ? "#0E1726" : "#FFFFFF",
                             },
                         }}
                         classNames={{
                             selected: datepickerColor,
-                            caption_label: "text-white",
+                            caption_label: "text-black dark:text-white",
                             range_start: "rounded-s-full",
                             range_end: "rounded-e-full",
-                            today: "text-[#0F0] font-bold",
-                            day: "hover:bg-white/10",
+                            today: "text-primary font-bold",
+                            day: "hover:bg-black/10 dark:hover:bg-white/10",
                         }}
                         mode={mode}
                         captionLayout="dropdown"

@@ -15,7 +15,7 @@ interface MonthPickerProps {
     placeholder?: string;
     variant?: "basic" | "outline" | "underlined" | "filled" | string;
     size?: "sm" | "md" | "lg" | "xl";
-    color?: "lightGreen" | "lightGray" | "lightPurple" | "lightYellow" | "lightRed" | "lightBlue" | string;
+    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string;
     rounded?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | string;
     density?: "tight" | "normal" | "loose" | string;
     prefix?: React.ReactNode;
@@ -41,8 +41,8 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
     placeholder,
     variant = "basic",
     size = "md",
-    color = "lightGreen",
-    rounded = "none",
+    color = "primary",
+    rounded = "md",
     density = "normal",
     prefix,
     suffix,
@@ -60,18 +60,19 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
 }) => {
     const { colortheme } = useContext(ThemeContext);
     const [open, setOpen] = useState<boolean>(false);
+    const [year, setYear] = useState<number>(new Date().getFullYear());
+    const monthList = moment.months();
+
     const ref = useRef<any>(null);
     useOnClickOutside(ref, () => setOpen(false));
-    const monthList = moment.months();
-    const [year, setYear] = useState<number>(new Date().getFullYear());
 
     const colorMonthPickers: Record<string, string> = {
-        lightGreen: colortheme,
-        lightGray: "#BEBEBE",
-        lightPurple: "#9B30FF",
-        lightYellow: "#FFFF00",
-        lightRed: "#FF0000",
-        lightBlue: "#0000FF",
+        primary: colortheme,
+        secondary: "#805DCA",
+        success: "#00AB55",
+        danger: "#E7515A",
+        warning: "#E2A03F",
+        info: "#2196F3",
     };
 
     const colorMonthPicker = colorMonthPickers[color] || color;
@@ -122,7 +123,7 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
                 <div
                     ref={refs.setFloating}
                     style={floatingStyles}
-                    className={`bg-[#1a1a1a] w-fit border border-[#333] z-10 p-4 ${position}`}
+                    className={`bg-[#FFFFFF] dark:bg-[#121E32] w-fit border border-[#33333330] dark:border-[#4361EE30] z-10 p-4 ${position}`}
                 >
                     <div className="flex items-center justify-between mb-2">
                         <Button
@@ -169,7 +170,7 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
                                                 ? "black"
                                                 : "",
                                     }}
-                                    className="text-sm m-0 w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-white/10"
+                                    className="text-sm m-0 w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-black/10 dark:hover:bg-white/10"
                                 >
                                     {month.substring(0, 3)}
                                 </div>

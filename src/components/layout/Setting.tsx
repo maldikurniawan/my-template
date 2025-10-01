@@ -127,7 +127,7 @@ const Setting = () => {
                                     { label: "Static", value: "navbar-static" },
                                 ]}
                                 size="xl"
-                                color="lightGreen"
+                                color="primary"
                             />
                         </div>
                     </div>

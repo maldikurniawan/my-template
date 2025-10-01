@@ -60,7 +60,7 @@ const FileInput: FC<FileInputProps> = ({
     return (
         <div
             {...getRootProps({
-                className: `relative w-full border-2 border-dashed border-white text-center p-6 ${disabled ? "" : "cursor-pointer"
+                className: `relative w-full border-2 border-dashed border-black dark:border-white text-center p-6 ${disabled ? "" : "cursor-pointer"
                     }`,
                 style: {
                     minHeight: `${height}px`,
@@ -84,7 +84,7 @@ const FileInput: FC<FileInputProps> = ({
                         className="group/cardfile relative w-full sm:w-36 h-52 cursor-default overflow-clip bg-white flex flex-col shadow-[rgba(0,0,0,0.12)_0px_1px_3px,_rgba(0,0,0,0.24)_0px_1px_2px]"
                         key={fileIdx}
                     >
-                        <div className="absolute z-20 right-2 top-2 cursor-pointer text-red-500 transition-opacity opacity-0 group-hover/cardfile:opacity-100">
+                        <div className="absolute z-20 right-2 top-2 cursor-pointer text-danger transition-opacity opacity-0 group-hover/cardfile:opacity-100">
                             <TbX
                                 onClick={() => {
                                     setValue(value.filter((_, itemIdx) => itemIdx !== fileIdx));
@@ -92,8 +92,8 @@ const FileInput: FC<FileInputProps> = ({
                             />
                         </div>
 
-                        <div className="relative flex-1 bg-green-950 flex items-center justify-center text-xs overflow-hidden">
-                            <div className="absolute bottom-1 right-1 text-2xl drop-shadow-lg text-green-500">
+                        <div className="relative flex-1 bg-[#E0E6ED50] dark:bg-black/90 flex items-center justify-center text-xs overflow-hidden">
+                            <div className="absolute bottom-1 right-1 text-2xl drop-shadow-lg text-primary">
                                 <TbChecks />
                             </div>
 
@@ -110,7 +110,7 @@ const FileInput: FC<FileInputProps> = ({
                             )}
                         </div>
 
-                        <div className="bg-[#001e00] p-2 text-[10px] text-left h-16 border-t border-white">
+                        <div className="bg-[#E0E6ED90] dark:bg-black/90 p-2 text-[10px] text-left h-16 border-t border-white">
                             <div className="line-clamp-3 leading-none mb-1">{file.name}</div>
                             <div>{formatBytes(file.size)}</div>
                         </div>
@@ -122,7 +122,7 @@ const FileInput: FC<FileInputProps> = ({
                         className="group/cardfile relative w-full sm:w-36 h-52 cursor-default overflow-clip bg-white flex flex-col shadow-[rgba(0,0,0,0.12)_0px_1px_3px,_rgba(0,0,0,0.24)_0px_1px_2px]"
                         key={fileIdx}
                     >
-                        <div className="absolute z-20 right-2 top-2 cursor-pointer text-red-500 transition-opacity opacity-0 group-hover/cardfile:opacity-100">
+                        <div className="absolute z-20 right-2 top-2 cursor-pointer text-danger transition-opacity opacity-0 group-hover/cardfile:opacity-100">
                             <TbX
                                 onClick={() => {
                                     setRejectedFiles(rejectedFiles.filter((_, idx) => idx !== fileIdx));
@@ -131,7 +131,7 @@ const FileInput: FC<FileInputProps> = ({
                         </div>
 
                         <div className="relative flex-1 flex items-center justify-center text-xs overflow-hidden">
-                            <div className="absolute bottom-1 right-1 text-2xl drop-shadow-lg text-red-500">
+                            <div className="absolute bottom-1 right-1 text-2xl drop-shadow-lg text-danger">
                                 <TbX />
                             </div>
 

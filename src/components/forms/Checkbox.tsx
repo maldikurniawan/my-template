@@ -8,7 +8,7 @@ interface CheckboxProps {
     checked: boolean;
     onChange?: () => void;
     size?: "xs" | "sm" | "md" | "lg" | "xl" | string;
-    color?: "lightGreen" | "lightGray" | "lightPurple" | "lightYellow" | "lightRed" | "lightBlue" | string | null;
+    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string | null;
     disabled?: boolean | null;
     label?: string;
 }
@@ -18,7 +18,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
     checked = false,
     onChange = () => { },
     size = "md",
-    color = "lightGreen",
+    color = "primary",
     disabled = false,
     label
 }) => {
@@ -29,12 +29,12 @@ const Checkbox: React.FC<CheckboxProps> = ({
         color === null
             ? colortheme
             : {
-                lightGreen: colortheme,
-                lightGray: "#BEBEBE",
-                lightPurple: "#9B30FF",
-                lightYellow: "#FFFF00",
-                lightRed: "#FF0000",
-                lightBlue: "#0000FF",
+                primary: colortheme,
+                secondary: "#805DCA",
+                success: "#00AB55",
+                danger: "#E7515A",
+                warning: "#E2A03F",
+                info: "#2196F3",
             }[color] || color;
 
     // Size
@@ -63,7 +63,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
     return (
         <div className="flex items-center gap-x-1.5">
             <ButtonRipple
-                className="relative rounded flex items-center justify-center transition-[background] hover:bg-white/10"
+                className="relative rounded flex items-center justify-center transition-[background] hover:bg-black/10 dark:hover:bg-white/10"
                 color={checkboxColor ? `${checkboxColor}50` : `#989C9D50`}
                 onClick={onChange} // onChange toggles the checked state
                 disabled={disabled ?? false} // Handle null with a fallback to false
@@ -100,7 +100,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
                 <label
                     htmlFor={id}
                     className={`cursor-pointer font-semibold ${disabled
-                        ? "pointer-events-none text-white/30"
+                        ? "pointer-events-none text-black/30 dark:text-white/30"
                         : "text-primary"
                         }`}
                 >

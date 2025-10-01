@@ -37,6 +37,10 @@ body.dark {
     @apply bg-[#060818];
 }
 
+.dark input[type]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
 /* Panel */
 .panel {
     @apply relative rounded-md bg-white p-5 shadow dark:bg-black;

@@ -14,7 +14,7 @@ interface RadioProps {
     onChange?: any;
     options: Option[];
     size?: "xs" | "sm" | "md" | "lg" | "xl";
-    color?: "lightGreen" | "lightGray" | "lightPurple" | "lightYellow" | "lightRed" | "lightBlue" | string;
+    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string;
     inline?: boolean;
 }
 
@@ -23,19 +23,19 @@ const Radio: FC<RadioProps> = ({
     onChange,
     options,
     size = "md",
-    color = "lightGreen",
+    color = "primary",
     inline = true
 }) => {
     const { colortheme, theme } = useContext(ThemeContext);
 
     // Color mapping
     const radioColors: Record<string, string> = {
-        lightGreen: colortheme,
-        lightGray: "#BEBEBE",
-        lightPurple: "#9B30FF",
-        lightYellow: "#FFFF00",
-        lightRed: "#FF0000",
-        lightBlue: "#0000FF",
+        primary: colortheme,
+        secondary: "#805DCA",
+        success: "#00AB55",
+        danger: "#E7515A",
+        warning: "#E2A03F",
+        info: "#2196F3",
     };
 
     const radioColor = radioColors[color] || color;

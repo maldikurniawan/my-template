@@ -33,7 +33,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
     label,
     required = false,
     placement = "bottom-start",
-    rounded = "none",
+    rounded = "md",
     density = "normal",
     size = "md",
     note,
@@ -146,7 +146,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
                     style={{
                         fontSize: colorPickerSize - 3,
                     }}
-                    className="leading-none tracking-wide mt-1 text-red-500"
+                    className="leading-none tracking-wide mt-1 text-danger"
                 >
                     {error}
                 </div>

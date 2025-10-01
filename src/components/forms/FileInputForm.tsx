@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { useDropzone } from "react-dropzone";
+import { ThemeContext } from "@/context/ThemeContext";
+import { useContext, useState } from "react";
 import type { FileRejection } from "react-dropzone";
+import { useDropzone } from "react-dropzone";
 
 interface FileInputFormProps {
     accept?: any;
@@ -34,7 +35,7 @@ const FileInputForm = ({
     id,
     name,
     density = "normal",
-    rounded = "none",
+    rounded = "md",
     size = "md",
     label,
     required = false,
@@ -43,6 +44,8 @@ const FileInputForm = ({
 }: FileInputFormProps) => {
     const [isHover, setIsHover] = useState<boolean>(false);
     const [errorRejection, setErrorRejection] = useState<string | null>(null);
+
+    const { theme } = useContext(ThemeContext);
 
     const onDrop = (acceptedFiles: File[], fileRejections: FileRejection[]) => {
         if (fileRejections.length > 0) {
@@ -98,12 +101,16 @@ const FileInputForm = ({
 
     let containerStyle = {
         borderColor: error
-            ? "#ef4444"
+            ? "#E7515A"
             : disabled
-                ? "#00FF0080"
+                ? "#6A728230"
                 : isHover
-                    ? "#00FF00"
-                    : "#00FF00",
+                    ? theme === "dark"
+                        ? "#253B5C"
+                        : "#E0E6ED"
+                    : theme === "dark"
+                        ? "#253B5C"
+                        : "#E0E6ED",
         borderWidth: 1,
         borderStyle: "solid",
         outline: "none",
@@ -113,12 +120,16 @@ const FileInputForm = ({
 
     let buttonStyle = {
         backgroundColor: error
-            ? "#ef4444"
+            ? "#E7515A"
             : disabled
-                ? "#00FF0080"
+                ? "#6A728230"
                 : isHover
-                    ? "#00FF00"
-                    : "#00FF00",
+                    ? theme === "dark"
+                        ? "#253B5C"
+                        : "#E0E6ED"
+                    : theme === "dark"
+                        ? "#253B5C"
+                        : "#E0E6ED",
     };
 
     return (
@@ -138,7 +149,7 @@ const FileInputForm = ({
                 onMouseEnter={() => setIsHover(true)}
                 onMouseLeave={() => setIsHover(false)}
                 {...getRootProps({
-                    className: `relative w-full overflow-hidden border border-white ${disabled ? "" : "cursor-pointer"
+                    className: `relative w-full overflow-hidden border border-black dark:border-white ${disabled ? "" : "cursor-pointer"
                         }`,
                     style: {
                         ...containerStyle,
@@ -155,7 +166,7 @@ const FileInputForm = ({
                             padding: `${fileInputDensity}px 14px`,
                             ...buttonStyle,
                         }}
-                        className="text-black flex items-center font-bold justify-center whitespace-nowrap transition"
+                        className="text-black dark:text-white flex items-center font-bold justify-center whitespace-nowrap transition"
                     >
                         Upload File
                     </div>

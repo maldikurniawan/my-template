@@ -20,7 +20,7 @@ interface SelectProps {
     size?: "sm" | "md" | "lg" | "xl" | string;
     width?: "full" | "half" | "third" | "quarter" | "auto" | string;
     menuplacement?: "auto" | "top" | "bottom";
-    color?: "lightGreen" | "lightGray" | "lightPurple" | "lightYellow" | "lightRed" | "lightBlue" | string;
+    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string;
     rounded?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | string;
     density?: "tight" | "normal" | "loose" | string;
     prepend?: React.ReactNode;
@@ -49,7 +49,7 @@ const Select: React.FC<SelectProps> = ({
     size = "md",
     width = "full",
     menuplacement = "auto",
-    color = "lightGreen",
+    color = "primary",
     rounded = "md",
     density = "normal",
     prepend,
@@ -87,12 +87,12 @@ const Select: React.FC<SelectProps> = ({
     // Color
     const selectColor =
         {
-            lightGreen: colortheme,
-            lightGray: "#BEBEBE",
-            lightPurple: "#9B30FF",
-            lightYellow: "#FFFF00",
-            lightRed: "#FF0000",
-            lightBlue: "#0000FF",
+            primary: colortheme,
+            secondary: "#805DCA",
+            success: "#00AB55",
+            danger: "#E7515A",
+            warning: "#E2A03F",
+            info: "#2196F3",
         }[color] || color;
 
     // Size
@@ -131,18 +131,22 @@ const Select: React.FC<SelectProps> = ({
     if (variant === "outline") {
         containerStyle = {
             borderColor: error
-                ? "#ef4444"
+                ? "#E7515A"
                 : disabled
-                    ? "#4D535580"
+                    ? "#6A728230"
                     : isFocus
                         ? selectColor
                         : isHover
-                            ? "#6F6F6F"
-                            : "#4D5355",
+                            ? theme === "dark"
+                                ? "#253B5C"
+                                : "#E0E6ED"
+                            : theme === "dark"
+                                ? "#253B5C"
+                                : "#E0E6ED",
             borderWidth: 1,
             borderStyle: "solid",
             outline: error
-                ? `2px solid #ef4444`
+                ? `2px solid #E7515A`
                 : isFocus
                     ? `2px solid ${selectColor}`
                     : "none",
@@ -152,14 +156,18 @@ const Select: React.FC<SelectProps> = ({
     } else {
         containerStyle = {
             borderColor: error
-                ? "#ef4444"
+                ? "#E7515A"
                 : disabled
-                    ? "#4D535580"
+                    ? "#6A728230"
                     : isFocus
                         ? selectColor
                         : isHover
-                            ? "#4361EE"
-                            : "#4361EE",
+                            ? theme === "dark"
+                                ? "#253B5C"
+                                : "#E0E6ED"
+                            : theme === "dark"
+                                ? "#253B5C"
+                                : "#E0E6ED",
             borderWidth: 1,
             borderStyle: "solid",
             outline: "none",
@@ -244,7 +252,7 @@ const Select: React.FC<SelectProps> = ({
                             style={{ ...labelStyle }}
                             className={`absolute pointer-events-none transition-[top,font,padding,margin] leading-none whitespace-nowrap ${(isFocus && variant === "outline") ||
                                 (variant === "outline" && value)
-                                ? "bg-white dark:bg-[#253b5c] backdrop-blur px-1 -ml-1"
+                                ? "bg-white dark:bg-black backdrop-blur px-1 -ml-1"
                                 : ""
                                 }`}
                         >
@@ -275,7 +283,7 @@ const Select: React.FC<SelectProps> = ({
                                 onBlur && onBlur(e);
                             }}
                             unstyled
-                            className="leading-none"
+                            className="leading-none text-primary dark:text-white-dark"
                             components={{
                                 IndicatorSeparator: () => null,
                                 DropdownIndicator,
@@ -303,17 +311,17 @@ const Select: React.FC<SelectProps> = ({
                                 }),
                                 menu: (base) => ({
                                     ...base,
-                                    backgroundColor: "#000000",
+                                    backgroundColor: theme === "dark" ? "#121E32" : "#FFFFFF",
                                     boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.08)",
                                     borderRadius: selectRounded,
                                     top: "calc(100% + 6px)",
-                                    border: "1px solid #333",
+                                    border: theme === "dark" ? "1px solid #4361EE30" : "1px solid #33333330",
                                 }),
                                 option: (base, state) => ({
                                     ...base,
                                     color: state.isSelected
-                                        ? "#000000"
-                                        : "#FFFFFF75",
+                                        ? "#FFFFFF"
+                                        : theme === "dark" ? "#888EA8" : "#4361EE",
                                     backgroundColor: state.isSelected
                                         ? selectColor
                                         : "transparent",
@@ -323,13 +331,13 @@ const Select: React.FC<SelectProps> = ({
                                     "&:hover": {
                                         backgroundColor: state.isSelected
                                             ? selectColor
-                                            : "#FFFFFF10",
+                                            : "#4361EE30",
                                     },
                                 }),
                                 multiValue: (base) => ({
                                     ...base,
-                                    color: "#FFFFFF",
-                                    backgroundColor: "#1A1A1A",
+                                    color: theme === "dark" ? "#888EA8" : "#4361EE",
+                                    backgroundColor: theme === "dark" ? "#121E32" : "#E0E6ED",
                                     padding: "6px",
                                     fontSize: selectSize - 2,
                                     display: "flex",
@@ -427,8 +435,8 @@ const Select: React.FC<SelectProps> = ({
                                 }),
                                 multiValue: (base) => ({
                                     ...base,
-                                    color: "#FFFFFF",
-                                    backgroundColor: "#1A1A1A",
+                                    color: theme === "dark" ? "#888EA8" : "#4361EE",
+                                    backgroundColor: theme === "dark" ? "#121E32" : "#E0E6ED",
                                     padding: "6px",
                                     fontSize: selectSize - 2,
                                     display: "flex",
