@@ -2,18 +2,15 @@ import { Calendar, Card } from '@/components';
 import React from 'react';
 
 const CalendarPage: React.FC = () => {
-    // Example events
     const events = [
         { title: 'Meeting with Team', date: '2025-01-20' },
         { title: 'Project Deadline', date: '2025-01-22' },
     ];
 
-    // Event click handler
     const handleEventClick = (eventInfo: any) => {
         alert(`Event clicked: ${eventInfo.event.title}`);
     };
 
-    // Date selection handler
     const handleDateSelect = (selectionInfo: any) => {
         alert(`Date selected: ${selectionInfo.startStr} to ${selectionInfo.endStr}`);
     };

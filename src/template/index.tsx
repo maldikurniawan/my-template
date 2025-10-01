@@ -1,9 +1,28 @@
 import LoginPage from "./auth/LoginPage";
 import CalendarPage from "./calendar/CalendarPage";
-import AlertPage from "./components/AlertPage";
-import AvatarPage from "./components/AvatarPage";
-import NotFoundPage from "./components/NotFoundPage";
+import CardsPage from "./components/CardsPage";
+import CarouselPage from "./components/CarouselPage";
+import CollapsiblePage from "./components/CollapsiblePage";
+import CountdownPage from "./components/CountdownPage";
+import CounterPage from "./components/CounterPage";
+import DrawerPage from "./components/DrawerPage";
+import ListPage from "./components/ListPage";
+import ModalsPage from "./components/ModalsPage";
+import SweetAlertsPage from "./components/SweetAlertsPage";
+import TabsPage from "./components/TabsPage";
+import TimelinePage from "./components/TimelinePage";
 import DashboardPage from "./dashboard/DashboardPage";
+import AlertsPage from "./elements/AlertsPage";
+import AvatarPage from "./elements/AvatarPage";
+import BadgesPage from "./elements/BadgesPage";
+import BreadcrumbsPage from "./elements/BreadcrumbsPage";
+import ButtonsPage from "./elements/ButtonsPage";
+import ChipsPage from "./elements/ChipsPage";
+import LoaderPage from "./elements/LoaderPage";
+import PaginationPage from "./elements/PaginationPage";
+import PopoversPage from "./elements/PopoversPage";
+import ProgressBarPage from "./elements/ProgressBarPage";
+import TooltipsPage from "./elements/TooltipsPage";
 import CheckboxPage from "./forms/CheckboxPage";
 import ColorPickerPage from "./forms/ColorPickerPage";
 import DatePickerPage from "./forms/DatePickerPage";
@@ -15,12 +34,12 @@ import SwitchPage from "./forms/SwitchPage";
 import TextAreaPage from "./forms/TextAreaPage";
 import TextFieldPage from "./forms/TextFieldPage";
 import MapPage from "./maps/MapPage";
+import MaintenancePage from "./pages/MaintenancePage";
+import NotFoundPage from "./pages/NotFoundPage";
 import TablePage from "./tables/TablePage";
+import CVPage from "./users/CVPage";
+import ProfilePage from "./users/ProfilePage";
 
 export {
-    AlertPage,
-    AvatarPage, CalendarPage, CheckboxPage, ColorPickerPage, DashboardPage, DatePickerPage,
-    FileInputPage, LoginPage, MapPage, MonthPickerPage, NotFoundPage, RadioPage, SelectPage,
-    SwitchPage, TablePage, TextAreaPage, TextFieldPage
+    AlertsPage, AvatarPage, BadgesPage, BreadcrumbsPage, ButtonsPage, CalendarPage, CardsPage, CarouselPage, CheckboxPage, ChipsPage, CollapsiblePage, ColorPickerPage, CountdownPage, CounterPage, CVPage, DashboardPage, DatePickerPage, DrawerPage, FileInputPage, ListPage, LoaderPage, LoginPage, MaintenancePage, MapPage, ModalsPage, MonthPickerPage, NotFoundPage, PaginationPage, PopoversPage, ProfilePage, ProgressBarPage, RadioPage, SelectPage, SweetAlertsPage, SwitchPage, TablePage, TabsPage, TextAreaPage, TextFieldPage, TimelinePage, TooltipsPage
 };
-
