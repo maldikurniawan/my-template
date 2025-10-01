@@ -1,4 +1,5 @@
 import LoginPage from "./auth/LoginPage";
+import CalendarPage from "./calendar/CalendarPage";
 import AlertPage from "./components/AlertPage";
 import AvatarPage from "./components/AvatarPage";
 import NotFoundPage from "./components/NotFoundPage";
@@ -13,11 +14,13 @@ import SelectPage from "./forms/SelectPage";
 import SwitchPage from "./forms/SwitchPage";
 import TextAreaPage from "./forms/TextAreaPage";
 import TextFieldPage from "./forms/TextFieldPage";
+import MapPage from "./maps/MapPage";
+import TablePage from "./tables/TablePage";
 
 export {
     AlertPage,
-    AvatarPage, CheckboxPage, ColorPickerPage, DashboardPage, DatePickerPage,
-    FileInputPage, LoginPage, MonthPickerPage, NotFoundPage, RadioPage, SelectPage,
-    SwitchPage, TextAreaPage, TextFieldPage
+    AvatarPage, CalendarPage, CheckboxPage, ColorPickerPage, DashboardPage, DatePickerPage,
+    FileInputPage, LoginPage, MapPage, MonthPickerPage, NotFoundPage, RadioPage, SelectPage,
+    SwitchPage, TablePage, TextAreaPage, TextFieldPage
 };
 

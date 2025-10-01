@@ -1,15 +1,18 @@
 import {
     AlertPage,
     AvatarPage,
+    CalendarPage,
     CheckboxPage,
     ColorPickerPage,
     DashboardPage,
     DatePickerPage,
     FileInputPage,
+    MapPage,
     MonthPickerPage,
     RadioPage,
     SelectPage,
     SwitchPage,
+    TablePage,
     TextAreaPage,
     TextFieldPage,
 } from "@/template";
@@ -117,7 +120,7 @@ export const menu: MenuItem[] = [
         path: "calendar",
         name: "calendar",
         title: "Calendar",
-        element: null,
+        element: <CalendarPage />,
         sub: [],
     },
     {
@@ -125,7 +128,7 @@ export const menu: MenuItem[] = [
         path: "maps",
         name: "maps",
         title: "Maps",
-        element: null,
+        element: <MapPage />,
         sub: [],
     },
     {
@@ -225,10 +228,10 @@ export const menu: MenuItem[] = [
         path: "tables",
         name: "tables",
         title: "Tables",
-        element: null,
+        element: <TablePage />,
         sub: [],
     },
-        {
+    {
         label: "USER & PAGES",
     },
     {

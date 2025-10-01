@@ -19,6 +19,9 @@ import Header from "./layout/Header";
 import Layout from "./layout/Layout";
 import Setting from "./layout/Setting";
 import Sidebar from "./layout/Sidebar";
+import Calendar from "./molecules/Calendar";
+import Maps from "./molecules/Maps";
+import Tables from "./molecules/Tables";
 
-export { Button, ButtonRipple, Card, Checkbox, ColorPicker, DatePicker, FileInput, FileInputForm, Footer, Header, Layout, Loading, MonthPicker, Popover, Radio, Select, Setting, Sidebar, Switch, TextArea, TextField };
+export { Button, ButtonRipple, Calendar, Card, Checkbox, ColorPicker, DatePicker, FileInput, FileInputForm, Footer, Header, Layout, Loading, Maps, MonthPicker, Popover, Radio, Select, Setting, Sidebar, Switch, Tables, TextArea, TextField };
 
