@@ -64,7 +64,7 @@ const CheckboxPage = () => {
 					set the color of the checkbox.
 				</div>
 
-				<div className="flex flex-wrap gap-2">
+				<div className="flex flex-wrap gap-2 capitalize">
 					{checkedColor.map((item, itemIdx) => (
 						<Checkbox
 							key={itemIdx}

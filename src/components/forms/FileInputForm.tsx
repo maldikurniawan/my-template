@@ -149,7 +149,7 @@ const FileInputForm = ({
                 onMouseEnter={() => setIsHover(true)}
                 onMouseLeave={() => setIsHover(false)}
                 {...getRootProps({
-                    className: `relative w-full overflow-hidden border border-black dark:border-white ${disabled ? "" : "cursor-pointer"
+                    className: `relative w-full overflow-hidden border border-[#E0E6ED] dark:border-[#253B5C] ${disabled ? "" : "cursor-pointer"
                         }`,
                     style: {
                         ...containerStyle,

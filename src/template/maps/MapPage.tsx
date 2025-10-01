@@ -5,10 +5,10 @@ const MapPage = () => {
     return (
         <Card title="Maps">
             <LeafletMap
-                center={[-6.2, 106.8]}
-                zoom={13}
-                markerPosition={[-6.2, 106.8]}
-                onMarkerClick={() => alert("Marker clicked!")}
+                center={[-5.364222432836597, 105.24317306778593]}
+                zoom={16}
+                markerPosition={[-5.364222432836597, 105.24317306778593]}
+                onMarkerClick={() => alert("Marker Clicked!")}
             />
         </Card>
     )

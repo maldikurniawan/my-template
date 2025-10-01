@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { ChromePicker } from "react-color";
 import { Popover } from "..";
+import { ThemeContext } from "@/context/ThemeContext";
 
 interface ColorPickerProps {
     id?: string;
@@ -42,6 +43,8 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
     setValue,
 }) => {
     const [isHover, setIsHover] = useState(false);
+
+    const { theme } = useContext(ThemeContext);
 
     const getContrast = (hexcolor: string): string => {
         const r = parseInt(hexcolor.substring(1, 3), 16);
@@ -89,10 +92,14 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
         borderStyle: "solid",
         outline: "none",
         borderColor: error
-            ? "#ef4444"
+            ? "#E7515A"
             : isHover
-                ? "#6F6F6F"
-                : "#4D5355",
+                ? theme === "dark"
+                    ? "#253B5C"
+                    : "#E0E6ED"
+                : theme === "dark"
+                    ? "#253B5C"
+                    : "#E0E6ED",
     };
 
     return (

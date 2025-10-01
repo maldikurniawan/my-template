@@ -117,7 +117,7 @@ export const menu: MenuItem[] = [
     },
     {
         icon: <PiCalendarBlankFill />,
-        path: "calendar",
+        path: "/calendar",
         name: "calendar",
         title: "Calendar",
         element: <CalendarPage />,
@@ -125,7 +125,7 @@ export const menu: MenuItem[] = [
     },
     {
         icon: <FaMapMarkedAlt />,
-        path: "maps",
+        path: "/maps",
         name: "maps",
         title: "Maps",
         element: <MapPage />,
@@ -225,7 +225,7 @@ export const menu: MenuItem[] = [
     },
     {
         icon: <PiTableFill />,
-        path: "tables",
+        path: "/tables",
         name: "tables",
         title: "Tables",
         element: <TablePage />,

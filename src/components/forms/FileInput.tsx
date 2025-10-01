@@ -60,7 +60,7 @@ const FileInput: FC<FileInputProps> = ({
     return (
         <div
             {...getRootProps({
-                className: `relative w-full border-2 border-dashed border-black dark:border-white text-center p-6 ${disabled ? "" : "cursor-pointer"
+                className: `relative w-full border-2 border-dashed border-[#E0E6ED] dark:border-[#253B5C] text-center p-6 ${disabled ? "" : "cursor-pointer"
                     }`,
                 style: {
                     minHeight: `${height}px`,

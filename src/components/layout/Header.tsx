@@ -13,6 +13,25 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 
 const Header = () => {
     const location = useLocation();
+
+    const findTitleByPath = (items: (any)[], path: string): string | null => {
+        for (const item of items) {
+            if (item.path === path) {
+                return item.title || null;
+            }
+
+            if (item.sub && item.sub.length > 0) {
+                const found = findTitleByPath(item.sub, path);
+                if (found) {
+                    return found;
+                }
+            }
+        }
+        return null;
+    };
+
+    const currentTitle = findTitleByPath(menu, location.pathname);
+
     const { toggleSidebar, semidark, menu: menuMode, theme, setTheme } =
         useContext(ThemeContext);
 
@@ -104,6 +123,10 @@ const Header = () => {
                         >
                             <PiTextAlignJustify className="w-5 h-5" />
                         </button>
+                    </div>
+
+                    <div className="font-semibold">
+                        {currentTitle}
                     </div>
 
                     <div className="sm:flex-1 sm:ml-0 ml-auto flex items-center justify-end space-x-1.5 lg:space-x-2 main-logo dark:text-[#d0d2d6]">

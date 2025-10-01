@@ -41,6 +41,10 @@ body.dark {
     filter: invert(1);
 }
 
+.dark .leaflet-container .leaflet-tile {
+    filter: invert(1) hue-rotate(180deg);
+}
+
 /* Panel */
 .panel {
     @apply relative rounded-md bg-white p-5 shadow dark:bg-black;
