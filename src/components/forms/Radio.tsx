@@ -14,7 +14,7 @@ interface RadioProps {
     onChange?: any;
     options: Option[];
     size?: "xs" | "sm" | "md" | "lg" | "xl";
-    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string;
+    color?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | string;
     inline?: boolean;
 }
 

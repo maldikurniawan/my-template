@@ -8,7 +8,7 @@ interface CheckboxProps {
     checked: boolean;
     onChange?: () => void;
     size?: "xs" | "sm" | "md" | "lg" | "xl" | string;
-    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string | null;
+    color?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | string | null;
     disabled?: boolean | null;
     label?: string;
 }

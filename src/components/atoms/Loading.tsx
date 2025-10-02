@@ -5,7 +5,7 @@ import { BeatLoader } from "react-spinners";
 interface LoadingProps {
     size?: number;
     loading?: boolean;
-    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string;
+    color?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | string;
 }
 
 const Loading = ({ size = 20, loading = false, color = "primary" }: LoadingProps) => {

@@ -23,7 +23,7 @@ interface TextFieldProps {
     placeholder?: string;
     variant?: "basic" | "outline" | "underlined" | "filled" | string;
     size?: "sm" | "md" | "lg" | "xl" | string;
-    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string;
+    color?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | string;
     rounded?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | string;
     density?: "tight" | "normal" | "loose" | string;
     prefix?: ReactNode;

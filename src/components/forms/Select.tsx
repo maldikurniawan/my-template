@@ -20,7 +20,7 @@ interface SelectProps {
     size?: "sm" | "md" | "lg" | "xl" | string;
     width?: "full" | "half" | "third" | "quarter" | "auto" | string;
     menuplacement?: "auto" | "top" | "bottom";
-    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string;
+    color?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | string;
     rounded?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | string;
     density?: "tight" | "normal" | "loose" | string;
     prepend?: React.ReactNode;

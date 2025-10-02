@@ -9,10 +9,13 @@ import {
     PiSun,
     PiTextAlignJustify,
 } from "react-icons/pi";
-import { NavLink, useLocation } from "react-router-dom";
+import { TbLogout } from "react-icons/tb";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { Avatar, Badge, ButtonRipple, List, Popover } from "..";
 
 const Header = () => {
     const location = useLocation();
+    const navigate = useNavigate();
 
     const findTitleByPath = (items: (any)[], path: string): string | null => {
         for (const item of items) {
@@ -151,11 +154,45 @@ const Header = () => {
                                 </button>
                             )}
                         </div>
-                        <img
-                            src="https://i.pravatar.cc/200"
-                            alt="Profile"
-                            className="w-9 h-9 rounded-full object-cover saturate-50 hover:saturate-100 cursor-pointer"
-                        />
+                        <Popover
+                            placement="bottom-end"
+                            spacing={20}
+                            rounded="none"
+                            button={
+                                <ButtonRipple className="rounded-full">
+                                    <Badge size="sm" placement="right-end" color="primary">
+                                        <Avatar color="primary">AD</Avatar>
+                                    </Badge>
+                                </ButtonRipple>
+                            }
+                        >
+                            <div className="text-sm w-full md:min-w-[260px]">
+                                <div className="p-4 border-b border-[#253B5C]">
+                                    <div className="flex gap-2 items-center">
+                                        <div className="w-fit">
+                                            <Avatar color="primary">AD</Avatar>
+                                        </div>
+                                        <div>
+                                            <div className="text-sm font-semibold whitespace-nowrap">
+                                                Admin
+                                            </div>
+                                            <div className="text-xs">Admin</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="p-2 font-medium">
+                                    <List
+                                        onClick={() => navigate("/login")}
+                                        color="lightRed"
+                                        prefix={<TbLogout />}
+                                        density="loose"
+                                    >
+                                        Logout
+                                    </List>
+                                </div>
+                            </div>
+                        </Popover>
                     </div>
                 </div>
 

@@ -1,6 +1,5 @@
 import { Card, Pagination } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
-import { motion } from "framer-motion";
 import { useContext, useState } from "react";
 
 const PaginationPage = () => {
@@ -103,12 +102,8 @@ const PaginationPage = () => {
 	]);
 
 	return (
-		<motion.div
+		<div
 			className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-			initial={{ y: window.innerHeight, opacity: 0 }}
-			animate={{ y: 0, opacity: 1 }}
-			transition={{ duration: 0.3 }}
-			viewport={{ once: true }}
 		>
 			{/* Active Color */}
 			<Card title="Active Color">
@@ -209,7 +204,7 @@ const PaginationPage = () => {
 					))}
 				</div>
 			</Card>
-		</motion.div>
+		</div>
 	);
 };
 

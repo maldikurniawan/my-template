@@ -2,7 +2,7 @@ import { Button, Card } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext } from "react";
 
-const ButtonPage = () => {
+const ButtonsPage = () => {
     const { colortheme } = useContext(ThemeContext);
     return (
         <div
@@ -182,4 +182,4 @@ const ButtonPage = () => {
     );
 };
 
-export default ButtonPage;
+export default ButtonsPage;

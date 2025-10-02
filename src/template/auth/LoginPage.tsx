@@ -1,7 +1,7 @@
 
 const LoginPage = () => {
     return (
-        <div>LoginPage</div>
+        <div className="text-black dark:text-white">LoginPage</div>
     )
 }
 

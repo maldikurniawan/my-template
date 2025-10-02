@@ -4,7 +4,7 @@ import { useContext } from "react";
 import useRipple from "use-ripple-hook";
 
 type ButtonRippleProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string;
+    color?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | string;
     duration?: number;
     cancelAutomatically?: boolean;
     disabled?: boolean;

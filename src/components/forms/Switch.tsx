@@ -7,7 +7,7 @@ interface SwitchProps {
     value: boolean;
     onChange: React.Dispatch<React.SetStateAction<boolean>>;
     size?: "sm" | "md" | "lg" | "xl" | string;
-    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string;
+    color?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | string;
     disabled?: boolean;
     required?: boolean;
 }

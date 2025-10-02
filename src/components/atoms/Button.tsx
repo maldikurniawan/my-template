@@ -6,7 +6,7 @@ import { ButtonRipple, Loading } from "@/components";
 interface ButtonProps {
     type?: "button" | "submit" | "reset";
     variant?: "solid" | "outline" | "text" | "tonal" | "flat";
-    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string;
+    color?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | string;
     textcolor?: string;
     size?: "xs" | "sm" | "md" | "lg" | "xl" | number | string;
     rounded?: "none" | "sm" | "rounded" | "md" | "lg" | "xl" | "2xl" | "3xl" | "full";
@@ -109,14 +109,14 @@ const Button: React.FC<ButtonProps> = ({
         case "flat":
             btnStyle = {
                 backgroundColor: btnColor,
-                color: textcolor || "black",
+                color: textcolor || "white",
                 filter: disabled ? "brightness(1.2)" : "brightness(1)",
             };
             break;
         default:
             btnStyle = {
                 backgroundColor: btnColor,
-                color: textcolor || "black",
+                color: textcolor || "white",
                 boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.15), 0 4px 6px -4px rgba(0, 0, 0, 0.15)",
             };
             break;
