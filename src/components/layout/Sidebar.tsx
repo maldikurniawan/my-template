@@ -45,7 +45,7 @@ const Sidebar = () => {
                         <button
                             type="button"
                             className={`${currentMenu === item.name ? "active" : ""
-                                } nav-link group w-full`}
+                                } nav-link group w-full cursor-pointer`}
                             onClick={() => toggleMenu(item.name as string)}
                         >
                             <div className="flex items-center">
@@ -109,13 +109,13 @@ const Sidebar = () => {
                                 alt="logo"
                             />
                             <span className="text-2xl ml-1.5 font-semibold align-middle lg:inline dark:text-white-light">
-                                TENSHI
+                                DUMMY
                             </span>
                         </NavLink>
 
                         <button
                             type="button"
-                            className="collapse-icon w-8 h-8 rounded-full flex items-center hover:bg-gray-500/10 dark:hover:bg-dark-light/10 dark:text-white-light transition duration-300"
+                            className="collapse-icon w-8 h-8 rounded-full flex items-center hover:bg-gray-500/10 dark:hover:bg-dark-light/10 dark:text-white-light transition duration-300 cursor-pointer"
                             onClick={() => toggleSidebar()}
                         >
                             <PiCaretDoubleDown className="m-auto rotate-90" />

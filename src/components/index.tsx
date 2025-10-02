@@ -2,6 +2,7 @@ import Button from "./atoms/Button";
 import ButtonRipple from "./atoms/ButtonRipple";
 import Card from "./atoms/Card";
 import Loading from "./atoms/Loading";
+import Pagination from "./atoms/Pagination";
 import Popover from "./atoms/Popover";
 import Checkbox from "./forms/Checkbox";
 import ColorPicker from "./forms/ColorPicker";
@@ -23,5 +24,5 @@ import Calendar from "./molecules/Calendar";
 import Maps from "./molecules/Maps";
 import Tables from "./molecules/Tables";
 
-export { Button, ButtonRipple, Calendar, Card, Checkbox, ColorPicker, DatePicker, FileInput, FileInputForm, Footer, Header, Layout, Loading, Maps, MonthPicker, Popover, Radio, Select, Setting, Sidebar, Switch, Tables, TextArea, TextField };
+export { Button, ButtonRipple, Calendar, Card, Checkbox, ColorPicker, DatePicker, FileInput, FileInputForm, Footer, Header, Layout, Loading, Maps, MonthPicker, Pagination, Popover, Radio, Select, Setting, Sidebar, Switch, Tables, TextArea, TextField };
 
