@@ -135,7 +135,7 @@ const Button: React.FC<ButtonProps> = ({
             duration={300}
             disabled={disabled || loading}
             style={btnStyle}
-            className={`outline-none tracking-wide duration-150 active:scale-[.98] active:duration-300 ${btnRounded} ${btnSize} ${block ? "w-full" : ""} ${className}`}
+            className={`outline-none tracking-wide duration-150 active:scale-[.98] active:duration-300 cursor-pointer ${btnRounded} ${btnSize} ${block ? "w-full" : ""} ${className}`}
         >
             {loading ? btnLoading : children}
         </ButtonRipple>

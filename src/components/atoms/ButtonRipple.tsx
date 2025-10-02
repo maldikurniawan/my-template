@@ -4,7 +4,7 @@ import { useContext } from "react";
 import useRipple from "use-ripple-hook";
 
 type ButtonRippleProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-    color?: "primary" | "secondary" | "success" | "warning" | "danger" | "info" | string;
+    color?: "primary" | "success" | "warning" | "danger" | "info" | string;
     duration?: number;
     cancelAutomatically?: boolean;
     disabled?: boolean;
@@ -28,7 +28,7 @@ const ButtonRipple = ({
     ...rest
 }: ButtonRippleProps) => {
 
-    const { colortheme } = useContext(ThemeContext);
+    const { colortheme, theme } = useContext(ThemeContext);
 
     // Color
     const btnColors: Record<string, string> = {
@@ -44,7 +44,7 @@ const ButtonRipple = ({
 
     const [ripple, event] = useRipple({
         duration,
-        color: btnColor || "#00000030",
+        color: btnColor || theme === "dark" ? "#FFFFFF50" : "#00000030",
         cancelAutomatically,
         timingFunction: "cubic-bezier(.42,.36,.28,.88)",
         disabled,

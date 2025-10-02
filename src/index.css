@@ -45,6 +45,15 @@ body.dark {
     filter: invert(1) hue-rotate(180deg);
 }
 
+@keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+}
+
+.animate-wiggle {
+    animation: wiggle 0.2s ease-in-out;
+}
+
 /* Panel */
 .panel {
     @apply relative rounded-md bg-white p-5 shadow dark:bg-black;

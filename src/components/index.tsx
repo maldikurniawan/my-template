@@ -8,8 +8,11 @@ import Chip from "./atoms/Chip";
 import Limit from "./atoms/Limit";
 import List from "./atoms/List";
 import Loading from "./atoms/Loading";
+import Modal from "./atoms/Modal";
 import Pagination from "./atoms/Pagination";
 import Popover from "./atoms/Popover";
+import Tabs from "./atoms/Tabs";
+import Timeline from "./atoms/Timeline";
 import Tooltip from "./atoms/Tooltip";
 import Checkbox from "./forms/Checkbox";
 import ColorPicker from "./forms/ColorPicker";
@@ -31,5 +34,5 @@ import Calendar from "./molecules/Calendar";
 import Maps from "./molecules/Maps";
 import Tables from "./molecules/Tables";
 
-export { Alert, Avatar, Badge, Button, ButtonRipple, Calendar, Card, Checkbox, Chip, ColorPicker, DatePicker, FileInput, FileInputForm, Footer, Header, Layout, Limit, List, Loading, Maps, MonthPicker, Pagination, Popover, Radio, Select, Setting, Sidebar, Switch, Tables, TextArea, TextField, Tooltip };
+export { Alert, Avatar, Badge, Button, ButtonRipple, Calendar, Card, Checkbox, Chip, ColorPicker, DatePicker, FileInput, FileInputForm, Footer, Header, Layout, Limit, List, Loading, Maps, Modal, MonthPicker, Pagination, Popover, Radio, Select, Setting, Sidebar, Switch, Tables, Tabs, TextArea, TextField, Timeline, Tooltip };
 
