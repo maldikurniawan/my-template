@@ -4,7 +4,7 @@ import { useContext } from "react";
 import useRipple from "use-ripple-hook";
 
 type ButtonRippleProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-    color?: "lightGreen" | "lightGray" | "lightPurple" | "lightYellow" | "lightRed" | "lightBlue" | string;
+    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string;
     duration?: number;
     cancelAutomatically?: boolean;
     disabled?: boolean;
@@ -32,12 +32,12 @@ const ButtonRipple = ({
 
     // Color
     const btnColors: Record<string, string> = {
-        lightGreen: colortheme,
-        lightGray: "#BEBEBE",
-        lightPurple: "#9B30FF",
-        lightYellow: "#FFFF00",
-        lightRed: "#FF0000",
-        lightBlue: "#0000FF",
+        primary: colortheme,
+        secondary: "#805DCA",
+        success: "#00AB55",
+        danger: "#E7515A",
+        warning: "#E2A03F",
+        info: "#2196F3",
     };
 
     const btnColor = btnColors[color] || color;

@@ -5,19 +5,19 @@ import { BeatLoader } from "react-spinners";
 interface LoadingProps {
     size?: number;
     loading?: boolean;
-    color?: "lightGreen" | "lightGray" | "lightPurple" | "lightYellow" | "lightRed" | "lightBlue" | string;
+    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string;
 }
 
-const Loading = ({ size = 20, loading = false, color = "lightGreen" }: LoadingProps) => {
+const Loading = ({ size = 20, loading = false, color = "primary" }: LoadingProps) => {
     const { colortheme } = useContext(ThemeContext);
 
     const loadColors: Record<string, string> = {
-        lightGreen: colortheme,
-        lightGray: "#BEBEBE",
-        lightPurple: "#9B30FF",
-        lightYellow: "#FFFF00",
-        lightBlue: "#0000FF",
-        lightRed: "#FF0000",
+        primary: colortheme,
+        secondary: "#805DCA",
+        success: "#00AB55",
+        danger: "#E7515A",
+        warning: "#E2A03F",
+        info: "#2196F3",
     };
 
     const loadColor = loadColors[color] || color;

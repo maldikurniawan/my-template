@@ -6,7 +6,7 @@ import { ButtonRipple, Loading } from "@/components";
 interface ButtonProps {
     type?: "button" | "submit" | "reset";
     variant?: "solid" | "outline" | "text" | "tonal" | "flat";
-    color?: "lightGreen" | "lightGray" | "lightPurple" | "lightYellow" | "lightRed" | "lightBlue" | string;
+    color?: "primary" | "base" | "success" | "warning" | "danger" | "info" | string;
     textcolor?: string;
     size?: "xs" | "sm" | "md" | "lg" | "xl" | number | string;
     rounded?: "none" | "sm" | "rounded" | "md" | "lg" | "xl" | "2xl" | "3xl" | "full";
@@ -23,10 +23,10 @@ interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({
     type = "button",
     variant = "solid",
-    color = "lightGreen",
+    color = "primary",
     textcolor = "",
     size = "md",
-    rounded = "none",
+    rounded = "md",
     block = false,
     loading = false,
     onClick = () => { },
@@ -41,12 +41,12 @@ const Button: React.FC<ButtonProps> = ({
 
     // Color mapping
     const btnColors: Record<string, string> = {
-        lightGreen: colortheme,
-        lightGray: "#BEBEBE",
-        lightPurple: "#9B30FF",
-        lightYellow: "#FFFF00",
-        lightRed: "#FF0000",
-        lightBlue: "#0000FF",
+        primary: colortheme,
+        secondary: "#805DCA",
+        success: "#00AB55",
+        danger: "#E7515A",
+        warning: "#E2A03F",
+        info: "#2196F3",
     };
 
     const btnColor = btnColors[color] || color;
@@ -64,7 +64,7 @@ const Button: React.FC<ButtonProps> = ({
 
     // Loading component
     const defaultLoadingComponent = (
-        <Loading color="#fff" loading={true} size={typeof size === "string" ? { xs: 10, sm: 12, md: 14, lg: 16, xl: 18 }[size as keyof typeof sizeClasses] : 14} />
+        <Loading color="#FFF" loading={true} size={typeof size === "string" ? { xs: 10, sm: 12, md: 14, lg: 16, xl: 18 }[size as keyof typeof sizeClasses] : 14} />
     );
     const btnLoading = loadingComponent || defaultLoadingComponent;
 
@@ -129,8 +129,8 @@ const Button: React.FC<ButtonProps> = ({
             onMouseLeave={() => setIsHover(false)}
             color={!variant || variant === "solid" || variant === "flat" ? "" : `${btnColor}60`}
             onClick={() => {
-				onClick && onClick();
-			}}
+                onClick && onClick();
+            }}
             stopPropagation={stopPropagation}
             duration={300}
             disabled={disabled || loading}

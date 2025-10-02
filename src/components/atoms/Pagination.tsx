@@ -26,7 +26,7 @@ const Pagination: React.FC<PaginationProps> = ({
     variant = "flat",
     size = "sm",
 }) => {
-    const { colortheme } = useContext(ThemeContext);
+    const { colortheme, theme } = useContext(ThemeContext);
 
     const paginationRange = usePagination({
         currentPage,
@@ -73,9 +73,9 @@ const Pagination: React.FC<PaginationProps> = ({
         }[rounded] || "rounded-none";
 
     // Define shadow styles based on variant
-    const getShadowStyle = variant === "solid" ? "border" : "";
+    const getShadowStyle = variant === "solid" ? "shadow" : "";
 
-    const disabledColor = "#3B3F5C50";
+    const disabledColor = theme === "dark" ? "#E0E6ED50" : "#3B3F5C50";
 
     return (
         <div className="flex gap-2">
@@ -83,7 +83,7 @@ const Pagination: React.FC<PaginationProps> = ({
                 <>
                     {/* Left Navigation */}
                     <button
-                        className={`${getShadowStyle} flex justify-center items-center ${pageRounded} ${currentPage === 1 ? 'bg-white-light cursor-not-allowed' : 'bg-[#E0E6ED]'} text-dark`}
+                        className={`${getShadowStyle} flex justify-center items-center ${pageRounded} ${currentPage === 1 ? 'bg-white-light dark:bg-[#191E3A] cursor-not-allowed' : 'bg-[#E0E6ED] dark:bg-[#191E3A]'} text-dark dark:text-white-light`}
                         style={{
                             width: sizePagination,
                             height: sizePagination,
@@ -106,8 +106,8 @@ const Pagination: React.FC<PaginationProps> = ({
                                     style={{
                                         width: sizePagination,
                                         height: sizePagination,
-                                        backgroundColor: "#E0E6ED",
-                                        color: "#3B3F5C",
+                                        backgroundColor: theme === "dark" ? "#191E3A" : "#E0E6ED",
+                                        color: theme === "dark" ? "#E0E6ED" : "#3B3F5C",
                                     }}
                                     disabled
                                     className={`${getShadowStyle} cursor-not-allowed flex justify-center items-center ${pageRounded}`}
@@ -130,11 +130,15 @@ const Pagination: React.FC<PaginationProps> = ({
                                     backgroundColor:
                                         pageNumber === currentPage
                                             ? colorPagination
-                                            : "#E0E6ED",
+                                            : theme === "dark" ? "#191E3A" : "#E0E6ED",
                                     color:
                                         pageNumber === currentPage
                                             ? "white"
-                                            : "#3B3F5C",
+                                            : theme === "dark" ? "#E0E6ED" : "#3B3F5C",
+                                    boxShadow:
+                                        pageNumber === currentPage
+                                            ? `0px 7px 19px -7px ${colorPagination}`
+                                            : "",
                                 }}
                                 className={`${getShadowStyle} flex justify-center items-center ${pageRounded}`}
                                 onClick={() => onPageChange(pageNumber as number)}
@@ -146,7 +150,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
                     {/* Right Navigation */}
                     <button
-                        className={`${getShadowStyle} flex justify-center items-center ${pageRounded} ${currentPage === lastPage ? 'bg-white-light cursor-not-allowed' : 'bg-[#E0E6ED]'} text-dark`}
+                        className={`${getShadowStyle} flex justify-center items-center ${pageRounded} ${currentPage === lastPage ? 'bg-white-light dark:bg-[#191E3A] cursor-not-allowed' : 'bg-[#E0E6ED] dark:bg-[#191E3A]'} text-dark dark:text-white-light`}
                         style={{
                             width: sizePagination,
                             height: sizePagination,

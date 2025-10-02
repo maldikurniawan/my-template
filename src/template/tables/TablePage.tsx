@@ -1,9 +1,12 @@
-import { Tables, Card } from "@/components";
+import { Button, ButtonRipple, Card, Limit, Pagination, Tables, TextField, Tooltip } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useContext, useState } from "react";
+import { TbDotsVertical, TbEye, TbTrash } from "react-icons/tb";
 
 const TablePage = () => {
     const { colortheme } = useContext(ThemeContext);
+    const [limit, setLimit] = useState(10);
+    const [pageActive, setPageActive] = useState(1);
 
     const [data] = useState([
         {
@@ -282,7 +285,98 @@ const TablePage = () => {
                     </Tables.Body>
                 </Tables>
             </Card>
-        </div>
+
+            {/* Center */}
+            <Card title="Example">
+                {/* Control Top */}
+                <div className="mb-4 mt-1 flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4">
+                    <div className="w-full sm:w-60">
+                        <TextField placeholder="Search" />
+                    </div>
+
+                    <div className="flex gap-2">
+                        <Button color="primary">
+                            Create
+                        </Button>
+                    </div>
+                </div>
+
+                {/* Tables */}
+                <Tables>
+                    <Tables.Head>
+                        <Tables.Row>
+                            <Tables.Header>ID</Tables.Header>
+                            <Tables.Header>Name</Tables.Header>
+                            <Tables.Header>Email</Tables.Header>
+                            <Tables.Header center>Action</Tables.Header>
+                        </Tables.Row>
+                    </Tables.Head>
+                    <Tables.Body>
+                        {data
+                            .slice((pageActive - 1) * limit, limit * pageActive)
+                            .map((item: any, idx: any) => (
+                                <Tables.Row
+                                    expandable={<div className="p-2">{item.name}</div>}
+                                    key={idx}
+                                >
+                                    <Tables.Data>{item.id}</Tables.Data>
+                                    <Tables.Data>{item.name}</Tables.Data>
+                                    <Tables.Data>{item.email}</Tables.Data>
+                                    <Tables.Data center>
+                                        <div className="flex items-center justify-center">
+                                            <Tooltip tooltip="Lihat">
+                                                <ButtonRipple
+                                                    stopPropagation
+                                                    className="p-2 rounded-full transition-[background] hover:bg-white/10"
+                                                >
+                                                    <TbEye className="text-xl text-info" />
+                                                </ButtonRipple>
+                                            </Tooltip>
+                                            <Tooltip tooltip="Hapus">
+                                                <ButtonRipple
+                                                    stopPropagation
+                                                    className="p-2 rounded-full transition-[background] hover:bg-white/10"
+                                                >
+                                                    <TbTrash className="text-xl text-danger" />
+                                                </ButtonRipple>
+                                            </Tooltip>
+                                            <Tooltip tooltip="Lainnya">
+                                                <ButtonRipple
+                                                    stopPropagation
+                                                    className="p-2 rounded-full transition-[background] hover:bg-white/10"
+                                                >
+                                                    <TbDotsVertical className="text-xl" />
+                                                </ButtonRipple>
+                                            </Tooltip>
+                                        </div>
+                                    </Tables.Data>
+                                </Tables.Row>
+                            ))}
+                    </Tables.Body>
+                </Tables>
+
+                {/* Control Bottom */}
+                <div className="mt-4 flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4">
+                    <div className="flex gap-2 items-baseline text-sm">
+                        <Limit
+                            limit={limit}
+                            setLimit={setLimit}
+                            onChange={() => setPageActive(1)}
+                        />
+                        {data.length} entries
+                    </div>
+
+                    <Pagination
+                        totalCount={data.length}
+                        onPageChange={(page) => {
+                            setPageActive(page);
+                        }}
+                        currentPage={pageActive}
+                        pageSize={limit}
+                    />
+                </div>
+            </Card>
+        </div >
     );
 };
 
