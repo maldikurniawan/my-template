@@ -1,0 +1,213 @@
+import Swal from 'sweetalert2';
+
+export const showSweetAlert = async (variant: number) => {
+    if (variant === 1) {
+        Swal.fire({
+            title: 'Saved successfully',
+            customClass: {
+                popup: 'custom-popup',
+                title: 'custom-title',
+            }
+        });
+    } else if (variant === 2) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Good job!',
+            text: 'You clicked the button!',
+            customClass: {
+                popup: 'custom-popup',
+                title: 'custom-title',
+            }
+        });
+    } else if (variant === 3) {
+        const ipAPI = 'https://api.ipify.org?format=json';
+        Swal.fire({
+            title: 'Your public IP',
+            confirmButtonText: 'Show my public IP',
+            text: 'Your public IP will be received via AJAX request',
+            showLoaderOnConfirm: true,
+            preConfirm: async () => {
+                try {
+                    const response = await fetch(ipAPI);
+                    const data = await response.json();
+                    Swal.fire({
+                        title: data.ip,
+                        customClass: {
+                            popup: 'custom-popup',
+                            title: 'custom-title',
+                        }
+                    });
+                } catch {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Unable to get your public IP',
+                        customClass: {
+                            popup: 'custom-popup',
+                            title: 'custom-title',
+                            confirmButton: 'custom-confirm-button',
+                        }
+                    });
+                }
+            },
+            customClass: {
+                popup: 'custom-popup',
+                title: 'custom-title',
+            }
+        });
+    } else if (variant === 4) {
+        const steps = ['1', '2', '3'];
+        const swalQueueStep = Swal.mixin({
+            confirmButtonText: 'Next →',
+            showCancelButton: true,
+            progressSteps: steps,
+            input: 'text',
+            inputAttributes: {
+                required: 'true',
+            },
+            validationMessage: 'This field is required',
+            customClass: {
+                popup: 'custom-popup',
+                title: 'custom-title',
+            }
+        });
+        const values: any = [];
+        let currentStep;
+        for (currentStep = 0; currentStep < steps.length;) {
+            const result = await swalQueueStep.fire({
+                title: `Question ${steps[currentStep]}`,
+                text: currentStep === 0 ? 'Chaining swal modals is easy.' : '',
+                inputValue: values[currentStep],
+                showCancelButton: currentStep > 0,
+                currentProgressStep: currentStep,
+            });
+            if (result.value) {
+                values[currentStep] = result.value;
+                currentStep++;
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                currentStep--;
+            } else {
+                break;
+            }
+        }
+        if (currentStep === steps.length) {
+            Swal.fire({
+                title: 'All done!',
+                html: 'Your answers: <pre>' + JSON.stringify(values) + '</pre>',
+                confirmButtonText: 'Lovely!',
+                customClass: {
+                    popup: 'custom-popup',
+                    title: 'custom-title',
+                }
+            });
+        }
+    } else if (variant === 5) {
+        Swal.fire({
+            title: 'Sweet!',
+            text: 'Modal with a custom image.',
+            imageUrl: '/assets/logo.png',
+            imageWidth: 180,
+            imageHeight: 'auto',
+            imageAlt: 'Custom image',
+            customClass: {
+                popup: 'custom-popup',
+                title: 'custom-title',
+            }
+        });
+    } else if (variant === 6) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Delete',
+            customClass: {
+                popup: 'custom-popup',
+                title: 'custom-title',
+            }
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire({
+                    title: 'Deleted!',
+                    text: 'Your file has been deleted.',
+                    icon: 'success',
+                    customClass: {
+                        popup: 'custom-popup',
+                        title: 'custom-title',
+                    }
+                });
+            }
+        });
+    } else if (variant === 7) {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                popup: 'custom-popup',
+            },
+        });
+        swalWithBootstrapButtons
+            .fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                customClass: {
+                    popup: 'custom-popup',
+                    title: 'custom-title',
+                }
+            })
+            .then((result) => {
+                if (result.value) {
+                    swalWithBootstrapButtons.fire('Deleted!', 'Your file has been deleted.', 'success');
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    swalWithBootstrapButtons.fire('Cancelled', 'Your imaginary file is safe.', 'error');
+                }
+            });
+    } else if (variant === 8) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: '<a href="javascript:;">Why do I have this issue?</a>',
+            customClass: {
+                popup: 'custom-popup',
+                title: 'custom-title',
+            }
+        });
+    } else if (variant === 9) {
+        const toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+        });
+        toast.fire({
+            icon: 'success',
+            title: 'Signed in successfully',
+            customClass: {
+                popup: 'custom-popup',
+                title: 'custom-title',
+            }
+        });
+    }
+};
+
+interface SweetAlertProps {
+    variant: number;
+    children: React.ReactNode;
+}
+
+const SweetAlert = ({ variant, children }: SweetAlertProps) => {
+    const handleClick = () => {
+        showSweetAlert(variant);
+    };
+
+    return (
+        <div onClick={handleClick} style={{ cursor: 'pointer' }}>
+            {children}
+        </div>
+    );
+};
+
+export default SweetAlert;

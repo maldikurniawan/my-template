@@ -2,7 +2,6 @@
 
 @import './css/animate.css';
 @import './css/fullcalendar.css';
-@import './css/sweetalert.css';
 
 /* Tailwind CSS */
 @import "tailwindcss";
@@ -51,7 +50,15 @@ body.dark {
 }
 
 .animate-wiggle {
-    animation: wiggle 0.2s ease-in-out;
+    animation: wiggle 0.3s ease-in-out;
+}
+
+.dark .custom-popup {
+  background-color: #0E1726;
+}
+
+.dark .custom-title {
+  color: #888EA8;
 }
 
 /* Panel */

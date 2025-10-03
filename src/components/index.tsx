@@ -5,12 +5,15 @@ import Button from "./atoms/Button";
 import ButtonRipple from "./atoms/ButtonRipple";
 import Card from "./atoms/Card";
 import Chip from "./atoms/Chip";
+import Collapsible from "./atoms/Collapsible";
+import Drawer from "./atoms/Drawer";
 import Limit from "./atoms/Limit";
 import List from "./atoms/List";
 import Loading from "./atoms/Loading";
 import Modal from "./atoms/Modal";
 import Pagination from "./atoms/Pagination";
 import Popover from "./atoms/Popover";
+import SweetAlert from "./atoms/SweetAlert";
 import Tabs from "./atoms/Tabs";
 import Timeline from "./atoms/Timeline";
 import Tooltip from "./atoms/Tooltip";
@@ -31,8 +34,9 @@ import Layout from "./layout/Layout";
 import Setting from "./layout/Setting";
 import Sidebar from "./layout/Sidebar";
 import Calendar from "./molecules/Calendar";
+import CardStatistic from "./molecules/CardStatistic";
 import Maps from "./molecules/Maps";
 import Tables from "./molecules/Tables";
 
-export { Alert, Avatar, Badge, Button, ButtonRipple, Calendar, Card, Checkbox, Chip, ColorPicker, DatePicker, FileInput, FileInputForm, Footer, Header, Layout, Limit, List, Loading, Maps, Modal, MonthPicker, Pagination, Popover, Radio, Select, Setting, Sidebar, Switch, Tables, Tabs, TextArea, TextField, Timeline, Tooltip };
+export { Alert, Avatar, Badge, Button, ButtonRipple, Calendar, Card, CardStatistic, Checkbox, Chip, Collapsible, ColorPicker, DatePicker, Drawer, FileInput, FileInputForm, Footer, Header, Layout, Limit, List, Loading, Maps, Modal, MonthPicker, Pagination, Popover, Radio, Select, Setting, Sidebar, SweetAlert, Switch, Tables, Tabs, TextArea, TextField, Timeline, Tooltip };
 
