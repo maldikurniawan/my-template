@@ -1,9 +1,11 @@
 import Alert from "./atoms/Alert";
 import Avatar from "./atoms/Avatar";
 import Badge from "./atoms/Badge";
+import Breadcrumb from "./atoms/Breadcrumb";
 import Button from "./atoms/Button";
 import ButtonRipple from "./atoms/ButtonRipple";
 import Card from "./atoms/Card";
+import Carousel from "./atoms/Carousel";
 import Chip from "./atoms/Chip";
 import Collapsible from "./atoms/Collapsible";
 import Drawer from "./atoms/Drawer";
@@ -38,5 +40,5 @@ import CardStatistic from "./molecules/CardStatistic";
 import Maps from "./molecules/Maps";
 import Tables from "./molecules/Tables";
 
-export { Alert, Avatar, Badge, Button, ButtonRipple, Calendar, Card, CardStatistic, Checkbox, Chip, Collapsible, ColorPicker, DatePicker, Drawer, FileInput, FileInputForm, Footer, Header, Layout, Limit, List, Loading, Maps, Modal, MonthPicker, Pagination, Popover, Radio, Select, Setting, Sidebar, SweetAlert, Switch, Tables, Tabs, TextArea, TextField, Timeline, Tooltip };
+export { Alert, Avatar, Badge, Breadcrumb, Button, ButtonRipple, Calendar, Card, CardStatistic, Carousel, Checkbox, Chip, Collapsible, ColorPicker, DatePicker, Drawer, FileInput, FileInputForm, Footer, Header, Layout, Limit, List, Loading, Maps, Modal, MonthPicker, Pagination, Popover, Radio, Select, Setting, Sidebar, SweetAlert, Switch, Tables, Tabs, TextArea, TextField, Timeline, Tooltip };
 

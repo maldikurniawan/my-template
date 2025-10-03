@@ -104,7 +104,7 @@ export const showSweetAlert = async (variant: number) => {
         Swal.fire({
             title: 'Sweet!',
             text: 'Modal with a custom image.',
-            imageUrl: '/assets/logo.png',
+            imageUrl: '/assets/images/logo.png',
             imageWidth: 180,
             imageHeight: 'auto',
             imageAlt: 'Custom image',

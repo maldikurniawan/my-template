@@ -54,11 +54,25 @@ body.dark {
 }
 
 .dark .custom-popup {
-  background-color: #0E1726;
+    background-color: #0E1726;
 }
 
 .dark .custom-title {
-  color: #888EA8;
+    color: #888EA8;
+}
+
+.animated-progress {
+    animation: progress-bar-stripes 1s linear infinite;
+}
+
+@keyframes progress-bar-stripes {
+    0% {
+        background-position: 1rem 0;
+    }
+
+    to {
+        background-position: 0 0;
+    }
 }
 
 /* Panel */

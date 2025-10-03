@@ -105,7 +105,7 @@ const Sidebar = () => {
                         <NavLink to="/" className="main-logo flex items-center shrink-0">
                             <img
                                 className="w-8 ml-[5px] flex-none"
-                                src="/assets/logo.png"
+                                src="/assets/images/logo.png"
                                 alt="MyLogo"
                             />
                             <span className="text-2xl ml-1.5 font-semibold align-middle lg:inline dark:text-white-light">
