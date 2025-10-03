@@ -161,7 +161,7 @@ const Header = () => {
                             button={
                                 <ButtonRipple className="rounded-full">
                                     <Badge size="sm" placement="right-end" color="primary">
-                                        <Avatar color="primary">AD</Avatar>
+                                        <Avatar color="primary" className="cursor-pointer">AD</Avatar>
                                     </Badge>
                                 </ButtonRipple>
                             }

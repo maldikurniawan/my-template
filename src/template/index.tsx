@@ -18,7 +18,6 @@ import BadgesPage from "./elements/BadgesPage";
 import BreadcrumbsPage from "./elements/BreadcrumbsPage";
 import ButtonsPage from "./elements/ButtonsPage";
 import ChipsPage from "./elements/ChipsPage";
-import LoaderPage from "./elements/LoaderPage";
 import PaginationPage from "./elements/PaginationPage";
 import PopoversPage from "./elements/PopoversPage";
 import ProgressBarPage from "./elements/ProgressBarPage";
@@ -41,5 +40,5 @@ import CVPage from "./users/CVPage";
 import ProfilePage from "./users/ProfilePage";
 
 export {
-    AlertsPage, AvatarPage, BadgesPage, BreadcrumbsPage, ButtonsPage, CalendarPage, CardsPage, CarouselPage, CheckboxPage, ChipsPage, CollapsiblePage, ColorPickerPage, CountdownPage, CounterPage, CVPage, DashboardPage, DatePickerPage, DrawerPage, FileInputPage, ListPage, LoaderPage, LoginPage, MaintenancePage, MapPage, ModalsPage, MonthPickerPage, NotFoundPage, PaginationPage, PopoversPage, ProfilePage, ProgressBarPage, RadioPage, SelectPage, SweetAlertsPage, SwitchPage, TablePage, TabsPage, TextAreaPage, TextFieldPage, TimelinePage, TooltipsPage
+    AlertsPage, AvatarPage, BadgesPage, BreadcrumbsPage, ButtonsPage, CalendarPage, CardsPage, CarouselPage, CheckboxPage, ChipsPage, CollapsiblePage, ColorPickerPage, CountdownPage, CounterPage, CVPage, DashboardPage, DatePickerPage, DrawerPage, FileInputPage, ListPage, LoginPage, MaintenancePage, MapPage, ModalsPage, MonthPickerPage, NotFoundPage, PaginationPage, PopoversPage, ProfilePage, ProgressBarPage, RadioPage, SelectPage, SweetAlertsPage, SwitchPage, TablePage, TabsPage, TextAreaPage, TextFieldPage, TimelinePage, TooltipsPage
 };

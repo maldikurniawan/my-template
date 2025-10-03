@@ -19,7 +19,6 @@ import {
     DrawerPage,
     FileInputPage,
     ListPage,
-    LoaderPage,
     MaintenancePage,
     MapPage,
     ModalsPage,
@@ -239,14 +238,6 @@ export const menu: MenuItem[] = [
                 name: "chips",
                 title: "Chips",
                 element: <ChipsPage />,
-                sub: [],
-            },
-            {
-                icon: null,
-                path: "/user-interface/elements/loader",
-                name: "loader",
-                title: "Loader",
-                element: <LoaderPage />,
                 sub: [],
             },
             {
