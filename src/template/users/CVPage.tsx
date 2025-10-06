@@ -135,7 +135,7 @@ export default function SimpleCVGenerator() {
   return (
     <div className="mx-auto grid grid-cols-1 lg:grid-cols-3 gap-4">
       <Card title="Editor CV">
-        <div className="space-y-4 mt-2">
+        <div className="space-y-4 mt-2 max-h-[590px] relative overflow-y-auto scroll-hidden py-1">
           <TextField
             label="Nama"
             id="nama"
@@ -300,10 +300,10 @@ export default function SimpleCVGenerator() {
         </div>
 
         <div className="mt-4 flex gap-2">
-          <Button onClick={downloadHtml}>
+          <Button onClick={downloadHtml} className="w-full">
             Download HTML
           </Button>
-          <Button onClick={() => navigator.clipboard?.writeText(srcDoc)}>
+          <Button onClick={() => navigator.clipboard?.writeText(srcDoc)} className="w-full">
             Copy HTML
           </Button>
         </div>
@@ -315,7 +315,7 @@ export default function SimpleCVGenerator() {
             title="CV Preview"
             srcDoc={srcDoc}
             sandbox="allow-same-origin"
-            className="w-full h-[100vh] mt-2 border border-[#E0E6ED] dark:border-[#253B5C] rounded"
+            className="w-full h-[100vh] bg-white mt-2 border border-[#E0E6ED] dark:border-[#253B5C] rounded"
           />
         </Card>
       </div>
