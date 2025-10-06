@@ -103,12 +103,12 @@ const PaginationPage = () => {
 
 	return (
 		<div
-			className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+			className="grid grid-cols-1 sm:grid-cols-2 gap-6"
 		>
 			{/* Active Color */}
 			<Card title="Active Color">
 				<div className="text-sm mb-3">
-					The <span style={{ color: colortheme }}>activeColor</span> prop is
+					The <span style={{ color: colortheme }}>active color</span> prop is
 					used to set the color of the active page.
 				</div>
 

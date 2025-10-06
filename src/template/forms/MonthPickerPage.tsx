@@ -126,13 +126,13 @@ const MonthPickerPage = () => {
 	]);
 	return (
 		<div
-			className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-20"
+			className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-20"
 		>
 			{/* Color */}
 			<Card title="Color">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>color</span> prop is used to
-					set the color of the Select.
+					set the color of the select.
 				</div>
 
 				<div className="grid grid-cols-2 gap-2 capitalize">
@@ -158,7 +158,7 @@ const MonthPickerPage = () => {
 			<Card title="Density">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>density</span> prop is used to
-					set the density of the MonthPicker.
+					set the density of the month picker.
 				</div>
 
 				<div className="flex flex-col gap-2">
@@ -184,7 +184,7 @@ const MonthPickerPage = () => {
 			<Card title="Rounded">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>rounded</span> prop is used to
-					set the rounded of the MonthPicker.
+					set the rounded of the month picker.
 				</div>
 
 				<div className="grid grid-cols-2 gap-2">
@@ -210,7 +210,7 @@ const MonthPickerPage = () => {
 			<Card title="Variant">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>variant</span> prop is used to
-					set the variant of the MonthPicker.
+					set the variant of the month picker.
 				</div>
 
 				<div className="flex flex-col gap-2">
@@ -235,7 +235,7 @@ const MonthPickerPage = () => {
 			<Card title="Disabled">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>disabled</span> prop is used
-					to disable the MonthPicker.
+					to disable the month picker.
 				</div>
 
 				<div className="flex flex-col gap-2">
@@ -258,10 +258,10 @@ const MonthPickerPage = () => {
 			<Card title="Note & Error">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>note</span> prop is used to
-					set the note of the MonthPicker.
+					set the note of the month picker.
 					<br />
 					The <span style={{ color: colortheme }}>error</span> prop is used to
-					set the error of the MonthPicker.
+					set the error of the month picker.
 				</div>
 
 				<div className="grid grid-cols-2 gap-2">
@@ -286,10 +286,10 @@ const MonthPickerPage = () => {
 			<Card title="Prefix & Suffix">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>prefix</span> prop is used to
-					set the prefix of the MonthPicker.
+					set the prefix of the month picker.
 					<br />
 					The <span style={{ color: colortheme }}>suffix</span> prop is used to
-					set the suffix of the MonthPicker.
+					set the suffix of the month picker.
 				</div>
 
 				<div className="flex flex-col gap-2">
@@ -315,10 +315,10 @@ const MonthPickerPage = () => {
 			<Card title="Prepend & Append">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>prepend</span> prop is used to
-					set the prepend of the MonthPicker.
+					set the prepend of the month picker.
 					<br />
 					The <span style={{ color: colortheme }}>append</span> prop is used to
-					set the append of the MonthPicker.
+					set the append of the month picker.
 				</div>
 
 				<div className="flex flex-col gap-2">

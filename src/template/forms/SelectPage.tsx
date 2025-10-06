@@ -148,13 +148,13 @@ const SelectPage = () => {
 
 	return (
 		<div
-			className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-20"
+			className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-20"
 		>
 			{/* Color */}
 			<Card title="Color">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>color</span> prop is used to
-					set the color of the Select.
+					set the color of the select.
 				</div>
 
 				<div className="grid grid-cols-2 gap-2 capitalize">
@@ -181,7 +181,7 @@ const SelectPage = () => {
 			<Card title="Density">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>density</span> prop is used to
-					set the density of the Select.
+					set the density of the select.
 				</div>
 
 				<div className="flex flex-col gap-2">
@@ -208,7 +208,7 @@ const SelectPage = () => {
 			<Card title="Rounded">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>rounded</span> prop is used to
-					set the rounded of the Select.
+					set the rounded of the select.
 				</div>
 
 				<div className="grid grid-cols-2 gap-2">
@@ -235,7 +235,7 @@ const SelectPage = () => {
 			<Card title="Size">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>size</span> prop is used to
-					set the size of the Select.
+					set the size of the select.
 				</div>
 
 				<div className="flex flex-col gap-2">
@@ -262,7 +262,7 @@ const SelectPage = () => {
 			<Card title="Variant">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>variant</span> prop is used to
-					set the variant of the Select.
+					set the variant of the select.
 				</div>
 
 				<div className="flex flex-col gap-2">
@@ -288,7 +288,7 @@ const SelectPage = () => {
 			<Card title="Disabled">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>disabled</span> prop is used
-					to disable the Select.
+					to disable the select.
 				</div>
 
 				<div className="flex flex-col gap-2">
@@ -313,10 +313,10 @@ const SelectPage = () => {
 			<Card title="Note & Error">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>note</span> prop is used to
-					set the note of the Select.
+					set the note of the select.
 					<br />
 					The <span style={{ color: colortheme }}>append</span> prop is used to
-					set the error of the Select.
+					set the error of the select.
 				</div>
 
 				<div className="grid grid-cols-2 gap-2">
@@ -345,10 +345,10 @@ const SelectPage = () => {
 			<Card title="Prepend & Append">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>prepend</span> prop is used to
-					set the prepend of the Select.
+					set the prepend of the select.
 					<br />
 					The <span style={{ color: colortheme }}>append</span> prop is used to
-					set the append of the Select.
+					set the append of the select.
 				</div>
 
 				<div className="flex flex-col gap-2">
@@ -377,7 +377,7 @@ const SelectPage = () => {
 			<Card title="Multi">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>multi</span> prop is used to
-					set multiple values of the Select.
+					set multiple values of the select.
 				</div>
 
 				<Select
@@ -395,7 +395,7 @@ const SelectPage = () => {
 			<Card title="Creatable">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>creatable</span> prop is used
-					to set the creatable of the Select.
+					to set the creatable of the select.
 				</div>
 
 				<Select
@@ -414,7 +414,7 @@ const SelectPage = () => {
 			<Card title="Clearable">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>clearable</span> prop is used
-					to set the clearable of the Select.
+					to set the clearable of the select.
 				</div>
 
 				<Select
@@ -432,7 +432,7 @@ const SelectPage = () => {
 			<Card title="Searchable">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>searchable</span> prop is used
-					to set the searchable of the Select.
+					to set the searchable of the select.
 				</div>
 
 				<Select

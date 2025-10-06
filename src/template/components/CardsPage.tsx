@@ -1,9 +1,11 @@
 import { Card, CardStatistic } from "@/components";
+import { ThemeContext } from "@/context/ThemeContext";
 import moment from "moment";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { TbAdCircle, TbAddressBook, TbCrown, TbSettings } from "react-icons/tb";
 
 const CardPage = () => {
+    const { colortheme } = useContext(ThemeContext);
     const [cardBasic] = useState([
         {
             title: "Primary",
@@ -50,10 +52,11 @@ const CardPage = () => {
     ]);
 
     return (
-        <div className="flex flex-col gap-4">
-            <div
-                className="flex flex-col gap-4"
-            >
+        <div className="flex flex-col gap-6">
+            <Card title="Statistic Card">
+                <div className="text-sm mb-3">
+                    <span style={{ color: colortheme }}>Statistic card</span> is a component that displays key metrics or data points.
+                </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     <CardStatistic
                         value={40}
@@ -83,10 +86,12 @@ const CardPage = () => {
                         icon={<TbCrown />}
                     />
                 </div>
-            </div>
-            <div
-                className="flex flex-col gap-4"
-            >
+            </Card>
+            <Card title="Color">
+                <div className="text-sm mb-3">
+                    The <span style={{ color: colortheme }}>color</span> prop is used to
+                    set the background color of the card.
+                </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {cardBasic.map((item, itemIdx) => (
                         <Card key={itemIdx} bgColor={item.variant}>
@@ -100,7 +105,7 @@ const CardPage = () => {
                         </Card>
                     ))}
                 </div>
-            </div>
+            </Card>
         </div>
     );
 };

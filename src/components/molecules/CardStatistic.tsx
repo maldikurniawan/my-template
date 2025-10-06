@@ -48,7 +48,7 @@ const CardStatistic: React.FC<CardStatisticProps> = ({
         }[iconRounded] || "rounded-md";
 
     return (
-        <Card>
+        <Card bgColor="bg-transparent border border-[#E0E6ED] dark:border-[#253B5C]">
             <div className={`text-sm`}>
                 <div className="flex items-center gap-4 mb-2">
                     <div

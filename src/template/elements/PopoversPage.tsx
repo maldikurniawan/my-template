@@ -7,7 +7,7 @@ const PopoversPage = () => {
 
     return (
         <div
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
         >
             {/* Placement */}
             <div className="col-span-full">

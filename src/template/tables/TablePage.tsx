@@ -73,13 +73,12 @@ const TablePage = () => {
 
     return (
         <div
-            className="grid grid-cols-1 gap-4"
+            className="grid grid-cols-1 gap-6"
         >
             {/* Basic */}
             <Card title="Basic">
                 <div className="text-sm mb-3">
-                    Tables component is a wrapper for HTML table element. It has 3 props:
-                    size, density, table fix, and height.
+                    Tables component is a wrapper for HTML table element.
                 </div>
 
                 <Tables>
@@ -109,7 +108,7 @@ const TablePage = () => {
             <Card title="Size">
                 <div className="text-sm mb-3">
                     The <span style={{ color: colortheme }}>size</span> prop is used to
-                    set the size of the table. It has 4 options: sm, md, lg, and xl.
+                    set the size of the table.
                 </div>
 
                 <Tables size="sm">
@@ -136,8 +135,7 @@ const TablePage = () => {
             <Card title="Density">
                 <div className="text-sm mb-3">
                     The <span style={{ color: colortheme }}>density</span> prop is used to
-                    set the density of the table. It has 3 options: tight, normal, and
-                    loose.
+                    set the density of the table.
                 </div>
 
                 <Tables density="tight">
@@ -235,7 +233,7 @@ const TablePage = () => {
                     The <span style={{ color: colortheme }}>height</span> prop is used to
                     set the height of the table. The{" "}
                     <span style={{ color: colortheme }}>sticky</span> prop is used to set
-                    the table header to sticky. It used in Tables.Head component.
+                    the table header to sticky.
                 </div>
 
                 <Tables height={300}>
@@ -262,8 +260,7 @@ const TablePage = () => {
             <Card title="Center">
                 <div className="text-sm mb-3">
                     The <span style={{ color: colortheme }}>center</span> prop is used to
-                    set the content of the table to center. It used in Tables.Header and
-                    Tables.Data component.
+                    set the content of the table to center.
                 </div>
 
                 <Tables>
@@ -288,8 +285,14 @@ const TablePage = () => {
 
             {/* Center */}
             <Card title="Example">
+                <div className="text-sm mb-3">
+                    This example shows a table with <span style={{ color: colortheme }}>pagination </span>
+                    and <span style={{ color: colortheme }}>action buttons</span>. Pagination makes it easy
+                    to navigate large data sets, while action buttons allow quick interactions such as
+                    editing or deleting rows.
+                </div>
                 {/* Control Top */}
-                <div className="mb-4 mt-1 flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4">
+                <div className="mb-4 flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4">
                     <div className="w-full sm:w-60">
                         <TextField placeholder="Search" />
                     </div>

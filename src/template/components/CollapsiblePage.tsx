@@ -10,12 +10,12 @@ import {
 const CollapsiblePage = () => {
     const { colortheme } = useContext(ThemeContext);
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6"
         >
             {/* Collapsible */}
             <Card title="Collapsible">
                 <div className="text-sm mb-3">
-                    Collapsible or known as Accordion is a component that can be used to
+                    <span style={{ color: colortheme }}>Collapsible</span> or known as accordion is a component that can be used to
                     hide or show content.
                 </div>
 
@@ -116,9 +116,8 @@ const CollapsiblePage = () => {
             {/* Initial Expanded */}
             <Card title="Initial Expanded">
                 <div className="text-sm mb-3">
-                    The <span style={{ color: colortheme }}>initialexpanded</span> prop is
-                    used to make the collapsible item open by default. It can be used in a
-                    Collapsible or Collapsible.Item component.
+                    The <span style={{ color: colortheme }}>initial expanded</span> prop is
+                    used to make the collapsible item open by default.
                 </div>
 
                 <div className="flex flex-wrap gap-2">

@@ -1,7 +1,9 @@
 import { Calendar, Card } from '@/components';
-import React from 'react';
+import { ThemeContext } from '@/context/ThemeContext';
+import React, { useContext } from 'react';
 
 const CalendarPage: React.FC = () => {
+    const { colortheme } = useContext(ThemeContext);
     const events = [
         { title: 'Meeting with Team', date: '2025-01-20' },
         { title: 'Project Deadline', date: '2025-01-22' },
@@ -17,7 +19,10 @@ const CalendarPage: React.FC = () => {
 
     return (
         <Card title='Calendar'>
-            <div className='scroll-hidden calendar-wrapper mt-2'>
+            <div className="text-sm mb-3">
+                <span style={{ color: colortheme }}>FullCalendar</span> provides a complete event calendar with multiple views (month, week, day, list) and interactive features like drag & drop or date selection.
+            </div>
+            <div className='scroll-hidden calendar-wrapper'>
                 <Calendar
                     events={events}
                     onEventClick={handleEventClick}

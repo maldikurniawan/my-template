@@ -12,7 +12,7 @@ const ModalsPage = () => {
 	return (
 		<>
 			<div
-				className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+				className="grid grid-cols-1 sm:grid-cols-2 gap-6"
 			>
 				<Card title="Basic">
 					<div className="text-sm mb-3">

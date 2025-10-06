@@ -1,7 +1,7 @@
 import { Layout } from "@/components";
 import { menu } from "@/constants/menu";
 import { ThemeProvider } from "@/context/ThemeContext";
-import { LoginPage, NotFoundPage } from "@/template";
+import { LoginPage, MaintenancePage, NotFoundPage } from "@/template";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function App() {
@@ -25,6 +25,7 @@ export default function App() {
             })}
           </Route>
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/maintenance" element={<MaintenancePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>

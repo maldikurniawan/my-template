@@ -108,7 +108,7 @@ const TimelinePage = () => {
 
     return (
         <div
-            className="grid md:grid-cols-2 gap-4"
+            className="grid md:grid-cols-2 gap-6"
         >
             {/* Color */}
             <Card title="Color">
@@ -167,10 +167,10 @@ const TimelinePage = () => {
                 <Card title="Multi & Position">
                     <div className="text-sm mb-3">
                         The <span style={{ color: colortheme }}>multi</span> prop is set in
-                        the Timeline component to enable multi-column layout.
+                        the timeline component to enable multi-column layout.
                         <br />
                         The <span style={{ color: colortheme }}>position</span> prop is set
-                        in the Timeline. Item component to set the position of the timeline
+                        in the timeline. Item component to set the position of the timeline
                         dot. The default position is right.
                     </div>
 

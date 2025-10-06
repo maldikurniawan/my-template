@@ -306,7 +306,7 @@ const TextField: React.FC<TextFieldProps> = ({
                         <div
                             style={{
                                 fontSize: textFieldSize,
-                                borderRadius: textFieldRounded,
+                                borderStartStartRadius: textFieldRounded,
                             }}
                             className="flex items-center px-2 bg-gray-100 dark:bg-[#253B5C50]"
                         >

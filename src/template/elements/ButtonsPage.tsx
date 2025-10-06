@@ -6,7 +6,7 @@ const ButtonsPage = () => {
     const { colortheme } = useContext(ThemeContext);
     return (
         <div
-            className="grid grid-cols-1 gap-4"
+            className="grid grid-cols-1 gap-6"
         >
             {/* Color */}
             <Card title="Color">

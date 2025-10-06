@@ -150,13 +150,13 @@ const TextAreaPage = () => {
 
 	return (
 		<div
-			className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-20"
+			className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-20"
 		>
 			{/* Color */}
 			<Card title="Color">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>color</span> prop is used to
-					set the color of the TextArea.
+					set the color of the text area.
 				</div>
 
 				<div className="grid grid-cols-2 gap-2 capitalize">
@@ -181,7 +181,7 @@ const TextAreaPage = () => {
 			<Card title="Density">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>density</span> prop is used to
-					set the density of the TextArea.
+					set the density of the text area.
 				</div>
 
 				<div className="flex flex-col gap-2">
@@ -206,7 +206,7 @@ const TextAreaPage = () => {
 			<Card title="Rounded">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>rounded</span> prop is used to
-					set the rounded of the TextArea.
+					set the rounded of the text area.
 				</div>
 
 				<div className="grid grid-cols-2 gap-2">
@@ -231,7 +231,7 @@ const TextAreaPage = () => {
 			<Card title="Size">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>size</span> prop is used to
-					set the size of the TextArea.
+					set the size of the text area.
 				</div>
 
 				<div className="flex flex-col gap-2">
@@ -257,7 +257,7 @@ const TextAreaPage = () => {
 				<Card title="Variant">
 					<div className="text-sm mb-3">
 						The <span style={{ color: colortheme }}>variant</span> prop is used
-						to set the variant of the TextArea.
+						to set the variant of the text area.
 					</div>
 
 					<div className="flex flex-col gap-2">
@@ -283,7 +283,7 @@ const TextAreaPage = () => {
 			<Card title="Disabled & Readonly">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>disabled</span> prop is used
-					to disable the TextArea.
+					to disable the text area.
 					<br />
 					The <span style={{ color: colortheme }}>readonly</span> prop is used
 					to set the TextArea to readonly.
@@ -304,10 +304,10 @@ const TextAreaPage = () => {
 			<Card title="Note & Error">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>note</span> prop is used to
-					set the note of the TextArea.
+					set the note of the text area.
 					<br />
 					The <span style={{ color: colortheme }}>error</span> prop is used to
-					set the error of the TextArea.
+					set the error of the text area.
 				</div>
 
 				<div className="grid grid-cols-2 gap-2">
@@ -332,10 +332,10 @@ const TextAreaPage = () => {
 			<Card title="Prefix & Suffix">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>prefix</span> prop is used to
-					set the prefix of the TextArea.
+					set the prefix of the text area.
 					<br />
 					The <span style={{ color: colortheme }}>suffix</span> prop is used to
-					set the suffix of the TextArea.
+					set the suffix of the text area.
 				</div>
 
 				<div className="flex flex-col gap-2">
@@ -360,10 +360,10 @@ const TextAreaPage = () => {
 			<Card title="Prepend & Append">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>prepend</span> prop is used to
-					set the prepend of the TextArea.
+					set the prepend of the text area.
 					<br />
 					The <span style={{ color: colortheme }}>append</span> prop is used to
-					set the append of the TextArea.
+					set the append of the text area.
 				</div>
 
 				<div className="flex flex-col gap-2">

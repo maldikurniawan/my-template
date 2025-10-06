@@ -9,7 +9,7 @@ const AlertsPage = () => {
 
     return (
         <div
-            className="flex flex-col gap-4 overflow-y-auto scroll-hidden"
+            className="flex flex-col gap-6 overflow-y-auto scroll-hidden"
         >
             {/* Color */}
             <Card title="Color">
@@ -93,7 +93,7 @@ const AlertsPage = () => {
             <Card title="Variant">
                 <div className="text-sm mb-3">
                     The <span style={{ color: colortheme }}>variant</span> prop is used to
-                    set the icon of the alert.
+                    set the variant of the alert.
                 </div>
 
                 <div className="text-sm mb-2 mt-4">Solid</div>

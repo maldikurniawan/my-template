@@ -299,7 +299,7 @@ const TextArea: React.FC<TextAreaProps> = ({
                         <div
                             style={{
                                 fontSize: textFieldSize,
-                                borderRadius: textFieldRounded,
+                                borderStartStartRadius: textFieldRounded,
                             }}
                             className="flex items-start p-[10px] leading-none bg-gray-100 dark:bg-[#253B5C50]"
                         >

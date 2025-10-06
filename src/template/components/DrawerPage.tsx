@@ -10,7 +10,7 @@ const DrawerPage = () => {
 	const [drawerWidth, setDrawerWidth] = useState<boolean>(false);
 
 	return (
-		<div className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+		<div className="grid grid-cols-1 sm:grid-cols-2 gap-6"
 		>
 			{/* Title & Description */}
 			<Card title="Title & Description">

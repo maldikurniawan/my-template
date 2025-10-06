@@ -12,7 +12,7 @@ const FileInputPage = () => {
 
 	return (
 		<div
-			className="grid grid-cols-1 gap-4"
+			className="grid grid-cols-1 gap-6"
 		>
 			{/* Basic */}
 			<Card title="Basic">

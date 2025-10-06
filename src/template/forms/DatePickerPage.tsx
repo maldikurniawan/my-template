@@ -152,13 +152,13 @@ const DatePickerPage = () => {
 
 	return (
 		<div
-			className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+			className="grid grid-cols-1 sm:grid-cols-2 gap-6"
 		>
 			{/* Color */}
 			<Card title="Color">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>color</span> prop is used to
-					set the color of the DatePicker.
+					set the color of the date picker.
 				</div>
 
 				<div className="grid grid-cols-2 gap-2">
@@ -184,7 +184,7 @@ const DatePickerPage = () => {
 			<Card title="Density">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>density</span> prop is used to
-					set the density of the DatePicker.
+					set the density of the date picker.
 				</div>
 
 				<div className="flex flex-col gap-2">
@@ -210,7 +210,7 @@ const DatePickerPage = () => {
 			<Card title="Rounded">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>rounded</span> prop is used to
-					set the rounded of the DatePicker.
+					set the rounded of the date picker.
 				</div>
 
 				<div className="grid grid-cols-2 gap-2">
@@ -236,7 +236,7 @@ const DatePickerPage = () => {
 			<Card title="Size">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>size</span> prop is used to
-					set the size of the DatePicker.
+					set the size of the date picker.
 				</div>
 
 				<div className="flex flex-col gap-2">
@@ -262,7 +262,7 @@ const DatePickerPage = () => {
 			<Card title="Variant">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>variant</span> prop is used to
-					set the variant of the DatePicker.
+					set the variant of the date picker.
 				</div>
 
 				<div className="flex flex-col gap-2">
@@ -287,7 +287,7 @@ const DatePickerPage = () => {
 			<Card title="Mode">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>mode</span> prop is used to
-					set the mode of the DatePicker.
+					set the mode of the date picker.
 				</div>
 
 				<div className="flex flex-col gap-2">
@@ -323,7 +323,7 @@ const DatePickerPage = () => {
 			<Card title="Disabled">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>disabled</span> prop is used
-					to disable the DatePicker.
+					to disable the date picker.
 				</div>
 
 				<div className="flex flex-col gap-2">
@@ -346,10 +346,10 @@ const DatePickerPage = () => {
 			<Card title="Note & Error">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>note</span> prop is used to
-					set the note of the DatePicker.
+					set the note of the date picker.
 					<br />
 					The <span style={{ color: colortheme }}>error</span> prop is used to
-					set the error of the DatePicker.
+					set the error of the date picker.
 				</div>
 
 				<div className="grid grid-cols-2 gap-2">
@@ -374,10 +374,10 @@ const DatePickerPage = () => {
 			<Card title="Prefix & Suffix">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>prefix</span> prop is used to
-					set the prefix of the DatePicker.
+					set the prefix of the date picker.
 					<br />
 					The <span style={{ color: colortheme }}>suffix</span> prop is used to
-					set the suffix of the DatePicker.
+					set the suffix of the date picker.
 				</div>
 
 				<div className="flex flex-col gap-2">
@@ -403,10 +403,10 @@ const DatePickerPage = () => {
 			<Card title="Prepend & Append">
 				<div className="text-sm mb-3">
 					The <span style={{ color: colortheme }}>prepend</span> prop is used to
-					set the prepend of the DatePicker.
+					set the prepend of the date picker.
 					<br />
 					The <span style={{ color: colortheme }}>append</span> prop is used to
-					set the append of the DatePicker.
+					set the append of the date picker.
 				</div>
 
 				<div className="flex flex-col gap-2">

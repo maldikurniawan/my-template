@@ -63,7 +63,7 @@ export default function LeafletMap({
             zoom={zoom}
             scrollWheelZoom
             zoomControl={false}
-            className={`w-full h-96 mt-2 ${className}`}
+            className={`w-full h-96 ${className}`}
         >
             <TileLayer
                 url="http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}"
