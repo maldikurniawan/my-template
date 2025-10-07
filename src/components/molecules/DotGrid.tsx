@@ -26,7 +26,7 @@ interface Dot {
 export interface DotGridProps {
     dotSize?: number;
     gap?: number;
-    baseColor?: string;
+    baseColor?: any;
     activeColor?: string;
     proximity?: number;
     speedTrigger?: number;
@@ -81,11 +81,12 @@ const DotGrid: React.FC<DotGridProps> = ({
     const baseRgb = useMemo(() => hexToRgb(baseColor), [baseColor]);
     const activeRgb = useMemo(() => hexToRgb(activeColor), [activeColor]);
 
-    const circlePath = useMemo(() => {
+    const shapePath = useMemo(() => {
         if (typeof window === 'undefined' || !window.Path2D) return null;
 
         const p = new Path2D();
-        p.arc(0, 0, dotSize / 2, 0, Math.PI * 2);
+        const half = dotSize / 2;
+        p.rect(-half, -half, dotSize, dotSize);
         return p;
     }, [dotSize]);
 
@@ -129,7 +130,7 @@ const DotGrid: React.FC<DotGridProps> = ({
     }, [dotSize, gap]);
 
     useEffect(() => {
-        if (!circlePath) return;
+        if (!shapePath) return;
 
         let rafId: number;
         const proxSq = proximity * proximity;
@@ -163,7 +164,7 @@ const DotGrid: React.FC<DotGridProps> = ({
                 ctx.save();
                 ctx.translate(ox, oy);
                 ctx.fillStyle = style;
-                ctx.fill(circlePath);
+                ctx.fill(shapePath);
                 ctx.restore();
             }
 
@@ -172,7 +173,7 @@ const DotGrid: React.FC<DotGridProps> = ({
 
         draw();
         return () => cancelAnimationFrame(rafId);
-    }, [proximity, baseColor, activeRgb, baseRgb, circlePath]);
+    }, [proximity, baseColor, activeRgb, baseRgb, shapePath]);
 
     useEffect(() => {
         buildGrid();
@@ -278,9 +279,15 @@ const DotGrid: React.FC<DotGridProps> = ({
     }, [maxSpeed, speedTrigger, proximity, resistance, returnDuration, shockRadius, shockStrength]);
 
     return (
-        <section className={`p-4 flex items-center justify-center h-full w-full relative ${className}`} style={style}>
+        <section
+            className={`fixed top-0 left-0 w-full h-full z-[-1] flex items-center justify-center ${className}`}
+            style={style}
+        >
             <div ref={wrapperRef} className="w-full h-full relative">
-                <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" />
+                <canvas
+                    ref={canvasRef}
+                    className="absolute inset-0 w-full h-full pointer-events-none"
+                />
             </div>
         </section>
     );

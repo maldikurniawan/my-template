@@ -1,4 +1,4 @@
-import { Button, TextField } from "@/components";
+import { Button, DotGrid, TextField } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useFormik } from "formik";
 import { useContext, useState } from "react";
@@ -36,6 +36,17 @@ const LoginPage: React.FC = () => {
 
     return (
         <div className="relative overflow-hidden">
+            <DotGrid
+                dotSize={30}
+                gap={3}
+                baseColor={theme === "dark" ? "#0E1726" : "#E0E6ED"}
+                activeColor={theme === "dark" ? "#000000" : "#FFFFFF"}
+                proximity={120}
+                shockRadius={250}
+                shockStrength={5}
+                resistance={750}
+                returnDuration={1.5}
+            />
             <div className="relative w-screen h-screen overflow-hidden flex font-light">
                 <div className="flex w-full items-center justify-center p-10">
                     <div className="w-full md:w-96 h-fit p-10 bg-white/10 backdrop-blur-lg rounded-md shadow-lg border border-[#E0E6ED] dark:border-[#253B5C]">
