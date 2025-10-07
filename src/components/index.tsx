@@ -10,6 +10,7 @@ import Chip from "./atoms/Chip";
 import Collapsible from "./atoms/Collapsible";
 import Countdown from "./atoms/Countdown";
 import CounterGroup from "./atoms/CounterGroup";
+import DragDrop from "./atoms/DragDrop";
 import Drawer from "./atoms/Drawer";
 import Limit from "./atoms/Limit";
 import List from "./atoms/List";
@@ -45,5 +46,5 @@ import LetterGlitch from "./molecules/LetterGlitch";
 import Maps from "./molecules/Maps";
 import Tables from "./molecules/Tables";
 
-export { Alert, Avatar, Badge, Breadcrumb, Button, ButtonRipple, Calendar, Card, CardStatistic, Carousel, Checkbox, Chip, Collapsible, ColorPicker, Countdown, CounterGroup, DatePicker, DotGrid, Drawer, FileInput, FileInputForm, Footer, Header, Layout, LetterGlitch, Limit, List, Loading, Maps, Modal, MonthPicker, Pagination, Popover, ProgressBar, Radio, Select, Setting, Sidebar, SweetAlert, Switch, Tables, Tabs, TextArea, TextField, Timeline, Tooltip };
+export { Alert, Avatar, Badge, Breadcrumb, Button, ButtonRipple, Calendar, Card, CardStatistic, Carousel, Checkbox, Chip, Collapsible, ColorPicker, Countdown, CounterGroup, DatePicker, DotGrid, DragDrop, Drawer, FileInput, FileInputForm, Footer, Header, Layout, LetterGlitch, Limit, List, Loading, Maps, Modal, MonthPicker, Pagination, Popover, ProgressBar, Radio, Select, Setting, Sidebar, SweetAlert, Switch, Tables, Tabs, TextArea, TextField, Timeline, Tooltip };
 
