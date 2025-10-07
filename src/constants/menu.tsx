@@ -13,22 +13,20 @@ import {
     ColorPickerPage,
     CountdownPage,
     CounterPage,
-    // CVPage,
     DashboardPage,
     DatePickerPage,
+    DragDropPage,
     DrawerPage,
     FileInputPage,
     ListPage,
-    // MaintenancePage,
     MapPage,
     ModalsPage,
     MonthPickerPage,
-    // NotFoundPage,
     PaginationPage,
     PopoversPage,
-    // ProfilePage,
     ProgressBarPage,
     RadioPage,
+    ScrumboardPage,
     SelectPage,
     SweetAlertsPage,
     SwitchPage,
@@ -42,14 +40,14 @@ import {
 import type { JSX } from "react";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import {
+    PiArrowsOutFill,
     PiCalendarBlankFill,
     PiCardsFill,
-    // PiFileTextFill,
+    PiClipboardTextFill,
     PiHouseLineFill,
     PiLightningFill,
     PiTableFill,
-    PiTextboxFill,
-    // PiUserFill
+    PiTextboxFill
 } from "react-icons/pi";
 
 // Adjust the SubMenu interface to not have a nested sub property
@@ -283,11 +281,27 @@ export const menu: MenuItem[] = [
         sub: [],
     },
     {
+        icon: <PiArrowsOutFill />,
+        path: "/dragdrop",
+        name: "dragdrop",
+        title: "Drag & Drop",
+        element: <DragDropPage />,
+        sub: [],
+    },
+    {
         icon: <FaMapMarkedAlt />,
         path: "/maps",
         name: "maps",
         title: "Maps",
         element: <MapPage />,
+        sub: [],
+    },
+    {
+        icon: <PiClipboardTextFill />,
+        path: "/scrumboard",
+        name: "scrumboard",
+        title: "Scrumboard",
+        element: <ScrumboardPage />,
         sub: [],
     },
     {
@@ -390,57 +404,4 @@ export const menu: MenuItem[] = [
         element: <TablePage />,
         sub: [],
     },
-    // {
-    //     label: "USER & PAGES",
-    // },
-    // {
-    //     icon: <PiUserFill />,
-    //     path: "users",
-    //     name: "users",
-    //     title: "Users",
-    //     element: null,
-    //     sub: [
-    //         {
-    //             icon: null,
-    //             path: "/user-pages/users/curriculum-vitae",
-    //             name: "curriculum-vitae",
-    //             title: "Curriculum Vitae",
-    //             element: <CVPage />,
-    //             sub: [],
-    //         },
-    //         {
-    //             icon: null,
-    //             path: "/user-pages/users/profile",
-    //             name: "profile",
-    //             title: "Profile",
-    //             element: <ProfilePage />,
-    //             sub: [],
-    //         },
-    //     ],
-    // },
-    // {
-    //     icon: <PiFileTextFill />,
-    //     path: "pages",
-    //     name: "pages",
-    //     title: "Pages",
-    //     element: null,
-    //     sub: [
-    //         {
-    //             icon: null,
-    //             path: "/user-pages/pages/not-found",
-    //             name: "not-found",
-    //             title: "404 Not Found",
-    //             element: <NotFoundPage />,
-    //             sub: [],
-    //         },
-    //         {
-    //             icon: null,
-    //             path: "/user-pages/pages/maintenance",
-    //             name: "maintenance",
-    //             title: "Maintenance",
-    //             element: <MaintenancePage />,
-    //             sub: [],
-    //         },
-    //     ],
-    // },
 ];

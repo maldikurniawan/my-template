@@ -69,6 +69,16 @@ const TablePage = () => {
             name: "John Lennon",
             email: "johnlennongmail.com",
         },
+        {
+            id: 13,
+            name: "John Vincent",
+            email: "johnvincent.com",
+        },
+        {
+            id: 14,
+            name: "John Tore",
+            email: "johntore.com",
+        },
     ]);
 
     return (
