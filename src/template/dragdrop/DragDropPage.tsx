@@ -1,9 +1,11 @@
 import { Button, Card } from '@/components';
-import { useState } from 'react';
+import { ThemeContext } from '@/context/ThemeContext';
+import { useContext, useState } from 'react';
 import { PiArrowsOut } from 'react-icons/pi';
 import { ReactSortable } from 'react-sortablejs';
 
 const DragAndDropPage = () => {
+    const { colortheme } = useContext(ThemeContext);
     const items1 = [
         {
             id: 1,
@@ -70,6 +72,9 @@ const DragAndDropPage = () => {
         <div className="dragndrop space-y-6">
             {/* Sortable */}
             <Card title='Sortable'>
+                <div className="text-sm mb-3">
+                    <span style={{ color: colortheme }}>Sortable</span> is a component that allows items in a list or grid to be rearranged by dragging and dropping.
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12">
                     <ReactSortable list={sortable1} setList={setSortable1} animation={200} delay={2} forceFallback={true} fallbackOnBody={true} delayOnTouchOnly={true} chosenClass="sortable-chosen" dragClass="sortable-drag" ghostClass="gu-transit" group="shared">
                         {sortable1.map((item) => {
@@ -120,6 +125,9 @@ const DragAndDropPage = () => {
 
             {/* Handler */}
             <Card title='Handler'>
+                <div className="text-sm mb-3">
+                    <span style={{ color: colortheme }}>Sortable</span> is a component that has specific element inside each draggable item that acts as the drag handle.
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12">
                     <ReactSortable list={handler1} setList={setHandler1} animation={200} forceFallback={true} fallbackOnBody={true} handle=".handle" group="handler" chosenClass="sortable-chosen" dragClass="sortable-drag" ghostClass="gu-transit">
                         {handler1.map((item) => {
@@ -170,10 +178,13 @@ const DragAndDropPage = () => {
 
             {/* News Feed */}
             <Card title='Swapable'>
+                <div className="text-sm mb-3">
+                    <span style={{ color: colortheme }}>Swappable</span> component allows items to exchange positions when one is dragged over another, instead of inserting or pushing other items aside.
+                </div>
                 <ReactSortable list={swap} setList={setSwap} animation={200} swap={true} swapThreshold={1} chosenClass="sortable-chosen" dragClass="sortable-drag" ghostClass="gu-transit" className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-2.5">
                     {swap.map((item) => {
                         return (
-                            <div key={item.id} className=" cursor-grab">
+                            <div key={item.id} className="cursor-grab">
                                 <div className="bg-white dark:bg-[#1b2e4b] rounded-md border border-white-light dark:border-dark px-6 py-3.5 flex md:flex-row flex-col text-left items-md-center">
                                     <div className="sm:mr-4">
                                         <img alt="avatar" src={`https://i.pravatar.cc/200?n=${item.id}`} className="w-11 h-11 rounded-full mx-auto" />
