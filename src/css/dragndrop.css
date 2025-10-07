@@ -1,0 +1,23 @@
+.dragndrop .gu-transit {
+    opacity: 0.3;
+    transition: opacity 0.2s ease;
+}
+
+.dragndrop .sortable-chosen {
+    transform: scale(1.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.dragndrop .sortable-drag {
+    opacity: 0.95;
+}
+
+.dragndrop .selected>div {
+    background-color: #E0E6ED;
+}
+
+.dark .dragndrop .selected>div {
+    background-color: #0E1726;
+}

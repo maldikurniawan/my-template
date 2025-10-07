@@ -67,123 +67,64 @@ const DragAndDropPage = () => {
     const [swap, setSwap] = useState([...items1, ...items2]);
 
     return (
-        <div className="space-y-6">
+        <div className="dragndrop space-y-6">
             {/* Sortable */}
             <Card title='Sortable'>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12">
-                    <ul id="example1">
-                        <ReactSortable list={sortable1} setList={setSortable1} animation={200} delay={2} ghostClass="gu-transit" group="shared">
-                            {sortable1.map((item) => {
-                                return (
-                                    <li key={item.id} className="mb-2.5 cursor-grab">
-                                        <div className="bg-white dark:bg-[#1b2e4b] rounded-md border border-white-light dark:border-dark px-6 py-3.5 flex md:flex-row flex-col md:text-left text-center items-md-center">
-                                            <div className="sm:mr-4">
-                                                <img alt="avatar" src={`https://i.pravatar.cc/200?n=${item.id}`} className="w-11 h-11 rounded-full mx-auto" />
-                                            </div>
-                                            <div className="flex md:flex-row flex-col justify-between items-center flex-1">
-                                                <div className="font-semibold md:my-0 my-3">
-                                                    <div className="text-dark dark:text-[#bfc9d4] text-base">{item.name}</div>
-                                                    <div className="text-white-dark text-xs">{item.text}</div>
-                                                </div>
-                                                <Button type="button" color='secondary'>
-                                                    View
-                                                </Button>
-                                            </div>
+                    <ReactSortable list={sortable1} setList={setSortable1} animation={200} delay={2} forceFallback={true} fallbackOnBody={true} delayOnTouchOnly={true} chosenClass="sortable-chosen" dragClass="sortable-drag" ghostClass="gu-transit" group="shared">
+                        {sortable1.map((item) => {
+                            return (
+                                <div key={item.id} className="mb-2.5 cursor-grab">
+                                    <div className="bg-white dark:bg-[#1b2e4b] rounded-md border border-white-light dark:border-dark px-6 py-3.5 flex md:flex-row flex-col md:text-left text-center items-md-center">
+                                        <div className="sm:mr-4">
+                                            <img alt="avatar" src={`https://i.pravatar.cc/200?n=${item.id}`} className="w-11 h-11 rounded-full mx-auto" />
                                         </div>
-                                    </li>
-                                );
-                            })}
-                        </ReactSortable>
-                    </ul>
-                    <ul id="example2">
-                        <ReactSortable list={sortable2} setList={setSortable2} animation={200} delay={2} ghostClass="gu-transit" group="shared">
-                            {sortable2.map((item) => {
-                                return (
-                                    <li key={item.id} className="mb-2.5 cursor-grab">
-                                        <div className="bg-white dark:bg-[#1b2e4b] rounded-md border border-white-light dark:border-dark px-6 py-3.5 flex md:flex-row flex-col md:text-left text-center items-md-center">
-                                            <div className="sm:mr-4">
-                                                <img alt="avatar" src={`https://i.pravatar.cc/200?n=${item.id}`} className="w-11 h-11 rounded-full mx-auto" />
+                                        <div className="flex md:flex-row flex-col justify-between items-center flex-1">
+                                            <div className="font-semibold md:my-0 my-3">
+                                                <div className="text-dark dark:text-[#bfc9d4] text-base">{item.name}</div>
+                                                <div className="text-white-dark text-xs">{item.text}</div>
                                             </div>
-                                            <div className="flex md:flex-row flex-col justify-between items-center flex-1">
-                                                <div className="font-semibold md:my-0 my-3">
-                                                    <div className="text-dark dark:text-[#bfc9d4] text-base">{item.name}</div>
-                                                    <div className="text-white-dark text-xs">{item.text}</div>
-                                                </div>
-                                                <Button type="button" color='secondary'>
-                                                    View
-                                                </Button>
-                                            </div>
+                                            <Button type="button" color='secondary'>
+                                                View
+                                            </Button>
                                         </div>
-                                    </li>
-                                );
-                            })}
-                        </ReactSortable>
-                    </ul>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </ReactSortable>
+                    <ReactSortable list={sortable2} setList={setSortable2} animation={200} delay={2} forceFallback={true} fallbackOnBody={true} chosenClass="sortable-chosen" dragClass="sortable-drag" ghostClass="gu-transit" group="shared">
+                        {sortable2.map((item) => {
+                            return (
+                                <div key={item.id} className="mb-2.5 cursor-grab">
+                                    <div className="bg-white dark:bg-[#1b2e4b] rounded-md border border-white-light dark:border-dark px-6 py-3.5 flex md:flex-row flex-col md:text-left text-center items-md-center">
+                                        <div className="sm:mr-4">
+                                            <img alt="avatar" src={`https://i.pravatar.cc/200?n=${item.id}`} className="w-11 h-11 rounded-full mx-auto" />
+                                        </div>
+                                        <div className="flex md:flex-row flex-col justify-between items-center flex-1">
+                                            <div className="font-semibold md:my-0 my-3">
+                                                <div className="text-dark dark:text-[#bfc9d4] text-base">{item.name}</div>
+                                                <div className="text-white-dark text-xs">{item.text}</div>
+                                            </div>
+                                            <Button type="button" color='secondary'>
+                                                View
+                                            </Button>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </ReactSortable>
                 </div>
             </Card>
 
             {/* Handler */}
             <Card title='Handler'>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12">
-                    <ul id="example3">
-                        <ReactSortable list={handler1} setList={setHandler1} animation={200} handle=".handle" group="handler" ghostClass="gu-transit">
-                            {handler1.map((item) => {
-                                return (
-                                    <li key={item.id} className="mb-2.5 cursor-grab">
-                                        <div className="bg-white dark:bg-[#1b2e4b] rounded-md border border-white-light dark:border-dark px-6 py-3.5 flex md:flex-row flex-col text-left items-md-center">
-                                            <div className="sm:mr-4">
-                                                <img alt="avatar" src={`https://i.pravatar.cc/200?n=${item.id}`} className="w-11 h-11 rounded-full mx-auto" />
-                                            </div>
-                                            <div className="flex md:flex-row flex-col justify-between items-center flex-1 text-center md:text-left">
-                                                <div className="font-semibold md:my-0 my-3">
-                                                    <div className="text-dark dark:text-[#bfc9d4] text-base">{item.name}</div>
-                                                    <div className="text-white-dark text-xs">{item.text}</div>
-                                                </div>
-                                                <Button size="40" className='handle p-1.5 cursor-move' variant='tonal'>
-                                                    <PiArrowsOut />
-                                                </Button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                );
-                            })}
-                        </ReactSortable>
-                    </ul>
-
-                    <ul id="example4">
-                        <ReactSortable list={handler2} setList={setHandler2} animation={200} handle=".handle" group="handler" ghostClass="gu-transit">
-                            {handler2.map((item) => {
-                                return (
-                                    <li key={item.id} className="mb-2.5 cursor-grab">
-                                        <div className="bg-white dark:bg-[#1b2e4b] rounded-md border border-white-light dark:border-dark px-6 py-3.5 flex md:flex-row flex-col text-left items-md-center">
-                                            <div className="sm:mr-4">
-                                                <img alt="avatar" src={`https://i.pravatar.cc/200?n=${item.id}`} className="w-11 h-11 rounded-full mx-auto" />
-                                            </div>
-                                            <div className="sm:flex block justify-between items-center flex-1 text-center md:text-left">
-                                                <div className="font-semibold md:my-0 my-3">
-                                                    <div className="text-dark dark:text-[#bfc9d4] text-base">{item.name}</div>
-                                                    <div className="text-white-dark text-xs">{item.text}</div>
-                                                </div>
-                                                <Button size="40" className='handle p-1.5 cursor-move' variant='tonal'>
-                                                    <PiArrowsOut />
-                                                </Button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                );
-                            })}
-                        </ReactSortable>
-                    </ul>
-                </div>
-            </Card >
-
-            {/* News Feed */}
-            <Card title='Swapable'>
-                <ul id="example5">
-                    <ReactSortable list={swap} setList={setSwap} animation={200} swap={true} swapThreshold={1} className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-2.5">
-                        {swap.map((item) => {
+                    <ReactSortable list={handler1} setList={setHandler1} animation={200} forceFallback={true} fallbackOnBody={true} handle=".handle" group="handler" chosenClass="sortable-chosen" dragClass="sortable-drag" ghostClass="gu-transit">
+                        {handler1.map((item) => {
                             return (
-                                <li key={item.id} className=" cursor-grab">
+                                <div key={item.id} className="mb-2.5 cursor-grab">
                                     <div className="bg-white dark:bg-[#1b2e4b] rounded-md border border-white-light dark:border-dark px-6 py-3.5 flex md:flex-row flex-col text-left items-md-center">
                                         <div className="sm:mr-4">
                                             <img alt="avatar" src={`https://i.pravatar.cc/200?n=${item.id}`} className="w-11 h-11 rounded-full mx-auto" />
@@ -193,13 +134,61 @@ const DragAndDropPage = () => {
                                                 <div className="text-dark dark:text-[#bfc9d4] text-base">{item.name}</div>
                                                 <div className="text-white-dark text-xs">{item.text}</div>
                                             </div>
+                                            <Button size="40" className='handle p-1.5 cursor-move' variant='tonal'>
+                                                <PiArrowsOut />
+                                            </Button>
                                         </div>
                                     </div>
-                                </li>
+                                </div>
                             );
                         })}
                     </ReactSortable>
-                </ul>
+                    <ReactSortable list={handler2} setList={setHandler2} animation={200} forceFallback={true} fallbackOnBody={true} handle=".handle" group="handler" chosenClass="sortable-chosen" dragClass="sortable-drag" ghostClass="gu-transit">
+                        {handler2.map((item) => {
+                            return (
+                                <div key={item.id} className="mb-2.5 cursor-grab">
+                                    <div className="bg-white dark:bg-[#1b2e4b] rounded-md border border-white-light dark:border-dark px-6 py-3.5 flex md:flex-row flex-col text-left items-md-center">
+                                        <div className="sm:mr-4">
+                                            <img alt="avatar" src={`https://i.pravatar.cc/200?n=${item.id}`} className="w-11 h-11 rounded-full mx-auto" />
+                                        </div>
+                                        <div className="sm:flex block justify-between items-center flex-1 text-center md:text-left">
+                                            <div className="font-semibold md:my-0 my-3">
+                                                <div className="text-dark dark:text-[#bfc9d4] text-base">{item.name}</div>
+                                                <div className="text-white-dark text-xs">{item.text}</div>
+                                            </div>
+                                            <Button size="40" className='handle p-1.5 cursor-move' variant='tonal'>
+                                                <PiArrowsOut />
+                                            </Button>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </ReactSortable>
+                </div>
+            </Card >
+
+            {/* News Feed */}
+            <Card title='Swapable'>
+                <ReactSortable list={swap} setList={setSwap} animation={200} swap={true} swapThreshold={1} chosenClass="sortable-chosen" dragClass="sortable-drag" ghostClass="gu-transit" className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-2.5">
+                    {swap.map((item) => {
+                        return (
+                            <div key={item.id} className=" cursor-grab">
+                                <div className="bg-white dark:bg-[#1b2e4b] rounded-md border border-white-light dark:border-dark px-6 py-3.5 flex md:flex-row flex-col text-left items-md-center">
+                                    <div className="sm:mr-4">
+                                        <img alt="avatar" src={`https://i.pravatar.cc/200?n=${item.id}`} className="w-11 h-11 rounded-full mx-auto" />
+                                    </div>
+                                    <div className="flex md:flex-row flex-col justify-between items-center flex-1 text-center md:text-left">
+                                        <div className="font-semibold md:my-0 my-3">
+                                            <div className="text-dark dark:text-[#bfc9d4] text-base">{item.name}</div>
+                                            <div className="text-white-dark text-xs">{item.text}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </ReactSortable>
             </Card >
         </div >
     );
