@@ -232,7 +232,7 @@ const LetterGlitch = ({
                 <div
                     className="
                 absolute top-0 left-0 w-full h-full pointer-events-none 
-                bg-[radial-gradient(circle,_rgba(255,255,255,0.8)_0%,_rgba(255,255,255,0)_60%)]
+                bg-[radial-gradient(circle,_rgba(255,255,255,0.8)_0%,_rgba(255,255,255,0)_60%)] backdrop-blur-[1px]
                 dark:bg-[radial-gradient(circle,_rgba(0,0,0,0.8)_0%,_rgba(0,0,0,0)_60%)]
             "
                 ></div>
