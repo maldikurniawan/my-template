@@ -184,7 +184,7 @@ const Header = () => {
                                 <div className="p-2 font-medium">
                                     <List
                                         onClick={() => navigate("/login")}
-                                        color="lightRed"
+                                        color="danger"
                                         prefix={<TbLogout />}
                                         density="loose"
                                     >

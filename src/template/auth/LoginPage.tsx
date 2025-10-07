@@ -1,4 +1,4 @@
-import { Button, LetterGlitch, TextField } from "@/components";
+import { Button, TextField } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useFormik } from "formik";
 import { useContext, useState } from "react";
@@ -36,12 +36,6 @@ const LoginPage: React.FC = () => {
 
     return (
         <div className="relative overflow-hidden">
-            <LetterGlitch
-                glitchSpeed={50}
-                centerVignette={true}
-                outerVignette={false}
-                smooth={true}
-            />
             <div className="relative w-screen h-screen overflow-hidden flex font-light">
                 <div className="flex w-full items-center justify-center p-10">
                     <div className="w-full md:w-96 h-fit p-10 bg-white/10 backdrop-blur-lg rounded-md shadow-lg border border-[#E0E6ED] dark:border-[#253B5C]">
