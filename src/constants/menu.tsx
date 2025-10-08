@@ -26,7 +26,6 @@ import {
     PopoversPage,
     ProgressBarPage,
     RadioPage,
-    ScrumboardPage,
     SelectPage,
     SweetAlertsPage,
     SwitchPage,
@@ -35,7 +34,7 @@ import {
     TextAreaPage,
     TextFieldPage,
     TimelinePage,
-    TooltipsPage,
+    TooltipsPage
 } from "@/template";
 import type { JSX } from "react";
 import { FaMapMarkedAlt } from "react-icons/fa";
@@ -43,7 +42,6 @@ import {
     PiArrowsOutFill,
     PiCalendarBlankFill,
     PiCardsFill,
-    PiClipboardTextFill,
     PiHouseLineFill,
     PiLightningFill,
     PiTableFill,
@@ -294,14 +292,6 @@ export const menu: MenuItem[] = [
         name: "maps",
         title: "Maps",
         element: <MapPage />,
-        sub: [],
-    },
-    {
-        icon: <PiClipboardTextFill />,
-        path: "/scrumboard",
-        name: "scrumboard",
-        title: "Scrumboard",
-        element: <ScrumboardPage />,
         sub: [],
     },
     {

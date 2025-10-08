@@ -40,10 +40,11 @@ import Setting from "./layout/Setting";
 import Sidebar from "./layout/Sidebar";
 import Calendar from "./molecules/Calendar";
 import CardStatistic from "./molecules/CardStatistic";
+import Charts from "./molecules/Charts";
 import DotGrid from "./molecules/DotGrid";
 import LetterGlitch from "./molecules/LetterGlitch";
 import Maps from "./molecules/Maps";
 import Tables from "./molecules/Tables";
 
-export { Alert, Avatar, Badge, Breadcrumb, Button, ButtonRipple, Calendar, Card, CardStatistic, Carousel, Checkbox, Chip, Collapsible, ColorPicker, Countdown, CounterGroup, DatePicker, DotGrid, Drawer, FileInput, FileInputForm, Footer, Header, Layout, LetterGlitch, Limit, List, Loading, Maps, Modal, MonthPicker, Pagination, Popover, ProgressBar, Radio, Select, Setting, Sidebar, SweetAlert, Switch, Tables, Tabs, TextArea, TextField, Timeline, Tooltip };
+export { Alert, Avatar, Badge, Breadcrumb, Button, ButtonRipple, Calendar, Card, CardStatistic, Carousel, Charts, Checkbox, Chip, Collapsible, ColorPicker, Countdown, CounterGroup, DatePicker, DotGrid, Drawer, FileInput, FileInputForm, Footer, Header, Layout, LetterGlitch, Limit, List, Loading, Maps, Modal, MonthPicker, Pagination, Popover, ProgressBar, Radio, Select, Setting, Sidebar, SweetAlert, Switch, Tables, Tabs, TextArea, TextField, Timeline, Tooltip };
 

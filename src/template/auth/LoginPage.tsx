@@ -50,7 +50,7 @@ const LoginPage: React.FC = () => {
             />
             <div className="relative w-screen h-screen overflow-hidden flex font-light">
                 <div className="flex w-full items-center justify-center p-10">
-                    <div className="w-full md:w-96 h-fit p-10 bg-white/10 backdrop-blur-lg rounded-md shadow-lg border border-[#E0E6ED] dark:border-[#253B5C]">
+                    <div className="w-full md:w-96 h-fit p-10 bg-white/10 dark:bg-black/10 backdrop-blur-lg rounded-md shadow-lg border border-[#E0E6ED] dark:border-[#253B5C30]">
                         <Link to={"/"} className="flex items-center mb-4">
                             <img
                                 src={`${theme === "dark" ? "assets/images/logo_text_dark.png" : "assets/images/logo_text_light.png"} `}
@@ -107,7 +107,7 @@ const LoginPage: React.FC = () => {
                 </div>
                 <div className="fixed bottom-10 right-10 text-black dark:text-white">
                     {theme === "light" && (
-                        <Tooltip placement="left-start" tooltip="Dark Mode" spacing={20}>
+                        <Tooltip fill placement="left-start" tooltip="Dark Mode" spacing={20} >
                             <Button
                                 type="button"
                                 size={"40"}
@@ -121,7 +121,7 @@ const LoginPage: React.FC = () => {
                         </Tooltip>
                     )}
                     {theme === "dark" && (
-                        <Tooltip placement="left-start" tooltip="System" spacing={20}>
+                        <Tooltip fill placement="left-start" tooltip="System" spacing={20} >
                             <Button
                                 type="button"
                                 size={"40"}
@@ -135,7 +135,7 @@ const LoginPage: React.FC = () => {
                         </Tooltip>
                     )}
                     {theme === "system" && (
-                        <Tooltip placement="left-start" tooltip="Light Mode" spacing={20}>
+                        <Tooltip fill placement="left-start" tooltip="Light Mode" spacing={20} >
                             <Button
                                 type="button"
                                 size={"40"}
