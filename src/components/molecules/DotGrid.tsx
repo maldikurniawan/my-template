@@ -158,7 +158,8 @@ const DotGrid: React.FC<DotGridProps> = ({
                     const r = Math.round(baseRgb.r + (activeRgb.r - baseRgb.r) * t);
                     const g = Math.round(baseRgb.g + (activeRgb.g - baseRgb.g) * t);
                     const b = Math.round(baseRgb.b + (activeRgb.b - baseRgb.b) * t);
-                    style = `rgb(${r},${g},${b})`;
+                    const a = 0.1;
+                    style = `rgba(${r},${g},${b},${a})`;
                 }
 
                 ctx.save();
@@ -280,7 +281,7 @@ const DotGrid: React.FC<DotGridProps> = ({
 
     return (
         <section
-            className={`fixed top-0 left-0 w-full h-full z-[-1] flex items-center justify-center ${className}`}
+            className={`fixed top-0 left-0 w-full h-full z-[-1] flex items-center justify-center bg-[#E0E6ED30] dark:bg-[#3B3F5C10] ${className}`}
             style={style}
         >
             <div ref={wrapperRef} className="w-full h-full relative">

@@ -1,14 +1,15 @@
-import { Button, DotGrid, TextField } from "@/components";
+import { Button, DotGrid, TextField, Tooltip } from "@/components";
 import { ThemeContext } from "@/context/ThemeContext";
 import { useFormik } from "formik";
 import { useContext, useState } from "react";
+import { PiLaptop, PiMoon, PiSun } from "react-icons/pi";
 import { TbEye, TbEyeOff, TbLoader2 } from "react-icons/tb";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
 const LoginPage: React.FC = () => {
     const navigate = useNavigate();
-    const { theme } = useContext(ThemeContext);
+    const { theme, setTheme } = useContext(ThemeContext);
     const [isShow, setIsShow] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
 
@@ -39,8 +40,8 @@ const LoginPage: React.FC = () => {
             <DotGrid
                 dotSize={30}
                 gap={3}
-                baseColor={theme === "dark" ? "#0E1726" : "#E0E6ED"}
-                activeColor={theme === "dark" ? "#000000" : "#FFFFFF"}
+                baseColor={theme === "dark" ? "#060818" : "#fafafa"}
+                activeColor={theme === "dark" ? "#4361EE" : "#4361EE"}
                 proximity={120}
                 shockRadius={250}
                 shockStrength={5}
@@ -103,6 +104,50 @@ const LoginPage: React.FC = () => {
                             </Button>
                         </form>
                     </div>
+                </div>
+                <div className="fixed bottom-10 right-10 text-black dark:text-white">
+                    {theme === "light" && (
+                        <Tooltip placement="left-start" tooltip="Dark Mode" spacing={20}>
+                            <Button
+                                type="button"
+                                size={"40"}
+                                rounded="full"
+                                variant="text"
+                                className="p-1.5"
+                                onClick={() => setTheme("dark")}
+                            >
+                                <PiSun className="w-7 h-7" />
+                            </Button>
+                        </Tooltip>
+                    )}
+                    {theme === "dark" && (
+                        <Tooltip placement="left-start" tooltip="System" spacing={20}>
+                            <Button
+                                type="button"
+                                size={"40"}
+                                rounded="full"
+                                variant="text"
+                                className="p-1.5"
+                                onClick={() => setTheme("system")}
+                            >
+                                <PiMoon className="w-7 h-7" />
+                            </Button>
+                        </Tooltip>
+                    )}
+                    {theme === "system" && (
+                        <Tooltip placement="left-start" tooltip="Light Mode" spacing={20}>
+                            <Button
+                                type="button"
+                                size={"40"}
+                                rounded="full"
+                                variant="text"
+                                className="p-1.5"
+                                onClick={() => setTheme("light")}
+                            >
+                                <PiLaptop className="w-7 h-7" />
+                            </Button>
+                        </Tooltip>
+                    )}
                 </div>
             </div>
         </div>
