@@ -20,6 +20,7 @@ import {
     FileInputPage,
     ListPage,
     MapPage,
+    MarkdownEditorPage,
     ModalsPage,
     MonthPickerPage,
     PaginationPage,
@@ -334,6 +335,14 @@ export const menu: MenuItem[] = [
                 name: "file-input",
                 title: "File Input",
                 element: <FileInputPage />,
+                sub: [],
+            },
+            {
+                icon: null,
+                path: "/form-tables/forms/markdown-editor",
+                name: "markdown-editor",
+                title: "Markdown Editor",
+                element: <MarkdownEditorPage />,
                 sub: [],
             },
             {

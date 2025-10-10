@@ -83,7 +83,7 @@ const Pagination: React.FC<PaginationProps> = ({
                 <>
                     {/* Left Navigation */}
                     <button
-                        className={`${getShadowStyle} flex justify-center items-center ${pageRounded} ${currentPage === 1 ? 'bg-white-light dark:bg-[#191E3A] cursor-not-allowed' : 'bg-[#E0E6ED] dark:bg-[#191E3A] cursor-pointer'} text-dark dark:text-white-light`}
+                        className={`${getShadowStyle} flex justify-center items-center ${pageRounded} ${currentPage === 1 ? 'bg-white-light dark:bg-[#253B5C70] cursor-not-allowed' : 'bg-[#E0E6ED] dark:bg-[#253B5C70] cursor-pointer'} text-dark dark:text-white-light`}
                         style={{
                             width: sizePagination,
                             height: sizePagination,
@@ -106,7 +106,7 @@ const Pagination: React.FC<PaginationProps> = ({
                                     style={{
                                         width: sizePagination,
                                         height: sizePagination,
-                                        backgroundColor: theme === "dark" ? "#191E3A" : "#E0E6ED",
+                                        backgroundColor: theme === "dark" ? "#253B5C70" : "#E0E6ED",
                                         color: theme === "dark" ? "#E0E6ED" : "#3B3F5C",
                                     }}
                                     disabled
@@ -130,7 +130,7 @@ const Pagination: React.FC<PaginationProps> = ({
                                     backgroundColor:
                                         pageNumber === currentPage
                                             ? colorPagination
-                                            : theme === "dark" ? "#191E3A" : "#E0E6ED",
+                                            : theme === "dark" ? "#253B5C70" : "#E0E6ED",
                                     color:
                                         pageNumber === currentPage
                                             ? "white"
@@ -150,7 +150,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
                     {/* Right Navigation */}
                     <button
-                        className={`${getShadowStyle} flex justify-center items-center ${pageRounded} ${currentPage === lastPage ? 'bg-white-light dark:bg-[#191E3A] cursor-not-allowed' : 'bg-[#E0E6ED] dark:bg-[#191E3A] cursor-pointer'} text-dark dark:text-white-light`}
+                        className={`${getShadowStyle} flex justify-center items-center ${pageRounded} ${currentPage === lastPage ? 'bg-white-light dark:bg-[#253B5C70] cursor-not-allowed' : 'bg-[#E0E6ED] dark:bg-[#253B5C70] cursor-pointer'} text-dark dark:text-white-light`}
                         style={{
                             width: sizePagination,
                             height: sizePagination,

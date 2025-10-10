@@ -311,17 +311,17 @@ const Select: React.FC<SelectProps> = ({
                                 }),
                                 menu: (base) => ({
                                     ...base,
-                                    backgroundColor: theme === "dark" ? "#121E32" : "#FFFFFF",
+                                    backgroundColor: theme === "dark" ? "#0E1726" : "#FFFFFF",
                                     boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.08)",
                                     borderRadius: selectRounded,
                                     top: "calc(100% + 6px)",
-                                    border: theme === "dark" ? "1px solid #4361EE30" : "1px solid #33333330",
+                                    border: theme === "dark" ? "1px solid #253B5C30" : "1px solid #E0E6ED",
                                 }),
                                 option: (base, state) => ({
                                     ...base,
                                     color: state.isSelected
                                         ? "#FFFFFF"
-                                        : theme === "dark" ? "#888EA8" : "#4361EE",
+                                        : theme === "dark" ? "#888EA8" : "#0E1726",
                                     backgroundColor: state.isSelected
                                         ? selectColor
                                         : "transparent",
@@ -331,13 +331,13 @@ const Select: React.FC<SelectProps> = ({
                                     "&:hover": {
                                         backgroundColor: state.isSelected
                                             ? selectColor
-                                            : "#4361EE30",
+                                            : "#253B5C30",
                                     },
                                 }),
                                 multiValue: (base) => ({
                                     ...base,
-                                    color: theme === "dark" ? "#888EA8" : "#4361EE",
-                                    backgroundColor: theme === "dark" ? "#121E32" : "#E0E6ED",
+                                    color: theme === "dark" ? "#888EA8" : "#0E1726",
+                                    backgroundColor: theme === "dark" ? "#0E1726" : "#E0E6ED",
                                     padding: "6px",
                                     fontSize: selectSize - 2,
                                     display: "flex",
@@ -383,7 +383,7 @@ const Select: React.FC<SelectProps> = ({
                                 onBlur && onBlur(e);
                             }}
                             unstyled
-                            className="leading-none text-primary dark:text-white-dark"
+                            className="leading-none dark:text-white-dark"
                             components={{
                                 IndicatorSeparator: () => null,
                                 DropdownIndicator,
@@ -411,16 +411,16 @@ const Select: React.FC<SelectProps> = ({
                                 }),
                                 menu: (base) => ({
                                     ...base,
-                                    backgroundColor: theme === "dark" ? "#121E32" : "#FFFFFF",
+                                    backgroundColor: theme === "dark" ? "#0E1726" : "#FFFFFF",
                                     boxShadow: "0px 4px 16px rgba(0, 0, 0, 0.08)",
                                     borderRadius: selectRounded,
-                                    border: theme === "dark" ? "1px solid #4361EE30" : "1px solid #33333330",
+                                    border: theme === "dark" ? "1px solid #253B5C30" : "1px solid #E0E6ED",
                                 }),
                                 option: (base, state) => ({
                                     ...base,
                                     color: state.isSelected
                                         ? "#FFFFFF"
-                                        : theme === "dark" ? "#888EA8" : "#4361EE",
+                                        : theme === "dark" ? "#888EA8" : "#0E1726",
                                     backgroundColor: state.isSelected
                                         ? selectColor
                                         : "transparent",
@@ -430,13 +430,13 @@ const Select: React.FC<SelectProps> = ({
                                     "&:hover": {
                                         backgroundColor: state.isSelected
                                             ? selectColor
-                                            : "#4361EE30",
+                                            : "#253B5C30",
                                     },
                                 }),
                                 multiValue: (base) => ({
                                     ...base,
-                                    color: theme === "dark" ? "#888EA8" : "#4361EE",
-                                    backgroundColor: theme === "dark" ? "#121E32" : "#E0E6ED",
+                                    color: theme === "dark" ? "#888EA8" : "#0E1726",
+                                    backgroundColor: theme === "dark" ? "#0E1726" : "#E0E6ED",
                                     padding: "6px",
                                     fontSize: selectSize - 2,
                                     display: "flex",

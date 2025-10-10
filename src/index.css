@@ -3,9 +3,11 @@
 @import './css/animate.css';
 @import './css/dragndrop.css';
 @import './css/fullcalendar.css';
+@import './css/markdown-editor.css';
 
 /* Tailwind CSS */
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* Dark Mode */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -56,6 +58,59 @@ body.dark {
         transform: rotate(3deg);
     }
 }
+
+@utility prose { --tw-prose-invert-headings: #888EA8; --tw-prose-invert-links: #888EA8;}
+
+@utility prose-custom {
+    h1 {
+        font-size: 40px;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    h2 {
+        font-size: 32px;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    h3 {
+        font-size: 28px;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    h4 {
+        font-size: 24px;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    h5 {
+        font-size: 20px;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    h6 {
+        font-size: 16px;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        margin-bottom: 0.5rem;
+    }
+
+    li {
+        margin: 0;
+    }
+
+    img {
+        margin: 0;
+    }
+}
+
 
 .animate-wiggle {
     animation: wiggle 0.3s ease-in-out;

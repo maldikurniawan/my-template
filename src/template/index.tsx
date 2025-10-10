@@ -27,6 +27,7 @@ import CheckboxPage from "./forms/CheckboxPage";
 import ColorPickerPage from "./forms/ColorPickerPage";
 import DatePickerPage from "./forms/DatePickerPage";
 import FileInputPage from "./forms/FileInputPage";
+import MarkdownEditorPage from "./forms/MarkdownEditorPage";
 import MonthPickerPage from "./forms/MonthPickerPage";
 import RadioPage from "./forms/RadioPage";
 import SelectPage from "./forms/SelectPage";
@@ -40,6 +41,6 @@ import ScrumboardPage from "./scrumboard/ScrumboardPage";
 import TablePage from "./tables/TablePage";
 
 export {
-    AlertsPage, AvatarPage, BadgesPage, BreadcrumbsPage, ButtonsPage, CalendarPage, CardsPage, CarouselPage, CheckboxPage, ChipsPage, CollapsiblePage, ColorPickerPage, CountdownPage, CounterPage, DashboardPage, DatePickerPage, DragDropPage, DrawerPage, FileInputPage, ListPage, LoginPage, MaintenancePage, MapPage, ModalsPage, MonthPickerPage, NotFoundPage, PaginationPage, PopoversPage, ProgressBarPage, RadioPage, ScrumboardPage, SelectPage, SweetAlertsPage, SwitchPage, TablePage, TabsPage, TextAreaPage, TextFieldPage, TimelinePage, TooltipsPage
+    AlertsPage, AvatarPage, BadgesPage, BreadcrumbsPage, ButtonsPage, CalendarPage, CardsPage, CarouselPage, CheckboxPage, ChipsPage, CollapsiblePage, ColorPickerPage, CountdownPage, CounterPage, DashboardPage, DatePickerPage, DragDropPage, DrawerPage, FileInputPage, ListPage, LoginPage, MaintenancePage, MapPage, MarkdownEditorPage, ModalsPage, MonthPickerPage, NotFoundPage, PaginationPage, PopoversPage, ProgressBarPage, RadioPage, ScrumboardPage, SelectPage, SweetAlertsPage, SwitchPage, TablePage, TabsPage, TextAreaPage, TextFieldPage, TimelinePage, TooltipsPage
 };
 
