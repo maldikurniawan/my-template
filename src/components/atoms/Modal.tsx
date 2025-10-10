@@ -100,7 +100,7 @@ const Modal: React.FC<ModalProps> = ({
                     <div className="absolute -top-2 -right-2 hover:-top-1.5 transition-[top,right] duration-100">
                         <ButtonRipple
                             onClick={() => setShow(false)}
-                            className={`bg-white dark:bg-black border border-[#E0E6ED] dark:border-[#253B5C] w-8 h-8 text-black dark:text-white flex items-center justify-center rounded-md ${colortheme === "default" ? "shadow-lg" : colortheme
+                            className={`bg-white dark:bg-black border border-[#E0E6ED] dark:border-[#253B5C30] w-8 h-8 text-black dark:text-white flex items-center justify-center rounded-md ${colortheme === "default" ? "shadow-lg" : colortheme
                                 }`}
                         >
                             <FiX />
@@ -108,7 +108,7 @@ const Modal: React.FC<ModalProps> = ({
                     </div>
                 )}
                 <div
-                    className={`max-h-[90vh] h-full w-full rounded-md bg-white dark:bg-black border border-[#E0E6ED] dark:border-[#253B5C] overflow-y-auto custom-scroll ${colortheme === "default" ? "shadow-lg" : colortheme
+                    className={`max-h-[90vh] h-full w-full rounded-md bg-white dark:bg-black border border-[#E0E6ED] dark:border-[#253B5C30] overflow-y-auto custom-scroll ${colortheme === "default" ? "shadow-lg" : colortheme
                         }`}
                 >
                     {children}

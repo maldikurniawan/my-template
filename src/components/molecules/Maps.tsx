@@ -39,7 +39,7 @@ export default function LeafletMap({
                 </svg>
             </button>
             <div
-                class="absolute left-1/2 -translate-x-1/2 mt-2 hidden group-hover:flex flex-col items-start gap-1 w-56 p-3 rounded-md bg-white dark:bg-black border border-[#E0E6ED] dark:border-[#253B5C] text-white shadow z-50"
+                class="absolute left-1/2 -translate-x-1/2 mt-2 hidden group-hover:flex flex-col items-start gap-1 w-56 p-3 rounded-md bg-white dark:bg-black border border-[#E0E6ED] dark:border-[#253B5C30] text-white shadow z-50"
             >
                 <div class="flex items-center gap-2">
                     <svg class="w-10 h-10 bg-primary p-2 rounded-md aspect-square" fill="currentColor" viewBox="0 0 24 24">

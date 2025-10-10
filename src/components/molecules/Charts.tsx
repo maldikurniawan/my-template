@@ -15,7 +15,7 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
 
     const chartOptions: Record<string, { series: any[]; options: ApexOptions }> = {
         line: {
-            series: [
+            series: series ?? [
                 {
                     name: 'Visitor',
                     data: [45, 55, 75, 25, 45, 110],
@@ -27,7 +27,7 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                     type: 'line',
                     toolbar: { show: false },
                 },
-                colors: ['#4361EE'],
+                colors: colors ?? ['#4361EE'],
                 tooltip: {
                     marker: { show: false },
                     y: {
@@ -35,14 +35,14 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                             return '' + number;
                         },
                     },
-                    theme: 'dark',
+                    theme: theme === "dark" ? 'dark' : "light",
                 },
                 stroke: {
                     width: 2,
                     curve: 'smooth',
                 },
                 xaxis: {
-                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June'],
+                    categories: labels ?? ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June'],
                     labels: {
                         style: {
                             colors: theme === "dark" ? '#FFF' : "#000",
@@ -72,7 +72,7 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
             },
         },
         area: {
-            series: [
+            series: series ?? [
                 {
                     name: 'Visitor',
                     data: [148, 168, 155, 178, 155],
@@ -85,7 +85,7 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                     zoom: { enabled: false },
                     toolbar: { show: false },
                 },
-                colors: ['#4361EE'],
+                colors: colors ?? ['#4361EE'],
                 dataLabels: {
                     enabled: false,
                 },
@@ -112,7 +112,7 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                         },
                     },
                 },
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                labels: labels ?? ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
                 legend: {
                     horizontalAlign: 'left',
                 },
@@ -125,7 +125,7 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                     },
                 },
                 tooltip: {
-                    theme: 'dark',
+                    theme: theme === "dark" ? 'dark' : "light",
                 },
             },
         },
@@ -194,7 +194,7 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                     },
                 },
                 tooltip: {
-                    theme: 'dark',
+                    theme: theme === "dark" ? 'dark' : "light",
                     y: {
                         formatter(val: any) {
                             return val;
@@ -210,7 +210,7 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
             },
         },
         pie: {
-            series: [44, 55, 13, 22],
+            series: series ?? [44, 55, 13, 22],
             options: {
                 chart: {
                     height: 300,
@@ -222,8 +222,8 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                         show: false,
                     },
                 },
-                labels: ['Team A', 'Team B', 'Team C', 'Team D'],
-                colors: ['#4361EE', '#805DCA', '#00AB55', '#E7515A'],
+                labels: labels ?? ['Team A', 'Team B', 'Team C', 'Team D'],
+                colors: colors ?? ['#4361EE', '#805DCA', '#00AB55', '#E7515A'],
                 responsive: [
                     {
                         breakpoint: 480,
@@ -282,7 +282,7 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
             },
         },
         radialBar: {
-            series: [44, 55, 41],
+            series: series ?? [44, 55, 41],
             options: {
                 chart: {
                     height: 300,
@@ -294,7 +294,7 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                         show: false,
                     },
                 },
-                colors: ['#4361EE', '#805DCA', '#00AB55'],
+                colors: colors ?? ['#4361EE', '#805DCA', '#00AB55'],
                 grid: {
                     borderColor: '#4361EE',
                 },
@@ -319,14 +319,14 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                         },
                     },
                 },
-                labels: ['Apples', 'Oranges', 'Bananas'],
+                labels: labels ?? ['Apples', 'Oranges', 'Bananas'],
                 fill: {
                     opacity: 0.85,
                 },
             },
         },
         polarArea: {
-            series: [14, 23, 21, 17, 15, 10, 12, 17, 21],
+            series: series ?? [14, 23, 21, 17, 15, 10, 12, 17, 21],
             options: {
                 chart: {
                     height: 300,
@@ -338,7 +338,7 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                         show: false,
                     },
                 },
-                colors: ['#4361EE', '#805DCA', '#00AB55', '#E7515A', '#E2A03F', '#2196F3'],
+                colors: colors ?? ['#4361EE', '#805DCA', '#00AB55', '#E7515A', '#E2A03F', '#2196F3'],
                 stroke: {
                     show: false,
                 },
@@ -378,11 +378,11 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                 fill: {
                     opacity: 0.85,
                 },
-                labels: ['Apples', 'Oranges', 'Bananas', 'Grapes', 'Pineapples', 'Mangoes', 'Peaches', 'Cherries', 'Strawberries'],
+                labels: labels ?? ['Apples', 'Oranges', 'Bananas', 'Grapes', 'Pineapples', 'Mangoes', 'Peaches', 'Cherries', 'Strawberries'],
             },
         },
         radar: {
-            series: [
+            series: series ?? [
                 {
                     name: 'Visitor',
                     data: [80, 50, 30, 40, 100, 20],
@@ -399,9 +399,9 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                         show: false,
                     },
                 },
-                colors: ['#4361EE'],
+                colors: colors ?? ['#4361EE'],
                 xaxis: {
-                    categories: ['January', 'February', 'March', 'April', 'May', 'June'],
+                    categories: labels ?? ['January', 'February', 'March', 'April', 'May', 'June'],
                 },
                 yaxis: {
                     labels: {

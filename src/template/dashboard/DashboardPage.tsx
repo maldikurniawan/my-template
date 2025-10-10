@@ -19,10 +19,30 @@ const DashboardPage = () => {
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <Card title="Line Chart">
-                <Charts variant="line" />
+                <Charts
+                    variant="line"
+                    series={[
+                        {
+                            name: 'Visitor',
+                            data: [45, 55, 75, 25, 45, 110],
+                        },
+                    ]}
+                    labels={lastSixMonths}
+                    colors={['#4361EE']}
+                />
             </Card>
             <Card title="Area Chart">
-                <Charts variant="area" />
+                <Charts
+                    variant="area"
+                    series={[
+                        {
+                            name: 'Visitor',
+                            data: [45, 55, 75, 25, 45, 110],
+                        },
+                    ]}
+                    labels={lastSixMonths}
+                    colors={['#4361EE']}
+                />
             </Card>
             <Card title="Bar Chart">
                 <Charts
@@ -31,13 +51,18 @@ const DashboardPage = () => {
                         { name: 'Recon', data: ["10", "20", "30", "40", "50", "60"] },
                         { name: 'Vulnera', data: ["10", "20", "30", "40", "50", "60"] },
                     ]}
-                    colors={['#4361EE', '#805DCA']}
                     labels={lastSixMonths}
+                    colors={['#4361EE', '#805DCA']}
                 />
             </Card>
             <Card title="Pie Chart">
                 <div className="flex justify-center items-center text-center">
-                    <Charts variant="pie" />
+                    <Charts
+                        variant="pie"
+                        series={[44, 55, 13, 22]}
+                        labels={['Team A', 'Team B', 'Team C', 'Team D']}
+                        colors={['#4361EE', '#805DCA', '#00AB55', '#E7515A']}
+                    />
                 </div>
             </Card>
             <Card title="Donut Chart">
@@ -45,21 +70,42 @@ const DashboardPage = () => {
                     variant="donut"
                     series={[10, 20]}
                     labels={['IP', 'Domain']}
+                    colors={['#4361EE', '#805DCA']}
                 />
             </Card>
             <Card title="Radial Chart">
                 <div className="h-[315px]">
-                    <Charts variant="radialBar" />
+                    <Charts
+                        variant="radialBar"
+                        series={[44, 55, 41]}
+                        labels={['Apples', 'Oranges', 'Bananas']}
+                        colors={['#4361EE', '#805DCA', '#00AB55']}
+                    />
                 </div>
             </Card>
             <Card title="Polar Chart">
                 <div className="flex justify-center items-center text-center h-[315px]">
-                    <Charts variant="polarArea" />
+                    <Charts
+                        variant="polarArea"
+                        series={[14, 23, 21, 17]}
+                        labels={['Apples', 'Oranges', 'Bananas', 'Grapes']}
+                        colors={['#4361EE', '#805DCA', '#00AB55', '#E7515A']}
+                    />
                 </div>
 
             </Card>
             <Card title="Radar Chart">
-                <Charts variant="radar" />
+                <Charts
+                    variant="radar"
+                    series={[
+                        {
+                            name: 'Visitor',
+                            data: [80, 50, 30, 40, 100, 20],
+                        },
+                    ]}
+                    labels={lastSixMonths}
+                    colors={['#4361EE']}
+                />
             </Card>
         </div>
     )

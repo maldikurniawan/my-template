@@ -77,7 +77,7 @@ const Tooltip = ({
                 leaveTo="transform scale-95 opacity-0"
             >
                 <div
-                    className={`absolute bg-white rounded-md dark:bg-black border border-[#E0E6ED] dark:border-[#253B5C] text-sm px-3 py-1.5 shadow-lg whitespace-nowrap text-center ${fill ? "min-w-full" : "w-fit"
+                    className={`absolute bg-white rounded-md dark:bg-black border border-[#E0E6ED] dark:border-[#253B5C30] text-sm px-3 py-1.5 shadow-lg whitespace-nowrap text-center ${fill ? "min-w-full" : "w-fit"
                         }`}
                     ref={refs.setFloating}
                     style={floatingStyles}

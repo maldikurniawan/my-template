@@ -157,7 +157,6 @@ const Header = () => {
                         <Popover
                             placement="bottom-end"
                             spacing={20}
-                            rounded="none"
                             button={
                                 <ButtonRipple className="rounded-full">
                                     <Badge size="sm" placement="right-end" color="primary">

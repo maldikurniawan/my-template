@@ -148,7 +148,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
                 <div
                     ref={refs.setFloating}
                     style={floatingStyles}
-                    className={`bg-white dark:bg-black w-fit border border-[#E0E6ED] dark:border-[#253B5C] rounded-md z-10 ${position}`}
+                    className={`bg-white dark:bg-black w-fit border border-[#E0E6ED] dark:border-[#253B5C30] rounded-md z-10 ${position}`}
                 >
                     <DayPicker
                         required
