@@ -141,7 +141,7 @@ const CamPage = () => {
     }, []);
 
     return (
-        <div className="flex flex-col items-center justify-center w-full min-h-screen p-4 box-border space-y-4">
+        <div className="flex flex-col items-center justify-center w-full min-h-screen p-4 box-border space-y-2 sm:space-y-4">
             <div className="text-center font-black text-black dark:text-white-light">
                 Emotion Detection
             </div>
