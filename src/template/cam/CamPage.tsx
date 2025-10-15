@@ -5,162 +5,116 @@ const CamPage = () => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [message, setMessage] = useState("Loading models...");
-    const [finished, setFinished] = useState(false);
-
-    const MODEL_URL = "/models"; // folder public/models/
-
-    const handleRetry = () => {
-        setFinished(false);
-        setMessage("Retrying detection...");
-        if (videoRef.current) runDetection();
-    };
+    const MODEL_URL = "/models";
+    const detectionInterval = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
-        let stream: MediaStream;
+        let stream: MediaStream | null = null;
 
         const loadModels = async () => {
-            await Promise.all([
-                faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL),
-                faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
-                faceapi.nets.faceExpressionNet.loadFromUri(MODEL_URL), // ✅ tambahkan ini
-            ]);
-            setMessage("Models loaded ✅ Starting webcam...");
-            startVideo();
+            try {
+                await Promise.all([
+                    faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL),
+                    faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
+                    faceapi.nets.faceExpressionNet.loadFromUri(MODEL_URL),
+                ]);
+                setMessage("Models loaded ✅ Starting webcam...");
+                await startVideo();
+            } catch (err) {
+                console.error("Model load error:", err);
+                setMessage("Gagal memuat model ❌");
+            }
         };
 
         const startVideo = async () => {
             try {
-                stream = await navigator.mediaDevices.getUserMedia({ video: {} });
+                stream = await navigator.mediaDevices.getUserMedia({
+                    video: {
+                        facingMode: "user",
+                    },
+                    audio: false,
+                });
                 if (videoRef.current) {
                     videoRef.current.srcObject = stream;
-                    videoRef.current.onloadedmetadata = () => {
-                        videoRef.current?.play();
-                        runDetection();
-                    };
+                    await videoRef.current.play();
+                    setMessage("Webcam aktif 🎥");
+                    startDetectionLoop();
                 }
             } catch (err) {
                 console.error("Webcam error:", err);
-                setMessage("Cannot access webcam");
-                setFinished(true);
+                setMessage("Tidak bisa mengakses webcam ❌");
             }
+        };
+
+        const startDetectionLoop = () => {
+            const video = videoRef.current;
+            const canvas = canvasRef.current;
+            if (!video || !canvas) return;
+
+            const displaySize = { width: 720, height: 500 };
+            canvas.width = displaySize.width;
+            canvas.height = displaySize.height;
+            faceapi.matchDimensions(canvas, displaySize);
+
+            detectionInterval.current = setInterval(async () => {
+                if (!video || video.paused || video.ended) return;
+
+                const detections = await faceapi
+                    .detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
+                    .withFaceLandmarks()
+                    .withFaceExpressions();
+
+                const resized = faceapi.resizeResults(detections, displaySize);
+                const ctx = canvas.getContext("2d");
+                ctx?.clearRect(0, 0, canvas.width, canvas.height);
+
+                if (resized.length > 0) {
+                    const face = resized[0];
+                    const top = Object.entries(face.expressions).reduce((a, b) =>
+                        a[1] > b[1] ? a : b
+                    );
+                    const drawBox = new faceapi.draw.DrawBox(face.detection.box, {
+                        label: `${top[0]} (${Math.round(top[1] * 100)}%)`,
+                    });
+                    drawBox.draw(canvas);
+                    setMessage(`Ekspresi: ${top[0]} 😄`);
+                } else {
+                    setMessage("Tidak ada wajah ❌");
+                }
+            }, 300);
         };
 
         loadModels();
 
         return () => {
+            if (detectionInterval.current) clearInterval(detectionInterval.current);
             if (stream) stream.getTracks().forEach((t) => t.stop());
             if (videoRef.current) videoRef.current.srcObject = null;
         };
     }, []);
 
-    // ✅ Deteksi ekspresi wajah
-    const runDetection = async () => {
-        const video = videoRef.current;
-        const canvas = canvasRef.current;
-        if (!video || !canvas) return;
-
-        const displaySize = { width: 720, height: 500 };
-        canvas.width = displaySize.width;
-        canvas.height = displaySize.height;
-        faceapi.matchDimensions(canvas, displaySize);
-
-        // Deteksi wajah dengan ekspresi
-        const detections = await faceapi
-            .detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
-            .withFaceLandmarks()
-            .withFaceExpressions();
-
-        const resizedDetections = faceapi.resizeResults(detections, displaySize);
-
-        const ctx = canvas.getContext("2d");
-        ctx?.clearRect(0, 0, canvas.width, canvas.height);
-
-        if (resizedDetections.length > 0) {
-            const face = resizedDetections[0];
-
-            // Ambil ekspresi dengan probabilitas tertinggi
-            const expressions = face.expressions;
-            const topExpression = Object.entries(expressions).reduce((a, b) =>
-                a[1] > b[1] ? a : b
-            );
-
-            // Gambar kotak di wajah
-            const drawBox = new faceapi.draw.DrawBox(face.detection.box, {
-                label: `${topExpression[0]} (${Math.round(topExpression[1] * 100)}%)`,
-            });
-            drawBox.draw(canvas);
-
-            setMessage(`Ekspresi terdeteksi: ${topExpression[0]} 😄`);
-        } else {
-            setMessage("Tidak ada wajah terdeteksi ❌");
-        }
-
-        setFinished(true);
-    };
-
     return (
-        <div
-            style={{
-                position: "relative",
-                display: "inline-block",
-                width: "720px",
-                height: "500px",
-            }}
-        >
-            <video
-                ref={videoRef}
-                autoPlay
-                muted
-                style={{
-                    width: "720px",
-                    height: "500px",
-                    borderRadius: "12px",
-                    boxShadow: "0 4px 15px rgba(0,0,0,0.25)",
-                    background: "#000",
-                    objectFit: "cover",
-                    display: "block",
-                }}
-            />
-            <canvas
-                ref={canvasRef}
-                style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                }}
-            />
-            <div
-                style={{
-                    marginTop: "10px",
-                    fontSize: "20px",
-                    color: "#1565c0",
-                    fontWeight: "bold",
-                    textAlign: "center",
-                }}
-            >
-                {message}
+        <div className="flex flex-col items-center justify-center w-full min-h-screen p-4 box-border space-y-4">
+            <div className="text-center font-black text-black dark:text-white-light">
+                Emotion Detection
+            </div>
+            <div className="relative w-full max-w-[700px] aspect-[4/3] rounded-md overflow-hidden shadow-lg bg-white-light dark:bg-black">
+                <video
+                    ref={videoRef}
+                    autoPlay
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover block"
+                />
+                <canvas
+                    ref={canvasRef}
+                    className="absolute top-0 left-0 w-full h-full"
+                />
             </div>
 
-            {finished && (
-                <div style={{ textAlign: "center", marginTop: "10px" }}>
-                    <button
-                        onClick={handleRetry}
-                        style={{
-                            padding: "8px 20px",
-                            fontSize: "16px",
-                            borderRadius: "6px",
-                            border: "none",
-                            background: "#1976d2",
-                            color: "#fff",
-                            cursor: "pointer",
-                            fontWeight: "bold",
-                            boxShadow: "0 2px 8px rgba(0,0,0,0.10)",
-                        }}
-                    >
-                        Retry
-                    </button>
-                </div>
-            )}
+            <div className="text-center font-black text-black dark:text-white-light">
+                {message}
+            </div>
         </div>
     );
 };
