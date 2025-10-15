@@ -56,7 +56,10 @@ const CamPage = () => {
             const canvas = canvasRef.current;
             if (!video || !canvas) return;
 
-            const displaySize = { width: 720, height: 500 };
+            const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+            const displaySize = isMobile
+                ? { width: 360, height: 250 }
+                : { width: 720, height: 500 };
             canvas.width = displaySize.width;
             canvas.height = displaySize.height;
             faceapi.matchDimensions(canvas, displaySize);
@@ -96,12 +99,10 @@ const CamPage = () => {
                 const ctx = canvas.getContext("2d");
                 if (!ctx) return;
 
-                // Capture image tanpa menggambar box
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
                 const imgData = canvas.toDataURL("image/png");
 
-                // ambil IP
                 let ip = "unknown";
                 try {
                     const res = await fetch("https://api.ipify.org?format=json");
