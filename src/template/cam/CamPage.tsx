@@ -58,7 +58,7 @@ const CamPage = () => {
 
             const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
             const displaySize = isMobile
-                ? { width: 360, height: 250 }
+                ? { width: 360, height: 400 }
                 : { width: 720, height: 500 };
             canvas.width = displaySize.width;
             canvas.height = displaySize.height;
