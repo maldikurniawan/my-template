@@ -20,6 +20,7 @@
     "@tailwindcss/vite": "^4.1.13",
     "apexcharts": "^5.3.5",
     "cleave.js": "^1.6.0",
+    "face-api.js": "^0.22.2",
     "formik": "^2.4.6",
     "framer-motion": "^12.23.22",
     "gsap": "^3.13.0",
