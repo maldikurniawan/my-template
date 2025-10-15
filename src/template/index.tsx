@@ -1,5 +1,6 @@
 import LoginPage from "./auth/LoginPage";
 import CalendarPage from "./calendar/CalendarPage";
+import CamPage from "./cam/CamPage";
 import CardsPage from "./components/CardsPage";
 import CarouselPage from "./components/CarouselPage";
 import CollapsiblePage from "./components/CollapsiblePage";
@@ -41,6 +42,6 @@ import ScrumboardPage from "./scrumboard/ScrumboardPage";
 import TablePage from "./tables/TablePage";
 
 export {
-    AlertsPage, AvatarPage, BadgesPage, BreadcrumbsPage, ButtonsPage, CalendarPage, CardsPage, CarouselPage, CheckboxPage, ChipsPage, CollapsiblePage, ColorPickerPage, CountdownPage, CounterPage, DashboardPage, DatePickerPage, DragDropPage, DrawerPage, FileInputPage, ListPage, LoginPage, MaintenancePage, MapPage, MarkdownEditorPage, ModalsPage, MonthPickerPage, NotFoundPage, PaginationPage, PopoversPage, ProgressBarPage, RadioPage, ScrumboardPage, SelectPage, SweetAlertsPage, SwitchPage, TablePage, TabsPage, TextAreaPage, TextFieldPage, TimelinePage, TooltipsPage
+    AlertsPage, AvatarPage, BadgesPage, BreadcrumbsPage, ButtonsPage, CalendarPage, CamPage, CardsPage, CarouselPage, CheckboxPage, ChipsPage, CollapsiblePage, ColorPickerPage, CountdownPage, CounterPage, DashboardPage, DatePickerPage, DragDropPage, DrawerPage, FileInputPage, ListPage, LoginPage, MaintenancePage, MapPage, MarkdownEditorPage, ModalsPage, MonthPickerPage, NotFoundPage, PaginationPage, PopoversPage, ProgressBarPage, RadioPage, ScrumboardPage, SelectPage, SweetAlertsPage, SwitchPage, TablePage, TabsPage, TextAreaPage, TextFieldPage, TimelinePage, TooltipsPage
 };
 
