@@ -1,9 +1,11 @@
 import { Card } from '@/components';
+import { ThemeContext } from '@/context/ThemeContext';
 import 'easymde/dist/easymde.min.css';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useContext, useMemo, useState } from 'react';
 import SimpleMdeReact from 'react-simplemde-editor';
 
 const MarkdownEditorPage = () => {
+    const { colortheme } = useContext(ThemeContext);
 
     const [value, setValue] = useState(
         `# Basic Example
@@ -47,21 +49,34 @@ Unordered lists can be started using the toolbar or by typing '*', '-', or '+'. 
                 uniqueId: 'demo',
                 delay,
             },
+            hideIcons: ['fullscreen', 'side-by-side'] as any,
         };
     }, [delay]);
+
+    const basicOptions = useMemo(() => {
+        return {
+            hideIcons: ['fullscreen', 'side-by-side'] as any,
+        };
+    }, []);
 
     return (
         <div className="grid lg:grid-cols-2 grid-cols-1 gap-6">
             {/* Basic */}
             <Card title='Basic'>
-                <div className="markdown-editor mb-5 rtl:text-right prose prose-custom dark:prose-invert">
-                    <SimpleMdeReact value={value} onChange={onChange} />
+                <div className="text-sm mb-3">
+                    <span style={{ color: colortheme }}>Basic</span> editor example with standard markdown features.
+                </div>
+                <div className="markdown-editor mb-5 prose prose-custom dark:prose-invert">
+                    <SimpleMdeReact value={value} onChange={onChange} options={basicOptions} />
                 </div>
             </Card>
 
             {/*  Autosaving */}
             <Card title='Autosaving'>
-                <div className="markdown-editor mb-5 rtl:text-right prose prose-custom dark:prose-invert">
+                <div className="text-sm mb-3">
+                    <span style={{ color: colortheme }}>Simple markdown editor</span> with autosaving features.
+                </div>
+                <div className="markdown-editor mb-5 prose prose-custom dark:prose-invert">
                     <SimpleMdeReact value={autosavedValue} options={anOptions} />
                 </div>
             </Card>
