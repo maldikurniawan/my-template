@@ -33,7 +33,7 @@ interface ThemeProviderProps {
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     // Theme
     const [theme, setTheme] = useState<string>(
-        localStorage.getItem("theme") || themeConfig.theme
+        localStorage.getItem("theme-dummyx") || themeConfig.theme
     );
 
     useEffect(() => {
@@ -65,55 +65,55 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
             applyTheme(theme);
         }
 
-        localStorage.setItem("theme", theme);
+        localStorage.setItem("theme-dummyx", theme);
     }, [theme]);
 
     // Menu
     const [menu, setMenu] = useState<string>(
-        localStorage.getItem("menu") || themeConfig.menu
+        localStorage.getItem("menu-dummyx") || themeConfig.menu
     );
     useEffect(() => {
-        localStorage.setItem("menu", menu);
+        localStorage.setItem("menu-dummyx", menu);
     }, [menu]);
 
     // Color
     const [colortheme, setColortheme] = useState<string>(
-        localStorage.getItem("colortheme") || themeConfig.colortheme
+        localStorage.getItem("colortheme-dummyx") || themeConfig.colortheme
     );
     useEffect(() => {
-        localStorage.setItem("colortheme", colortheme);
+        localStorage.setItem("colortheme-dummyx", colortheme);
     }, [colortheme]);
 
     // Layout
     const [layout, setLayout] = useState<string>(
-        localStorage.getItem("layout") || themeConfig.layout
+        localStorage.getItem("layout-dummyx") || themeConfig.layout
     );
     useEffect(() => {
-        localStorage.setItem("layout", layout);
+        localStorage.setItem("layout-dummyx", layout);
     }, [layout]);
 
     // Animation
     const [animation, setAnimation] = useState<string>(
-        localStorage.getItem("animation") || themeConfig.animation
+        localStorage.getItem("animation-dummyx") || themeConfig.animation
     );
     useEffect(() => {
-        localStorage.setItem("animation", animation);
+        localStorage.setItem("animation-dummyx", animation);
     }, [animation]);
 
     // Navbar
     const [navbar, setNavbar] = useState<string>(
-        localStorage.getItem("navbar") || themeConfig.navbar
+        localStorage.getItem("navbar-dummyx") || themeConfig.navbar
     );
     useEffect(() => {
-        localStorage.setItem("navbar", navbar);
+        localStorage.setItem("navbar-dummyx", navbar);
     }, [navbar]);
 
     // Semidark
     const [semidark, setSemidark] = useState<boolean>(
-        localStorage.getItem("semidark") === "true" || themeConfig.semidark
+        localStorage.getItem("semidark-dummyx") === "true" || themeConfig.semidark
     );
     useEffect(() => {
-        localStorage.setItem("semidark", String(semidark));
+        localStorage.setItem("semidark-dummyx", String(semidark));
     }, [semidark]);
 
     // 👉 Sidebar (tidak perlu localStorage)
