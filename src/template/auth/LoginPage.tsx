@@ -125,7 +125,7 @@ const LoginPage: React.FC = () => {
                             </Button>
                         </Tooltip>
                     )}
-                    {isDark && (
+                    {theme === "dark" && (
                         <Tooltip fill placement="left-start" tooltip="System" spacing={20} >
                             <Button
                                 type="button"
