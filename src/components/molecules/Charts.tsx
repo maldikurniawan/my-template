@@ -14,7 +14,7 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
     const { theme } = useContext(ThemeContext);
 
     const isDark =
-        isDark ||
+        theme === "dark" ||
         (theme === "system" &&
             window.matchMedia("(prefers-color-scheme: dark)").matches);
 

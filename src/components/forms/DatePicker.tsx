@@ -88,7 +88,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
     const [open, setOpen] = useState<boolean>(false);
 
     const isDark =
-        isDark ||
+        theme === "dark" ||
         (theme === "system" &&
             window.matchMedia("(prefers-color-scheme: dark)").matches);
 

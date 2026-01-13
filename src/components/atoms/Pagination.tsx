@@ -76,7 +76,7 @@ const Pagination: React.FC<PaginationProps> = ({
     const getShadowStyle = variant === "solid" ? "shadow" : "";
 
     const isDark =
-        isDark ||
+        theme === "dark" ||
         (theme === "system" &&
             window.matchMedia("(prefers-color-scheme: dark)").matches);
 

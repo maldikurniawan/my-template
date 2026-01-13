@@ -213,7 +213,7 @@ const Select: React.FC<SelectProps> = ({
     };
 
     const isDark =
-        isDark ||
+        theme === "dark" ||
         (theme === "system" &&
             window.matchMedia("(prefers-color-scheme: dark)").matches);
 

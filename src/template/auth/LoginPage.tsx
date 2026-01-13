@@ -14,7 +14,7 @@ const LoginPage: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(false);
 
     const isDark =
-        isDark ||
+        theme === "dark" ||
         (theme === "system" &&
             window.matchMedia("(prefers-color-scheme: dark)").matches);
 
