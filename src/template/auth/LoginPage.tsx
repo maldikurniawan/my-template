@@ -13,6 +13,11 @@ const LoginPage: React.FC = () => {
     const [isShow, setIsShow] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
 
+    const isDark =
+        isDark ||
+        (theme === "system" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+
     const formik = useFormik({
         initialValues: {
             username: "",
@@ -40,8 +45,8 @@ const LoginPage: React.FC = () => {
             <DotGrid
                 dotSize={30}
                 gap={3}
-                baseColor={theme === "dark" ? "#060818" : "#fafafa"}
-                activeColor={theme === "dark" ? "#4361EE" : "#4361EE"}
+                baseColor={isDark ? "#060818" : "#fafafa"}
+                activeColor={isDark ? "#4361EE" : "#4361EE"}
                 proximity={120}
                 shockRadius={250}
                 shockStrength={5}
@@ -53,7 +58,7 @@ const LoginPage: React.FC = () => {
                     <div className="w-full md:w-96 h-fit p-10 bg-white/10 dark:bg-black/10 backdrop-blur-lg rounded-md shadow-lg border border-[#E0E6ED] dark:border-[#253B5C30]">
                         <Link to={"/"} className="flex items-center mb-4">
                             <img
-                                src={`${theme === "dark" ? "assets/images/logo_text_dark.png" : "assets/images/logo_text_light.png"} `}
+                                src={`${isDark ? "assets/images/logo_text_dark.png" : "assets/images/logo_text_light.png"} `}
                                 alt="Logo"
                                 className="w-[150px] rounded-full"
                             />
@@ -120,7 +125,7 @@ const LoginPage: React.FC = () => {
                             </Button>
                         </Tooltip>
                     )}
-                    {theme === "dark" && (
+                    {isDark && (
                         <Tooltip fill placement="left-start" tooltip="System" spacing={20} >
                             <Button
                                 type="button"

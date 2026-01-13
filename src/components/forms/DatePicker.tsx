@@ -87,6 +87,11 @@ const DatePicker: React.FC<DatePickerProps> = ({
 
     const [open, setOpen] = useState<boolean>(false);
 
+    const isDark =
+        isDark ||
+        (theme === "system" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+
     const ref = useRef<any>(null);
     useOnClickOutside(ref, () => setOpen(false));
 
@@ -167,7 +172,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
                         }}
                         styles={{
                             dropdown: {
-                                backgroundColor: theme === "dark" ? "#0E1726" : "#FFFFFF",
+                                backgroundColor: isDark ? "#0E1726" : "#FFFFFF",
                             },
                         }}
                         classNames={{

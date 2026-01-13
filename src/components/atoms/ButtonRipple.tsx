@@ -40,11 +40,16 @@ const ButtonRipple = ({
         info: "#2196F3",
     };
 
+    const isDark =
+        isDark ||
+        (theme === "system" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+
     const btnColor = btnColors[color] || color;
 
     const [ripple, event] = useRipple({
         duration,
-        color: btnColor || theme === "dark" ? "#FFFFFF50" : "#00000030",
+        color: btnColor || isDark ? "#FFFFFF50" : "#00000030",
         cancelAutomatically,
         timingFunction: "cubic-bezier(.42,.36,.28,.88)",
         disabled,

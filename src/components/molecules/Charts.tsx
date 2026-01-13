@@ -13,6 +13,11 @@ interface ChartsProps {
 const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
     const { theme } = useContext(ThemeContext);
 
+    const isDark =
+        isDark ||
+        (theme === "system" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+
     const chartOptions: Record<string, { series: any[]; options: ApexOptions }> = {
         line: {
             series: series ?? [
@@ -35,7 +40,7 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                             return '' + number;
                         },
                     },
-                    theme: theme === "dark" ? 'dark' : "light",
+                    theme: isDark ? 'dark' : "light",
                 },
                 stroke: {
                     width: 2,
@@ -45,11 +50,11 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                     categories: labels ?? ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June'],
                     labels: {
                         style: {
-                            colors: theme === "dark" ? '#FFF' : "#000",
+                            colors: isDark ? '#FFF' : "#000",
                         },
                     },
                     axisBorder: {
-                        color: theme === "dark" ? '#FFF' : "#000",
+                        color: isDark ? '#FFF' : "#000",
                     },
                 },
                 yaxis: {
@@ -57,12 +62,12 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                     labels: {
                         offsetX: 0,
                         style: {
-                            colors: theme === "dark" ? '#FFF' : "#000",
+                            colors: isDark ? '#FFF' : "#000",
                         },
                     },
                 },
                 grid: {
-                    borderColor: theme === "dark" ? '#FFF' : "#000",
+                    borderColor: isDark ? '#FFF' : "#000",
                     xaxis: {
                         lines: {
                             show: false,
@@ -95,11 +100,11 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                 },
                 xaxis: {
                     axisBorder: {
-                        color: theme === "dark" ? '#FFF' : "#000"
+                        color: isDark ? '#FFF' : "#000"
                     },
                     labels: {
                         style: {
-                            colors: theme === "dark" ? '#FFF' : "#000"
+                            colors: isDark ? '#FFF' : "#000"
                         },
                     },
                 },
@@ -108,7 +113,7 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                     labels: {
                         offsetX: 0,
                         style: {
-                            colors: theme === "dark" ? '#FFF' : "#000"
+                            colors: isDark ? '#FFF' : "#000"
                         },
                     },
                 },
@@ -117,7 +122,7 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                     horizontalAlign: 'left',
                 },
                 grid: {
-                    borderColor: theme === "dark" ? '#FFF' : "#000",
+                    borderColor: isDark ? '#FFF' : "#000",
                     xaxis: {
                         lines: {
                             show: false,
@@ -125,7 +130,7 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                     },
                 },
                 tooltip: {
-                    theme: theme === "dark" ? 'dark' : "light",
+                    theme: isDark ? 'dark' : "light",
                 },
             },
         },
@@ -166,7 +171,7 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                     },
                 },
                 grid: {
-                    borderColor: theme === "dark" ? '#FFF' : "#000",
+                    borderColor: isDark ? '#FFF' : "#000",
                     xaxis: {
                         lines: {
                             show: false,
@@ -176,11 +181,11 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                 xaxis: {
                     categories: labels ?? ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
                     axisBorder: {
-                        color: theme === "dark" ? '#FFF' : "#000",
+                        color: isDark ? '#FFF' : "#000",
                     },
                     labels: {
                         style: {
-                            colors: theme === "dark" ? '#FFF' : "#000",
+                            colors: isDark ? '#FFF' : "#000",
                         },
                     },
                 },
@@ -189,12 +194,12 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                     labels: {
                         offsetX: 0,
                         style: {
-                            colors: theme === "dark" ? '#FFF' : "#000",
+                            colors: isDark ? '#FFF' : "#000",
                         },
                     },
                 },
                 tooltip: {
-                    theme: theme === "dark" ? 'dark' : "light",
+                    theme: isDark ? 'dark' : "light",
                     y: {
                         formatter(val: any) {
                             return val;
@@ -204,7 +209,7 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                 legend: {
                     position: 'bottom',
                     labels: {
-                        colors: theme === "dark" ? "text-white" : "text-black",
+                        colors: isDark ? "text-white" : "text-black",
                     },
                 },
             },
@@ -306,12 +311,12 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                             },
                             value: {
                                 fontSize: '16px',
-                                color: theme === "dark" ? '#FFF' : "#000"
+                                color: isDark ? '#FFF' : "#000"
                             },
                             total: {
                                 show: true,
                                 label: 'Total',
-                                color: theme === "dark" ? '#FFF' : "#000",
+                                color: isDark ? '#FFF' : "#000",
                                 formatter: function () {
                                     return String(249);
                                 },
@@ -345,7 +350,7 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                 yaxis: {
                     labels: {
                         style: {
-                            colors: theme === "dark" ? '#FFF' : "#000",
+                            colors: isDark ? '#FFF' : "#000",
                         },
                     },
                 },
@@ -362,10 +367,10 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                 plotOptions: {
                     polarArea: {
                         rings: {
-                            strokeColor: theme === "dark" ? '#FFF' : "#000",
+                            strokeColor: isDark ? '#FFF' : "#000",
                         },
                         spokes: {
-                            connectorColors: theme === "dark" ? '#FFF' : "#000",
+                            connectorColors: isDark ? '#FFF' : "#000",
                         },
                     },
                 },
@@ -406,20 +411,20 @@ const Charts: React.FC<ChartsProps> = ({ variant, series, labels, colors }) => {
                 yaxis: {
                     labels: {
                         style: {
-                            colors: theme === "dark" ? '#FFF' : "#000",
+                            colors: isDark ? '#FFF' : "#000",
                         },
                     },
                 },
                 plotOptions: {
                     radar: {
                         polygons: {
-                            strokeColors: theme === "dark" ? '#FFF' : "#000",
-                            connectorColors: theme === "dark" ? '#FFF' : "#000",
+                            strokeColors: isDark ? '#FFF' : "#000",
+                            connectorColors: isDark ? '#FFF' : "#000",
                         },
                     },
                 },
                 tooltip: {
-                    theme: theme === "dark" ? 'dark' : "light",
+                    theme: isDark ? 'dark' : "light",
                 },
             },
         },

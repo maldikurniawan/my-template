@@ -75,7 +75,12 @@ const Pagination: React.FC<PaginationProps> = ({
     // Define shadow styles based on variant
     const getShadowStyle = variant === "solid" ? "shadow" : "";
 
-    const disabledColor = theme === "dark" ? "#E0E6ED50" : "#3B3F5C50";
+    const isDark =
+        isDark ||
+        (theme === "system" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+    const disabledColor = isDark ? "#E0E6ED50" : "#3B3F5C50";
 
     return (
         <div className="flex gap-2">
@@ -106,8 +111,8 @@ const Pagination: React.FC<PaginationProps> = ({
                                     style={{
                                         width: sizePagination,
                                         height: sizePagination,
-                                        backgroundColor: theme === "dark" ? "#253B5C70" : "#E0E6ED",
-                                        color: theme === "dark" ? "#E0E6ED" : "#3B3F5C",
+                                        backgroundColor: isDark ? "#253B5C70" : "#E0E6ED",
+                                        color: isDark ? "#E0E6ED" : "#3B3F5C",
                                     }}
                                     disabled
                                     className={`${getShadowStyle} cursor-not-allowed flex justify-center items-center ${pageRounded}`}
@@ -130,11 +135,11 @@ const Pagination: React.FC<PaginationProps> = ({
                                     backgroundColor:
                                         pageNumber === currentPage
                                             ? colorPagination
-                                            : theme === "dark" ? "#253B5C70" : "#E0E6ED",
+                                            : isDark ? "#253B5C70" : "#E0E6ED",
                                     color:
                                         pageNumber === currentPage
                                             ? "white"
-                                            : theme === "dark" ? "#E0E6ED" : "#3B3F5C",
+                                            : isDark ? "#E0E6ED" : "#3B3F5C",
                                     boxShadow:
                                         pageNumber === currentPage
                                             ? `0 10px 20px -10px ${colorPagination}`
