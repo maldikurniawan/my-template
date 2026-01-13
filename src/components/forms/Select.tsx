@@ -74,6 +74,11 @@ const Select: React.FC<SelectProps> = ({
     const [isFocus, setIsFocus] = useState<boolean>(false);
     const [isHover, setIsHover] = useState<boolean>(false);
 
+    const isDark =
+        theme === "dark" ||
+        (theme === "system" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+
     // Width
     const selectWidth =
         {
@@ -211,11 +216,6 @@ const Select: React.FC<SelectProps> = ({
             </components.MultiValueRemove>
         );
     };
-
-    const isDark =
-        theme === "dark" ||
-        (theme === "system" &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches);
 
     return (
         <div style={{ width: selectWidth }}>
